@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://finance.ifeng.com/app/money/calc/Html/CalcFundDeclare.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  			//window.resizeTo(485,395);
+	</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(490,409);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcFundDeclare.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css"><LINK 
+rel=STYLESHEET type=text/css href="CalcFiles/StylePrint.css" 
+media=print>
+<SCRIPT language=javascript>
+		   function CheckData()
+		   {
+			  if (!CheckPN(this.document.all.edamount,"请在[申购金额]中输入正整数", null))
+				return false;
+			  if (!CheckFN3(this.document.all.edone,"请在[基金单位净值]中输入正数",false,null,4))
+				return false;
+			  if (!CheckFN3(this.document.all.edrate,"请在[申购手续费率]中输入正数",false,null,2))
+				return false;
+			  
+			  return true;
+		   }
+		   
+		</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=CalcBondProfit onsubmit="return false;" name=CalcBondProfit>
+<DIV id=bg1 class=divnoprt style="width:475px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=200 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 class=divnoprt style="width:475px;"><IMG src="CalcFiles/bg4.gif" width=25 
+height=120><IMG src="CalcFiles/bg5.gif" width=425 height=120><IMG 
+src="CalcFiles/bg6.gif" width=25 height=120></DIV>
+<DIV id=bg3 class=divnoprt style="width:475px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=425 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">开放式基金申购计算器</DIV>
+<DIV style="WIDTH: 430px" id=FDiv2 class=FDiv2 
+Movable="1">本计算器依据申购时的基金单位净值和申购手续费，可以迅速的计算出一定的申购金额可以申购到的基金单位。</DIV>
+<DIV style="WIDTH: 400px" id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 424px; HEIGHT: 160px" id=Table1 border=0 cellSpacing=1 
+cellPadding=1>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 150px; HEIGHT: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      申购金额(元)</TD>
+    <TD style="HEIGHT: 25px"><INPUT id=edamount class=txtnum tabIndex=1></TD>
+    <TD><INPUT id=btnenter class=btn tabIndex=4 onclick="javascript:if (CheckData()) calc(document);" name=btnenter value=" 计算 " type=button></TD></TR>
+  <TR>
+    <TD style="WIDTH: 150px; HEIGHT: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      基金单位净值(元)</TD>
+    <TD style="HEIGHT: 25px"><INPUT id=edone class=txtnum tabIndex=2></TD>
+    <TD style="DISPLAY: none">
+      <SCRIPT language=javascript for=btnPrint event=onclick>
+								if(CheckData())
+								{
+									print();
+								}
+			  </SCRIPT>
+<INPUT id=btnPrint class=btn name=btnPrint value=" 打印 " type=button></TD></TR>
+  <TR>
+    <TD style="WIDTH: 150px; HEIGHT: 25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      申购手续费率(%)</TD>
+    <TD style="HEIGHT: 25px"><INPUT id=edrate class=txtnum tabIndex=3></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD style="HEIGHT: 20px" colSpan=3>
+      <HR SIZE=1 width=400>
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 150px; HEIGHT: 28px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      申购基金单位(份)</TD>
+    <TD style="HEIGHT: 28px"><INPUT style="TEXT-ALIGN: right" id=ednumber 
+      class=txt disabled value=计算得出></TD>
+    <TD></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT>
+     //GetCalc_Close();
+	</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

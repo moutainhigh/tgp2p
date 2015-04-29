@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://finance.ifeng.com/app/money/calc/Html/CalcLoan.htm -->
+<HTML>
+<HEAD>
+<TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+	window.resizeTo(530,600);
+</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcLoan.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/StylePrint.css" media=print>
+<META name=GENERATOR content="MSHTML 9.00.8112.16561">
+
+
+
+</HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0	bgColor=#ffffff text=#000000 MS_POSITIONING="GridLayout">
+    
+<script type="text/javascript">
+    function alertt(){
+		var obj = document.getElementById("xmldso");		
+	    alert(obj);	
+	}
+</script>
+       
+	<xml id="xmldso" async="false" name="xmldso">
+         
+     <Root> 
+     <Items> 
+     <Times></Times>    
+	<Year></Year>
+    <RateSum></RateSum> 
+    <Corpus></Corpus> 
+    <CorpusRate></CorpusRate> 
+    <LeavCorpus></LeavCorpus>
+    </Items> 
+    </Root> 
+    </xml>
+       
+    
+	<FORM id=LoanCalculator onSubmit="return false;" method=post
+		name=LoanCalculator>
+		<DIV id=bg1 class=divnoprt style="width:510px;height:126px;border:0;margin:0;padding:0">
+			<IMG src="CalcFiles/bg1.gif"><IMG src="CalcFiles/bg2.gif"
+				width=235 height=126><IMG src="CalcFiles/bg3.gif"></DIV>
+		<DIV id=bg2 class=divnoprt style="width:510px;height:280px;">
+			<IMG src="CalcFiles/bg4.gif" width=25 height=280><IMG
+				src="CalcFiles/bg5.gif" width=460 height=280><IMG
+				src="CalcFiles/bg6.gif" width=25 height=280></DIV>
+		<DIV id=bg3 class=divnoprt style="width:510px;height:119px;">
+			<IMG src="CalcFiles/bg7.gif"><IMG src="CalcFiles/bg8.gif"
+				width=460 height=119><IMG src="CalcFiles/bg9.gif"></DIV>
+		<DIV id=FDiv1 class=FDiv1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贷款计算器</DIV>
+		<DIV style="WIDTH: 450px" id=FDiv2 class=FDiv2>&nbsp;贷款的情况较为复杂，本计算器可以依据已知条件，方便的算出贷款的还款情况。请点击"还款表"进行查询。</DIV>
+		<DIV style="WIDTH: 80px; HEIGHT: 90px" id=FDiv3 class=FDiv3>
+			<TABLE id=Table1 border=0 width="90%">
+				<TBODY>
+					<TR>
+						<TD align=center>
+							<TABLE id=Table2 border=0 width=450 height=180>
+								<TBODY>
+									<TR>
+										<TD width=63></TD>
+										<TD width=99>贷款类型</TD>
+										<TD width=166>
+											<DIV class=select2>
+												<SELECT style="WIDTH: 120px" id=edType
+													onchange=AutoShowRate(); tabIndex=1 name=edType>
+													<OPTION selected value=楼宇按揭>楼宇按揭</OPTION>
+													<OPTION value=汽车消费贷款>汽车消费贷款</OPTION>
+													<OPTION value=个人消费贷款>个人消费贷款</OPTION>
+												</SELECT>
+											</DIV>
+										</TD>
+										<TD><INPUT id=btnReturnList class=btn tabIndex=7
+											onClick="javascript: king();"
+											name=btnReturnList value=计算还款表 type=button></TD>
+
+                                            <script>
+                                            function king(){
+												
+												if(CheckData()){
+													GetPlayList(document);
+													
+												    SetTableColor(this.Table3);}												
+												}                                  
+
+                                            </script>
+                                            
+                                            
+									</TR>
+									<TR>
+										<TD width=63></TD>
+										<TD width=99>贷款金额</TD>
+										<TD width=166><INPUT style="WIDTH: 117px" id=edLastSum
+											class=txtnum tabIndex=2 name=edLastSum><FONT face=宋体>&nbsp;元</FONT></TD>
+										<TD><INPUT style="WIDTH: 88px" id=btnPrint class=btn
+											tabIndex=8 name=btnPrint value=打印 type=button></TD>
+									</TR>
+									<TR>
+										<TD width=63></TD>
+										<TD width=99>贷款期限</TD>
+										<TD width=166><INPUT onblur=AutoShowRate();
+											style="WIDTH: 117px" id=edTimes class=txtnum tabIndex=3
+											name=edTimes><FONT face=宋体>&nbsp;月</FONT></TD>
+										<TD><SCRIPT language=javascript for=btnPrint
+												event=onclick>
+											if (CheckData()) {
+												if (document.all.rbPayFreq_0.checked)
+													document.all.showPayFreq.innerText = "每月";
+												if (document.all.rbPayFreq_1.checked)
+													document.all.showPayFreq.innerText = "每季";
+												if (document.all.rbPayFreq_2.checked)
+													document.all.showPayFreq.innerText = "一次性";
+												print();
+											}
+										</SCRIPT></TD>
+									</TR>
+									<TR>
+										<TD width=63></TD>
+										<TD width=99>年利率</TD>
+										<TD width=166><INPUT style="WIDTH: 117px" id=edRate
+											class=txtnum tabIndex=4 name=edRate>&nbsp;%</TD>
+										<TD></TD>
+									</TR>
+									<TR>
+										<TD width=63></TD>
+										<TD width=99>还款方式</TD>
+										<TD width=166>
+											<DIV class=select>
+												<SELECT style="WIDTH: 120px" id=ddlPayWay tabIndex=5
+													name=ddlPayWay>
+													<OPTION selected value=1>等额本息还款法</OPTION>
+													<OPTION value=2>等额本金还款法</OPTION>
+													<OPTION value=3>一次性还本付息法</OPTION>
+												</SELECT>
+											</DIV>
+										</TD>
+										<TD></TD>
+									</TR>
+									<TR>
+										<TD width=63></TD>
+										<TD width=99>偿还频率</TD>
+										<TD width=166>
+											<TABLE id=rbPayFreq border=0>
+												<TBODY>
+													<TR class=trnoprt>
+														<TD><INPUT id=rbPayFreq_0 tabIndex=6 name=rbPayFreq
+															value=1 CHECKED type=radio><LABEL for=rbPayFreq_0>每月</LABEL></TD>
+														<TD><INPUT id=rbPayFreq_1 name=rbPayFreq value=3
+															type=radio><LABEL for=rbPayFreq_1>每季</LABEL></TD>
+														<TD><INPUT id=rbPayFreq_2 name=rbPayFreq value=4
+															type=radio><LABEL for=rbPayFreq_2>一次性</LABEL></TD>
+													</TR>
+													<TR>
+														<TD id=showPayFreq class=tdhidden></TD>
+													</TR>
+												</TBODY>
+											</TABLE>
+										</TD>
+										<TD></TD>
+									</TR>
+								</TBODY>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD align=center>
+							<DIV id=divReturnList class=scdiv>
+								<TABLE id=Table3 dataSrc=#xmldso border=0 width=430  align=left>
+									<THEAD>
+										<TR class=head>
+											<TH align=center>期次</TH>
+											<TH align=center>还款时间</TH>
+											<TH align=center>偿还利息</TH>
+											<TH align=center>偿还本金</TH>
+											<TH align=center>偿还本息</TH>
+											<TH align=center>剩余本金</TH>
+										</TR>
+									</THEAD>
+									<TBODY id = Carson>
+										<TR>
+											<TD align=left><SPAN dataFld=Times></SPAN></TD>
+											<TD align=left><SPAN dataFld=Year></SPAN></TD>
+											<TD align=right><SPAN dataFld=RateSum></SPAN></TD>
+											<TD align=right><SPAN dataFld=Corpus></SPAN></TD>
+											<TD align=right><SPAN dataFld=CorpusRate></SPAN></TD>
+											<TD align=right><SPAN dataFld=LeavCorpus></SPAN></TD>
+										</TR>
+                                       
+									</TBODY>
+								</TABLE>
+							</DIV>
+						</TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+		</DIV>
+	</FORM>
+	<xml id=xmlLoan src="CalcFiles/LoanAndOtherLoan.xml"></xml>
+	<SCRIPT language=javascript>
+		function CheckData() {
+			if (!CheckPN(this.document.all.edLastSum, "请在贷款金额输入正整数", false))
+				return false;
+			if (!CheckPN(this.document.all.edTimes, "请在贷款期限输入正整数", false))
+				return false;
+			if (!CheckFN(this.document.all.edRate, "请在年利率要求输入非负数", null, 4))
+				return false;
+			if (this.document.all.rbPayFreq_1.checked) //每季度，	贷款期限要是3的倍数
+				if (parseInt(this.document.all.edTimes.value) % 3 != 0) {
+					DispMessage(this.document.all.edTimes,
+							"当偿还频率为每季度时，贷款期限要是3的倍数");
+					return false;
+				}
+			return true;
+		}
+
+		function AutoShowRate() {
+			if (document.all.edTimes.value > 0) {
+				var year;
+				year = document.all.edTimes.value / 12;
+				document.all.edRate.value = '';
+				switch (document.all.edType.value) {
+				case "楼宇按揭":
+					document.all.edRate.value = GetLoanRatio(1, year * 12,xmlLoan);
+					//if(year<=5) document.all.edRate.value = "4.77";
+					//if(year>5 && year <=30) document.all.edRate.value = "5.04";
+					break;
+				case "汽车消费贷款":
+					if (year <= 1)
+						document.all.edRate.value = "4.779";
+					if (year > 1 && year <= 3)
+						document.all.edRate.value = "4.941";
+					if (year > 3 && year <= 5)
+						document.all.edRate.value = "5.022";
+					if (year > 5 && year <= 8)
+						document.all.edRate.value = "5.184";
+					break;
+				case "个人消费贷款":
+					if (year <= 1)
+						document.all.edRate.value = "5.841";
+					if (year > 1 && year <= 3)
+						document.all.edRate.value = "6.039";
+					if (year > 3 && year <= 5)
+						document.all.edRate.value = "6.138";
+					if (year > 5 && year <= 20)
+						document.all.edRate.value = "6.336";
+					break;
+				}
+			}
+		}
+
+		function waychg(flag) {
+			if (this.document.all.ddlPayWay.selectedIndex == 0) {
+				this.document.all.rbPayFreq_0.disabled = false;
+				this.document.all.rbPayFreq_1.disabled = false;
+				this.document.all.rbPayFreq_2.disabled = true;
+				if (this.document.all.rbPayFreq_2.checked)
+					this.document.all.rbPayFreq_0.checked = true;
+			}
+			if (this.document.all.ddlPayWay.selectedIndex == 1) {
+				this.document.all.rbPayFreq_0.disabled = false;
+				this.document.all.rbPayFreq_1.disabled = false;
+				this.document.all.rbPayFreq_2.disabled = true;
+				if (this.document.all.rbPayFreq_2.checked)
+					this.document.all.rbPayFreq_0.checked = true;
+			}
+			if (this.document.all.ddlPayWay.selectedIndex == 2) {
+				this.document.all.rbPayFreq_0.disabled = true;
+				this.document.all.rbPayFreq_1.disabled = true;
+				this.document.all.rbPayFreq_2.disabled = false;
+				this.document.all.rbPayFreq_2.checked = true;
+			}
+		}
+		
+		function SetTableColor(table) {
+			for (i = 0; i <= table.rows.length - 1; i++) {
+				if (i == 0) {
+					table.rows(i).className = "head";
+					continue;
+				}
+				if (i % 2)
+					table.rows(i).className = "odd";
+				else
+					table.rows(i).className = "even";
+			}
+		}
+		
+		function init() {
+			waychg(false);
+			SetTableColor(Table3);
+		}
+
+		window.attachEvent("onload", init);
+		//     GetCalc_Close();
+	</SCRIPT>
+
+	<SCRIPT language=javascript for=ddlPayWay event=onchange>
+		waychg(true);
+	</SCRIPT>
+
+	<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY>
+</HTML>

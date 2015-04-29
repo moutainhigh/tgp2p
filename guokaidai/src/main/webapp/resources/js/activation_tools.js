@@ -1,0 +1,1 @@
+$(function($){$(".vipcenterleft").find("a").removeClass("vipnavlistLink");var menu=$("#activation").val();$("#"+menu).addClass("vipnavlistLink");});

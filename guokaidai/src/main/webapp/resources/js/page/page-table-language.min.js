@@ -1,0 +1,1 @@
+function init_language(e){$(e[0]).text($PAGE_LOCAL.LABLE.PREVIOUS),$(e[e.size()-1]).text($PAGE_LOCAL.LABLE.NEXT)}

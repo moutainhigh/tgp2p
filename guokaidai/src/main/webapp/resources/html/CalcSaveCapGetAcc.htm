@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0066)http://finance.ifeng.com/app/money/calc/Html/CalcSaveCapGetAcc.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  window.resizeTo(540,528);
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/wincontrol.htm"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,528);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.htm"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Calculator.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.htm"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Components.htm"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.htm"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcSaveCapGetAcc.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+		//获得利率
+        function getrate()
+        { //alert(GetRMBSaveRatio(4,document.all.SaveTerm.options(document.all.SaveTerm.selectedIndex).value),window.xmlRMBSaveRate.XMLDocument);
+             document.CompPartSumCalc.edFullRate.value=GetRMBSaveRatio(4,document.CompPartSumCalc.SaveTerm.options(document.CompPartSumCalc.SaveTerm.selectedIndex).value,window.xmlRMBSaveRate.XMLDocument);
+        }
+		</SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=CompPartSumCalc name=CompPartSumCalc>
+<DIV id=bg1 style="width:525px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px"><IMG src="CalcFiles/bg4.gif" width=25 height=240><IMG 
+src="CalcFiles/bg5.gif" width=475 height=240><IMG 
+src="CalcFiles/bg6.gif" width=25 height=240></DIV>
+<DIV id=bg3 style="width:525px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">存本取息计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">通过本计算器可以对每次支取利息金额和初始存入金额进行计算。其中到期本息金额为本金与最后一次支取利息金额之和（已扣除利息税）。 
+</DIV>
+<DIV style="WIDTH: 450px" id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 450px; HEIGHT: 302px" id=Table1 border=0 cellSpacing=1 
+cellPadding=1 width=410>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 127px" width=146>计算项目</TD>
+    <TD colSpan=2><INPUT id=CalcType_0 onclick=calctypechange(); name=CalcType 
+      CHECKED type=radio> 每次支取利息金额 <INPUT id=CalcType_1 
+      onclick=calctypechange(); name=CalcType type=radio> 初始存入金额 <!--
+						<select name="CalcType" id="CalcType" tabindex="1000" style="width:110px;">
+									<option value="1">每次支取利息金额</option>
+									<option value="2">初始存入金额</option>
+								</select>
+								--></TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px">储蓄存期</TD>
+    <TD style="WIDTH: 202px" width=209><FONT face=宋体><SELECT 
+      style="WIDTH: 112px" id=SaveTerm language=javascript onchange=getrate() 
+      tabIndex=1001 name=SaveTerm></SELECT> </FONT></TD>
+    <TD width=85></TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px; HEIGHT: 23px">初始存入日期</TD>
+    <TD style="WIDTH: 202px; HEIGHT: 23px"><INPUT 
+      onblur=ChkCZDate(beginDateID); onClick="WdatePicker()" style="WIDTH: 87px" id=beginDateID 
+      class=txt name=beginDate value=2001-1-1> <IMG style="CURSOR: hand" 
+      onclick="WdatePicker({el:'beginDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       </TD>
+    <TD style="HEIGHT: 23px"><FONT face=宋体>&nbsp;</FONT></TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px" id=lbCSCR>初始存入金额(元)</TD>
+    <TD style="WIDTH: 202px" id=CSCR><INPUT style="WIDTH: 112px" 
+      id=edInitSaveSum class=txtnum tabIndex=1003 name=edInitSaveSum></TD>
+    <TD><FONT face=宋体>&nbsp;</FONT></TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px">年利率(%)</TD>
+    <TD style="WIDTH: 202px"><INPUT style="WIDTH: 112px" id=edFullRate 
+      class=txtnum tabIndex=1005 name=edFullRate> &nbsp;</TD>
+    <TD><INPUT id=btnCalc  class=btn onClick="Carson();" tabIndex=1006 name=button value=" 计算 " type=button></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <HR SIZE=1 width="100%">
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px" id=lbMCZQ>每次支取利息金额(元)</TD>
+    <TD style="WIDTH: 202px" id=MCZQ><INPUT style="WIDTH: 112px" 
+      id=edCapitalSum class=txtd disabled tabIndex=7 name=edCapitalSum 
+      value=计算得出> &nbsp;</TD>
+    <TD><FONT face=宋体>&nbsp;</FONT></TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px">到期支取本息金额(元)</TD>
+    <TD style="WIDTH: 202px"><INPUT style="WIDTH: 112px" id=edFullSum 
+      class=txtd disabled tabIndex=7 name=edFullSum value=计算得出></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD style="WIDTH: 127px">扣除利息税金额(元)</TD>
+    <TD style="WIDTH: 202px"><INPUT style="WIDTH: 112px" id=edTaxSum 
+      class=txtd disabled tabIndex=7 name=edTaxSum value=计算得出></TD>
+    <TD></TD></TR></TBODY></TABLE></DIV>
+<SCRIPT language=javascript>
+<!--
+	var startdate =  new Array('2002-2-21','2002-2-21','2002-2-21');
+	var minterm =  new Array(12,36,60);
+	var rate =  new Array(0.0171,0.0189,0.0198);
+		// -->
+			</SCRIPT>
+</FORM>
+<SCRIPT>
+				
+				function Carson(){
+				
+				if (!CheckEmpty(document.all.beginDateID,"无效的初始存入日期"))
+					return false;
+				if ( Cal_strtodate(document.all.beginDateID.value)< Cal_strtodate("1999-11-1"))
+					{
+						DispMessage(document.all.beginDateID,"初始存入日期不得小于1999年11月1日");
+						return false;
+					}											
+				if (document.CompPartSumCalc.CalcType_0.checked==true)
+					if (!CheckFN3(edInitSaveSum,"初始存入金额请输入正数",false))
+						return false;	
+				if (!CheckFN3(edFullRate,"年利率请输入正数",false))				 
+						return false;					
+				if (document.CompPartSumCalc.CalcType_1.checked==true)
+					if (!CheckFN3(edCapitalSum,"每次支取利息金额请输入正数",false))
+						return false;		
+				if (document.CompPartSumCalc.CalcType_0.checked==true)
+				compute(0);
+				else
+				compute(1);
+				
+				}
+		</SCRIPT>
+
+<SCRIPT language=javascript>
+		    function changeobject(objectid)
+			{
+			  	    var ss1=document.all.CSCR.innerHTML;
+				    var ss2=document.all.MCZQ.innerHTML;
+				    
+				    if (ss1.indexOf(objectid)>0)
+				    {
+				         ls=document.all.lbCSCR.innerHTML;
+				        document.all.lbCSCR.innerHTML=document.all.lbMCZQ.innerHTML;
+    				    document.all.lbMCZQ.innerHTML=ls;
+    				    
+    				    document.all.CSCR.innerHTML=document.all.MCZQ.innerHTML;
+    				    document.all.MCZQ.innerHTML=ss1;
+    			    }   
+    				
+			
+			}
+			
+			function calctypechange()
+			{
+					document.all.edCapitalSum.value="";
+					document.all.edCapitalSum.className="txtnum";
+					document.all.edCapitalSum.disabled=false;
+					document.all.edInitSaveSum.value="";
+					document.all.edInitSaveSum.className="txtnum";
+					document.all.edInitSaveSum.disabled=false;
+				if (document.all.CalcType_0.checked==true)
+				{
+				    changeobject("edCapitalSum");
+					document.all.edCapitalSum.value="计算得出";
+					document.all.edCapitalSum.className="txtd";
+					document.all.edCapitalSum.disabled=true;
+				}
+				else if (document.all.CalcType_1.checked==true)
+				{
+				    changeobject("edInitSaveSum");
+					document.all.edInitSaveSum.value="计算得出";
+					document.all.edInitSaveSum.className="txtd";
+					document.all.edInitSaveSum.disabled=true;
+				}
+				
+			}
+			
+			function loadinit()
+			{
+				calctypechange();		
+				
+				document.all.edFullSum.disabled=true;
+				document.all.edTaxSum.disabled=true;
+			} 
+			
+			function locaterate(sdate,term)
+			{		
+			 var result=null;	 
+			 for (var i=0; i<startdate.length;i++)
+			  if ( (sdate>=Cal_strtodate(startdate[i]))&&(term==minterm[i]) )
+			  {
+			    result=rate[i];
+			  }  
+				return result;
+			}
+			
+						
+			function compute(type)
+			{
+				var initsavesum,term,capitalsum,taxsum;
+				term=parseInt(document.all.SaveTerm.value)/12; //年为单位
+				//var calc = new ActiveXObject("FinanceCalculator.ICalcSaveCapGetAcc");
+				if (type==0) //计算每次支取利息金额
+				{
+				    //calc.Calc(term,document.all.beginDateID.value,document.all.edInitSaveSum.value,document.all.edFullRate.value,1);
+				    //document.all.edCapitalSum.value=calc.EverySum;
+				    //initsavesum=document.all.edInitSaveSum.value;
+					//capitalsum=CalcGetAcc(document);
+					CalcGetAcc(document);
+					//document.all.edCapitalSum.value=Round(capitalsum);
+				}
+				else if (type==1) //计算初始存入金额
+				 {
+				    //calc.Calc(term,document.all.beginDateID.value,document.all.edCapitalSum.value,document.all.edFullRate.value,2);
+				    //document.all.edInitSaveSum.value=calc.InitSum;
+				   // initsavesum=CalcSaveCap(document);
+				   CalcSaveCap(document);
+					//capitalsum=document.all.edCapitalSum.value;
+					//document.all.edInitSaveSum.value=Round(initsavesum);
+				 }
+				//taxsum=CalcTaxofRate(document,initsavesum,term);
+				//document.all.edTaxSum.value=Round(taxsum);
+				//document.all.edFullSum.value=Round(parseFloat(initsavesum)+parseFloat(capitalsum)-taxsum);
+				    
+			}
+		
+		</SCRIPT>
+<xml id=xmlRMBSaveRate ondatasetcomplete=addterm() src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+
+//获得存期
+function addterm()
+{
+  document.all.SaveTerm.options.length = 0;
+  ComSaveTime(document.all.SaveTerm,5,window.xmlRMBSaveRate.XMLDocument);
+  if (document.all.E_SaveTerm!=null)
+	 document.all.E_SaveTerm.value = document.all.SaveTerm.options(0).text;
+  document.all.SaveTerm.selectedIndex = 0;
+  getrate();
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript>
+  //addterm();
+  document.all.beginDateID.value=datetostring(new Date());
+  
+     //GetCalc_Close();
+
+</SCRIPT>
+</BODY></HTML>

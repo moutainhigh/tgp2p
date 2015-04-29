@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://finance.ifeng.com/app/money/calc/Html/CalcBondERate.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(619,558);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(624,565);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcBondERate.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=BondERateCalc name=BondERateCalc>
+<DIV id=bg1 style="width:615px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=330 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:615px;"><IMG src="CalcFiles/bg4.gif" width=25 height=270><IMG 
+src="CalcFiles/bg5.gif" width=555 height=270><IMG 
+src="CalcFiles/bg6.gif" width=25 height=270></DIV>
+<DIV id=bg3 style="width:615px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=555 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1>债券到期收益率计算器</DIV>
+<DIV style="WIDTH: 550px" id=FDiv2 
+class=FDiv2>&nbsp;到期收益率是指投资者在二级市场上买入已经发行的债券并持有到期满为止的这个期限内的年平均收益率。</DIV>
+<DIV style="WIDTH: 556px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=0 borderColorLight=#336666 borderColorDark=#e9f3f4 
+cellPadding=0 width="90%">
+  <TBODY>
+  <TR>
+    <TD align=center>
+      <DIV 
+      style="Z-INDEX: 103; POSITION: absolute; WIDTH: 500px; HEIGHT: 223px; VISIBILITY: visible; TOP: 96px; LEFT: 23px" 
+      id=Layer1 ms_positioning="GridLayout">
+      <DIV style="WIDTH: 459px; HEIGHT: 259px" id=Bond11_Panel1><SPAN 
+      style="Z-INDEX: 101; POSITION: absolute; TOP: 20px; LEFT: 14px" 
+      id=Bond11_Label1>债券单位成本(元)</SPAN> <INPUT 
+      style="Z-INDEX: 113; POSITION: absolute; WIDTH: 104px; TOP: 17px; LEFT: 115px" 
+      id=Bond11_edUnitCost class=txtnum tabIndex=10 name=Bond11:edUnitCost> 
+      <SPAN style="Z-INDEX: 104; POSITION: absolute; TOP: 20px; LEFT: 234px" 
+      id=Bond11_Label4>债券单位面值(元)</SPAN> <INPUT 
+      style="Z-INDEX: 120; POSITION: absolute; WIDTH: 104px; TOP: 17px; LEFT: 335px" 
+      id=Bond11_edUnitPrice class=txtnum tabIndex=11 name=Bond11:edUnitPrice> 
+      <SPAN style="Z-INDEX: 102; POSITION: absolute; TOP: 46px; LEFT: 14px" 
+      id=Bond11_Label2>债券购买交割日</SPAN> <INPUT onblur=ChkCZDate(Bond11_edBuyDate) onClick="WdatePicker()"
+      style="Z-INDEX: 105; POSITION: absolute; WIDTH: 80px; TOP: 43px; LEFT: 115px" 
+      id=Bond11_edBuyDate class=txt tabIndex=12 name=Bond11_edBuyDate 
+      value=2001-1-1 size=13> <IMG 
+      style="Z-INDEX: 105; POSITION: absolute; CURSOR: hand; TOP: 43px; LEFT: 198px" 
+      onclick="WdatePicker({el:'Bond11_edBuyDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> <SPAN 
+      style="Z-INDEX: 103; POSITION: absolute; TOP: 46px; LEFT: 234px" 
+      id=Bond11_Label3>债券到期兑付日</SPAN> <INPUT onblur=ChkCZDate(Bond11_edSellDate) onClick="WdatePicker()"
+      style="Z-INDEX: 115; POSITION: absolute; WIDTH: 80px; TOP: 43px; LEFT: 335px" 
+      id=Bond11_edSellDate class=txt tabIndex=13 name=Bond11_edSellDate 
+      value=2001-1-1> <IMG 
+      style="Z-INDEX: 115; POSITION: absolute; CURSOR: hand; TOP: 43px; LEFT: 418px" 
+      onclick="WdatePicker({el:'Bond11_edSellDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> <SPAN 
+      style="Z-INDEX: 105; POSITION: absolute; TOP: 80px; LEFT: 14px" 
+      id=Bond11_Label5>债券利息支付方式</SPAN> <SPAN 
+      style="Z-INDEX: 106; POSITION: absolute; TOP: 110px; LEFT: 40px"><INPUT 
+      id=Bond11_rb1 tabIndex=14 name=Bond11:Method value=rb1 CHECKED 
+      type=radio><LABEL for=Bond11_rb1>贴现（在单位成本小于单位面值时才有收益）</LABEL> </SPAN><SPAN 
+      style="Z-INDEX: 107; POSITION: absolute; TOP: 132px; LEFT: 40px"><INPUT 
+      id=Bond11_rb2 tabIndex=14 name=Bond11:Method value=rb2 type=radio><LABEL 
+      for=Bond11_rb2>一次还本付息</LABEL> </SPAN><SPAN 
+      style="Z-INDEX: 108; POSITION: absolute; TOP: 172px; LEFT: 40px"><INPUT 
+      id=Bond11_rb3 tabIndex=14 name=Bond11:Method value=rb3 type=radio><LABEL 
+      for=Bond11_rb3>定期支付</LABEL> </SPAN><SPAN 
+      style="Z-INDEX: 109; POSITION: absolute; TOP: 154px; LEFT: 62px" 
+      id=Bond11_Label6>债券票面年利率(%)</SPAN> <SPAN 
+      style="Z-INDEX: 110; POSITION: absolute; TOP: 155px; LEFT: 232px" 
+      id=Bond11_Label7>债券偿还期限(年)</SPAN> <SPAN 
+      style="Z-INDEX: 111; POSITION: absolute; TOP: 196px; LEFT: 62px" 
+      id=Bond11_Label8>债券票面年利率(%)</SPAN> <SPAN 
+      style="Z-INDEX: 112; POSITION: absolute; TOP: 196px; LEFT: 232px" 
+      id=Bond11_Label9>债券利息支付频率(次/年)</SPAN> <INPUT 
+      style="Z-INDEX: 116; POSITION: absolute; WIDTH: 54px; TOP: 152px; LEFT: 168px" 
+      id=Bond11_edRate1 class=txtnum tabIndex=21 name=Bond11:edRate1> <INPUT 
+      style="Z-INDEX: 117; POSITION: absolute; WIDTH: 54px; TOP: 152px; LEFT: 378px" 
+      id=Bond11_edYear class=txtnum tabIndex=22 name=Bond11:edYear> <INPUT 
+      style="Z-INDEX: 118; POSITION: absolute; WIDTH: 54px; TOP: 193px; LEFT: 168px" 
+      id=Bond11_edRate2 class=txtnum tabIndex=23 name=Bond11:edRate2> <INPUT 
+      style="Z-INDEX: 119; POSITION: absolute; WIDTH: 54px; TOP: 193px; LEFT: 378px" 
+      id=Bond11_edFreq class=txtnum tabIndex=24 name=Bond11:edFreq> </DIV>
+      <SCRIPT language=javascript 
+      src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+      <SCRIPT language=jscript src="CalcFiles/Calendar.js"></SCRIPT>
+      </DIV>
+      <DIV 
+      style="Z-INDEX: 104; POSITION: absolute; WIDTH: 500px; HEIGHT: 223px; VISIBILITY: hidden; TOP: 103px; LEFT: 31px" 
+      id=Layer2 ms_positioning="GridLayout">
+      <SCRIPT language=jscript src="CalcFiles/Calendar.js"></SCRIPT>
+
+      <DIV style="WIDTH: 441px; HEIGHT: 248px" id=Bond21_Panel1><SPAN 
+      style="Z-INDEX: 101; POSITION: absolute; TOP: 22px; LEFT: 17px" 
+      id=Bond21_Label1>债券单位成本(元)</SPAN> <SPAN 
+      style="Z-INDEX: 102; POSITION: absolute; TOP: 52px; LEFT: 17px" 
+      id=Bond21_Label2>债券购买交割日</SPAN> <SPAN 
+      style="Z-INDEX: 103; POSITION: absolute; TOP: 80px; LEFT: 17px" 
+      id=Bond21_Label3>债券到期兑付日</SPAN> <SPAN 
+      style="Z-INDEX: 104; POSITION: absolute; TOP: 109px; LEFT: 17px" 
+      id=Bond21_Label4>债券单位面值(元)</SPAN> <SPAN 
+      style="Z-INDEX: 105; POSITION: absolute; TOP: 143px; LEFT: 17px" 
+      id=Bond21_Label5>债券票面年利率(%)</SPAN> <SPAN 
+      style="Z-INDEX: 106; POSITION: absolute; TOP: 174px; LEFT: 17px" 
+      id=Bond21_Label6>债券偿还期限(年)</SPAN> <INPUT 
+      style="Z-INDEX: 107; POSITION: absolute; WIDTH: 125px; TOP: 17px; LEFT: 139px" 
+      id=Bond21_edUnitCost class=txtnum tabIndex=10 name=Bond21:edUnitCost> 
+      <INPUT onblur=ChkCZDate(Bond21_edBuyDate) onClick="WdatePicker()"
+      style="Z-INDEX: 115; POSITION: absolute; WIDTH: 102px; TOP: 47px; LEFT: 138px" 
+      id=Bond21_edBuyDate class=txt tabIndex=11 name=Bond21_edBuyDate 
+      value=2001-1-1 size=13> <IMG 
+      style="Z-INDEX: 115; POSITION: absolute; CURSOR: hand; TOP: 47px; LEFT: 243px" 
+      onclick="WdatePicker({el:'Bond21_edBuyDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> <INPUT 
+      onblur=ChkCZDate(Bond21_edSellDate) onClick="WdatePicker()"
+      style="Z-INDEX: 109; POSITION: absolute; WIDTH: 102px; TOP: 77px; LEFT: 138px" 
+      id=Bond21_edSellDate class=txt tabIndex=12 name=Bond21_edSellDate 
+      value=2001-1-1 size=13> <IMG 
+      style="Z-INDEX: 115; POSITION: absolute; CURSOR: hand; TOP: 77px; LEFT: 243px" 
+      onclick="WdatePicker({el:'Bond21_edSellDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> <INPUT 
+      style="Z-INDEX: 110; POSITION: absolute; WIDTH: 125px; TOP: 107px; LEFT: 139px" 
+      id=Bond21_edUnitPrice class=txtnum tabIndex=13 name=Bond21:edUnitPrice> 
+      <INPUT 
+      style="Z-INDEX: 111; POSITION: absolute; WIDTH: 125px; TOP: 137px; LEFT: 139px" 
+      id=Bond21_edRate class=txtnum tabIndex=14 name=Bond21:edRate> <INPUT 
+      style="Z-INDEX: 112; POSITION: absolute; WIDTH: 125px; TOP: 171px; LEFT: 139px" 
+      id=Bond21_edYear class=txtnum tabIndex=15 name=Bond21:edYear> </DIV></DIV>
+      <DIV 
+      style="Z-INDEX: 102; POSITION: absolute; WIDTH: 500px; HEIGHT: 223px; VISIBILITY: hidden; TOP: 107px; LEFT: 30px" 
+      id=Layer3 ms_positioning="GridLayout">
+      <SCRIPT language=jscript src="CalcFiles/Calendar.js"></SCRIPT>
+
+      <DIV style="WIDTH: 442px; HEIGHT: 242px" id=Bond31_Panel1 
+      DESIGNTIMEDRAGDROP="2"><SPAN 
+      style="Z-INDEX: 100; POSITION: absolute; TOP: 22px; LEFT: 26px" 
+      id=Bond31_Label1>债券单位成本(元)</SPAN> <SPAN 
+      style="Z-INDEX: 101; POSITION: absolute; TOP: 48px; LEFT: 26px" 
+      id=Bond31_Label2>债券购买交割日</SPAN> <SPAN 
+      style="Z-INDEX: 102; POSITION: absolute; TOP: 74px; LEFT: 26px" 
+      id=Bond31_Label3>债券到期兑付日</SPAN> <SPAN 
+      style="Z-INDEX: 103; POSITION: absolute; TOP: 100px; LEFT: 26px" 
+      id=Bond31_Label4>债券单位面值(元)</SPAN> <SPAN 
+      style="Z-INDEX: 104; POSITION: absolute; TOP: 126px; LEFT: 26px" 
+      id=Bond31_Label5>债券票面年利率(%)</SPAN> <INPUT 
+      style="Z-INDEX: 106; POSITION: absolute; WIDTH: 125px; TOP: 19px; LEFT: 214px" 
+      id=Bond31_edUnitCost class=txtnum tabIndex=10 name=Bond31:edUnitCost> 
+      <INPUT onblur=ChkCZDate(Bond31_edBuyDate) onClick="WdatePicker()"
+      style="Z-INDEX: 107; POSITION: absolute; WIDTH: 100px; TOP: 45px; LEFT: 215px" 
+      id=Bond31_edBuyDate class=txt tabIndex=11 name=Bond31_edBuyDate 
+      value=2001-1-1 size=13> <IMG 
+      style="Z-INDEX: 107; POSITION: absolute; CURSOR: hand; TOP: 45px; LEFT: 318px" 
+      onclick="WdatePicker({el:'Bond31_edBuyDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> <INPUT 
+      onblur=ChkCZDate(Bond31_edSellDate) onClick="WdatePicker()"
+      style="Z-INDEX: 108; POSITION: absolute; WIDTH: 100px; TOP: 71px; LEFT: 215px" 
+      id=Bond31_edSellDate class=txt tabIndex=12 name=Bond31_edSellDate 
+      value=2001-1-1 size=13> <IMG 
+      style="Z-INDEX: 108; POSITION: absolute; CURSOR: hand; TOP: 71px; LEFT: 318px" 
+      onclick="WdatePicker({el:'Bond31_edSellDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> <INPUT 
+      style="Z-INDEX: 109; POSITION: absolute; WIDTH: 125px; TOP: 97px; LEFT: 214px" 
+      id=Bond31_edUnitPrice class=txtnum tabIndex=13 name=Bond31:edUnitPrice> 
+      <INPUT 
+      style="Z-INDEX: 110; POSITION: absolute; WIDTH: 125px; TOP: 123px; LEFT: 214px" 
+      id=Bond31_edRate class=txtnum tabIndex=14 name=Bond31:edRate> <SPAN 
+      style="Z-INDEX: 113; POSITION: absolute; TOP: 153px; LEFT: 26px" 
+      id=Bond31_Label7>债券利息支付频率(次/年)</SPAN> <INPUT 
+      style="Z-INDEX: 114; POSITION: absolute; WIDTH: 125px; TOP: 150px; LEFT: 214px" 
+      id=Bond31_edFreq class=txtnum tabIndex=15 name=Bond31:edFreq> </DIV></DIV>
+      <HR 
+      style="Z-INDEX: 108; POSITION: absolute; WIDTH: 96.76%; HEIGHT: 1px; TOP: 318px; LEFT: 12px" 
+      SIZE=1 width="96.76%">
+
+      <TABLE 
+      style="Z-INDEX: 101; POSITION: absolute; WIDTH: 440px; TOP: 9px; LEFT: 14px" 
+      id=rbType class=txt border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rbType_0 tabIndex=1 name=rbType value=0 CHECKED 
+            type=radio><LABEL 
+            for=rbType_0>处于最后付息周期的固定利率债券、待偿期在一年及以内的到期一次还本付息债券和零息债券</LABEL></TD></TR>
+        <TR>
+          <TD><INPUT id=rbType_1 tabIndex=1 name=rbType value=1 
+            type=radio><LABEL 
+for=rbType_1>待偿期在一年以上的到期一次还本付息债券和零息债券</LABEL></TD></TR>
+        <TR>
+          <TD><INPUT id=rbType_2 tabIndex=1 name=rbType value=2 
+            type=radio><LABEL 
+      for=rbType_2>不处于最后付息周期的固定利率债券</LABEL></TD></TR></TBODY></TABLE>
+      <DIV 
+      style="Z-INDEX: 105; POSITION: absolute; WIDTH: 292px; HEIGHT: 27px; TOP: 331px; LEFT: 10px" 
+      id=Panel1><SPAN style="WIDTH: 153px" 
+      id=Label1>该债券的到期收益率为(%)</SPAN>&nbsp;&nbsp; <INPUT style="WIDTH: 91px" 
+      id=lbResult class=txtd disabled tabIndex=4 name=lbResult readOnly 
+      value=计算得出> </DIV><INPUT style="Z-INDEX: 106; POSITION: absolute; TOP: 16px; LEFT: 474px" id=btnCalc class=btn tabIndex=4000 onclick="return calcu()" name=btnCalc value=" 计算 " type=submit> 
+
+      <DIV 
+      style="Z-INDEX: 109; POSITION: absolute; WIDTH: 62px; HEIGHT: 28px; VISIBILITY: hidden; TOP: 369px; LEFT: 349px" 
+      id=LayerBond ms_positioning="GridLayout"><INPUT 
+      style="Z-INDEX: 109; POSITION: absolute; WIDTH: 40px; HEIGHT: 19px; TOP: 6px; LEFT: 3px" 
+      id=edBond tabIndex=1000 name=edBond value=0> 
+</DIV></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+
+<SCRIPT language=javascript for=rbType event=onclick>
+		if(this.document.all.rbType_0.checked)
+		{
+			this.document.all.Layer1.style.visibility="visible";
+			this.document.all.Layer2.style.visibility="hidden";
+			this.document.all.Layer3.style.visibility="hidden";	  	  
+			this.document.all.edBond.value = 0;
+		}
+  		if(this.document.all.rbType_1.checked)
+  		{
+			this.document.all.Layer1.style.visibility="hidden";
+			this.document.all.Layer2.style.visibility="visible";
+			this.document.all.Layer3.style.visibility="hidden";	  	  
+			this.document.all.edBond.value = 1;
+		}
+		if(this.document.all.rbType_2.checked)
+		{
+			this.document.all.Layer1.style.visibility="hidden";
+			this.document.all.Layer2.style.visibility="hidden";
+			this.document.all.Layer3.style.visibility="visible";	  	  
+			this.document.all.edBond.value = 2;
+		}
+		</SCRIPT>
+</TR></TBODY></TABLE>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+	var initdate=datetostring(new Date());;
+	document.all.Bond11_edBuyDate.value = initdate;
+	document.all.Bond11_edSellDate.value = initdate;
+	document.all.Bond21_edBuyDate.value = initdate;
+	document.all.Bond21_edSellDate.value = initdate;
+	document.all.Bond31_edBuyDate.value = initdate;
+	document.all.Bond31_edSellDate.value = initdate;
+	
+	</SCRIPT>
+
+<SCRIPT language=javascript>
+function calcu()
+{
+  if(this.document.all.rbType_0.checked)
+ {
+	if (!CheckFN3(this.document.all.Bond11_edUnitCost,"请在[债券单位成本]输入正数",false))
+	   	return false;	       		    
+	if (!CheckFN3(this.document.all.Bond11_edUnitPrice,"请在[债券单位面值]输入正数",false))
+	   	return false;
+	if(!CheckEmpty(this.document.all.Bond11_edBuyDate,"[债券购买交割日期]不能为空！"))
+		return false;
+	if(!CheckEmpty(this.document.all.Bond11_edSellDate,"[债券到期兑付日期]不能为空！"))
+		return false;		
+	var BuyDate=new Date();
+	BuyDate.setTime(Cal_strtodate(this.document.all.Bond11_edBuyDate.value));				
+	var SellDate=new Date();
+	SellDate.setTime(Cal_strtodate(this.document.all.Bond11_edSellDate.value));			
+	if (BuyDate>=SellDate)
+	{
+		DispMessage(this.document.all.Bond11_edSellDate,"[债券到期兑付日]应当晚于[购买交割日]");
+		return false;
+	}
+	if (this.document.all.Bond11_rb2.checked)		
+	{
+		if ( !CheckFN3(this.document.all.Bond11_edRate1,"请在[债券票面年利率]输入非负数",true))
+	   		return false;
+		if ( !CheckPN(this.document.all.Bond11_edYear,"请在[债券偿还期限]输入正整数",false))
+			return false;
+    }      
+    if (this.document.all.Bond11_rb3.checked)
+    {
+	if (!CheckFN3(this.document.all.Bond11_edRate2,"请在[债券票面年利率]输入非负数",true))
+	   	return false;    
+	if (!CheckPN(this.document.all.Bond11_edFreq,"请在[利息支付频率]输入正整数",false))
+	   	return false;	       		    	    
+	}   	
+
+}
+if(this.document.all.rbType_1.checked)
+ {
+	if (!CheckFN3(this.document.all.Bond21_edUnitCost,"请在[债券单位成本]输入正数",false))
+	   	return false;	       		    
+	if(!CheckEmpty(this.document.all.Bond21_edBuyDate,"[债券购买交割日期]不能为空！"))
+		return false;
+	if(!CheckEmpty(this.document.all.Bond21_edSellDate,"[债券到期兑付日期]不能为空！"))
+		return false;		
+	var BuyDate=new Date();
+	BuyDate.setTime(Cal_strtodate(this.document.all.Bond21_edBuyDate.value));				
+	var SellDate=new Date();
+	SellDate.setTime(Cal_strtodate(this.document.all.Bond21_edSellDate.value));			
+	if (BuyDate>=SellDate)
+	{
+		DispMessage(this.document.all.Bond21_edSellDate,"[债券到期兑付日]应当晚于[购买交割日]");
+		return false;
+	}		
+	if (!CheckFN3(this.document.all.Bond21_edUnitPrice,"请在[债券单位面值输入]正数",false))
+	   	return false;		
+	if (!CheckFN3(this.document.all.Bond21_edRate,"请在[债券票面年利率输入]非负数",true))
+	   	return false;
+    if (!CheckPN(this.document.all.Bond21_edYear,"请在[债券偿还期限]输入正整数",false))
+        return false;
+        
+
+}					
+if(this.document.all.rbType_2.checked)
+ {
+	if (!CheckFN3(this.document.all.Bond31_edUnitCost,"请在[债券单位成本]输入正数",false))
+	   	return false;	       		    
+	if(!CheckEmpty(this.document.all.Bond31_edBuyDate,"[债券购买交割日期]不能为空！"))
+		return false;
+	if(!CheckEmpty(this.document.all.Bond31_edSellDate,"[债券到期兑付日期]不能为空！"))
+		return false;		
+	var BuyDate=new Date();
+	BuyDate.setTime(Cal_strtodate(this.document.all.Bond31_edBuyDate.value));				
+	var SellDate=new Date();
+	SellDate.setTime(Cal_strtodate(this.document.all.Bond31_edSellDate.value));			
+	if (BuyDate>=SellDate)
+	{
+		DispMessage(this.document.all.Bond31_edSellDate,"[债券到期兑付日]应当晚于[购买交割日]");
+		return false;
+	}		
+	if (!CheckFN3(this.document.all.Bond31_edUnitPrice,"请在[债券单位面值]输入正数",false))
+	   	return false;		
+	if (!CheckFN3(this.document.all.Bond31_edRate,"请在债券票面年利率输入非负数",true))
+	   	return false;
+	if (!CheckPN(this.document.all.Bond31_edFreq,"请在利息支付频率输入正整数",false))
+	   	return false;	       		    	            
+
+}
+  
+  if (this.document.all.rbType_0.checked)
+  {
+   
+    if (document.BondERateCalc.Bond11_rb1.checked==true)
+    {
+        //贴现
+       // alert(document.all.Bond11_edUnitCost.value);
+       // alert(document.BondERateCalc.Bond11_edUnitCost.value);
+       //cal.Calc(document.BondERateCalc.Bond11_edUnitCost.value,document.BondERateCalc.Bond11_edBuyDate.value,document.BondERateCalc.Bond11_edSellDate.value,document.BondERateCalc.Bond11_edUnitPrice.value,0,0,1);
+	   CalcBond11(0);
+    }
+    if (document.BondERateCalc.Bond11_rb2.checked==true)
+    {
+        //一次还本付息
+        //cal.Calc(document.BondERateCalc.Bond11_edUnitCost.value,document.BondERateCalc.Bond11_edBuyDate.value,document.BondERateCalc.Bond11_edSellDate.value,document.BondERateCalc.Bond11_edUnitPrice.value,document.BondERateCalc.Bond11_edRate1.value,document.BondERateCalc.Bond11_edYear.value,3);
+		CalcBond11(1);
+    }
+    if (document.BondERateCalc.Bond11_rb3.checked==true)
+    {
+        //定期支付
+        //cal.Calc(document.BondERateCalc.Bond11_edUnitCost.value,document.BondERateCalc.Bond11_edBuyDate.value,document.BondERateCalc.Bond11_edSellDate.value,document.BondERateCalc.Bond11_edUnitPrice.value,document.BondERateCalc.Bond11_edRate2.value,document.BondERateCalc.Bond11_edFreq.value,2);
+		CalcBond11(2);
+    }
+  }
+  if (this.document.all.rbType_1.checked)
+  {
+    //剩余流通期限在一年以上的到期一次还本付息债券
+    //cal.Calc(document.BondERateCalc.Bond21_edUnitCost.value,document.BondERateCalc.Bond21_edBuyDate.value,document.BondERateCalc.Bond21_edSellDate.value,document.BondERateCalc.Bond21_edUnitPrice.value,document.BondERateCalc.Bond21_edRate.value,document.BondERateCalc.Bond21_edYear.value,4);
+	CalcBond21();
+  }
+  if (this.document.all.rbType_2.checked)
+  {
+    //不处于最后付息周期的固定利率附息债券和浮动利率债券
+    //cal.Calc(document.BondERateCalc.Bond31_edUnitCost.value,document.BondERateCalc.Bond31_edBuyDate.value,document.BondERateCalc.Bond31_edSellDate.value,document.BondERateCalc.Bond31_edUnitPrice.value,document.BondERateCalc.Bond31_edRate.value,document.BondERateCalc.Bond31_edFreq.value,5);
+	CalcBond31();
+  }
+  //document.BondERateCalc.lbResult.value = cal.Yield;
+  //cal=null;
+  return false;
+}
+
+//GetCalc_Close();
+
+</SCRIPT>
+</BODY></HTML>

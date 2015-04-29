@@ -1,0 +1,337 @@
+@charset "utf-8";
+/* CSS Document */
+.col{width:1000px;margin:0 auto; background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/bg.gif) repeat-y right}
+.col_L{width:240px;float:left;padding:0 20px 0 10px;}
+.col_M{width:351px;float:left;padding:0 25px 0 19px;  overflow:hidden}
+.col_R{width:335px;float:right; }
+.col_LM{ width:665px; float:left;}
+.box240{ width:240px}
+.box315{ width:315px; background:#fff; float:left; margin-left:10px; display:inline; margin-top:10px}
+.box313{ width:313px; background:#fff; float:left; margin-left:10px; display:inline; margin-bottom:10px; border:#ccc solid 1px }
+.box351{ width:351px;}
+.borderNoTop{ border:#ccc solid 1px; border-top:none}
+.p10{ padding:0 10px}
+.fl{ float:left}
+.fr{ float:right}
+
+.ad1000{ width:1000px; margin:0 auto; background:#fff url(http://img.ifeng.com/tres/finance/deco/2011/0926/adbg.jpg) repeat-x top; height:90px; padding:30px 0 19px 0;}
+.ad1000_top{width:1000px; margin:0 auto;  padding:3px 0 10px 0;}
+.space5{ height:5px; overflow:hidden; clear:both}
+.space7{ height:7px; overflow:hidden; clear:both}
+.space10{ height:10px; overflow:hidden; clear:both}
+.space15{ height:15px; clear:both}
+.space20{ height:20px; clear:both}
+.space25{ height:25px; clear:both; background:#fff}
+.space17{ height:17px; clear:both}
+.pt10{ padding-top:10px}
+
+.color_red{color:#ba2636;}
+.color_green{color:#008000;}
+
+.tab1115{margin-top:8px;}
+.tab1115 th{background:#ebf0f6;height:24px;color:#666666;padding-left:4px;}
+.tab1115 td{height:24px;line-height:24px;}
+.tab1115 .td0115{padding-top:5px;}	
+.tab1115 .td1115{background:url(http://img.ifeng.com/tres/finance/deco/2011/0727/dot_sprite.gif) repeat-x 0 -43px;}
+.tab1115 .tdCenter{text-align:center;}
+.tab1115 .tdpad15{padding-left:4px;}
+.box233{width:233px;border-bottom:1px solid #eaeaea;padding-bottom:5px;margin-bottom:3px;}
+.moneyList{ width:232px; height:57px; background:url(http://img.ifeng.com/tres/finance/deco/2012/0731/square_bg.gif) no-repeat; color:#999; line-height:24px; padding:7px 0 0 8px; margin:10px 0 28px 0}
+
+.more1,.more2,.more3, .more4,.more5{text-align:right; line-height:12px; border-top:1px solid #d9d9d9;}
+.more1{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat right -263px;padding:10px 10px 0 0;height:22px;}
+.more2{height:26px;overflow: hidden; padding: 10px 17px 0 0; }
+.more2 span{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat right -273px;padding-right:11px; line-height:12px; float:right; _line-height:14px;}
+.more3{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat 47px -262px;padding:10px 13px 0 0;height:22px;}
+.more4{height:35px;overflow: hidden; padding: 11px 4px 0 0; background:#fff }
+.more4 span{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat right -273px;padding-right:8px; line-height:12px; float:right; _line-height:14px;}
+.indusBox{}
+.row{background:#f2f9ff;border-bottom:1px solid #d1e7ff;}
+.row_height{height:32px;line-height:35px;}
+.row_pad{padding:0 12px 0 11px;}
+.row_tit{font-weight:bold;}
+.exponent{float:left;width:100px;}
+.fz_red{color:#ba2636;}
+.row02{background:#f2f9ff;border-bottom:1px solid #cccccc;}
+.row_height02{height:33px;line-height:33px;}
+.row_search{float:left;position:relative;z-index:10;}
+.row_search .text{color:#939393;font-size:12px;width:100px;}
+.form_pad{padding:7px 0 6px 0;}
+.searchBtn{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat;height:20px;width:55px;border:0px;cursor:pointer;line-height:20px;}
+.row_key{float:left;padding:12px 0px 0 12px;}
+.row_key .hot{display:inline-block;margin-left:22px;}
+.financeLogin{ float:right;padding-top:8px; vertical-align:middle}
+.financeLogin input, input{font-size:12px; vertical-align:middle}
+.financeLogin .input1{width:70px;height:17px; border:1px solid #DFDFDF;background:#fff url(http://img.ifeng.com/tres/finance/nav/nav_522_04.gif) no-repeat 3px 2px;}
+.financeLogin .input2{width:70px; height:17px; border:1px solid #DFDFDF;background:#fff url(http://img.ifeng.com/tres/finance/nav/nav_522_03.gif) no-repeat 3px 2px;}
+.financeLogin .bt1,.financeLogin .bt2,{width:52px;color:#fff; border:none;height:20px;padding-top:3px; padding-bottom:3px!important;*padding-top:3px!important; cursor:pointer;}
+.financeLogin .bt1,{width:52px;background:url(http://img.ifeng.com/tres/finance/other/search/zqSearch_bt.gif) no-repeat left bottom!important;*background:url(http://img.ifeng.com/tres/finance/other/search/zqSearch_bt.gif) no-repeat left bottom!important;background:url(http://img.ifeng.com/tres/finance/other/search/zqSearch_bt.gif) no-repeat left bottom;}
+.financeLogin .bt2,{width:62px;background:url(http://img.ifeng.com/tres/finance/other/search/zqSearch_bt.gif) no-repeat right bottom;}
+.financeLogin .btn{cursor:pointer; width:41px; background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat 0 -20px; height:20px;font-size:12px;border:none}
+ 
+.financeLogon{ float:right;padding-top:8px;width:315px; vertical-align:middle}
+ 
+.financeLogon span{float:right;color:#93C0E9; padding:2px 0 0 0;}
+.financeLogon h4{float:left;padding:2px 8px 0 0;}
+.financeLogon h4 a{color:#911C24;}
+.financeLogon .sel2{float:left; width:67px; height:22px; padding:2px 0 0 8px; background:url(http://img.ifeng.com/tres/finance/nav/nav_arrow3.gif) no-repeat right center; font-weight:bold; position:relative;cursor:pointer;z-index:1;}
+.financeLogon .selList{position:absolute; top:20px;left:3px;width:71px; height:110px; padding:1px; border:1px solid #BCBABD;background:#fff;}
+.financeLogon .selList ul{}
+.financeLogon .selList li{ height:18px; line-height:18px;background:#F4F4F4; font-weight:normal; padding-left:3px;}
+.financeLogon .selList li a{line-height:18px;}
+
+.stock li{float:left;border:1px solid #dddddd;padding:0 6px;height:22px;text-align:center;line-height:22px;margin-right:-1px;}
+.stock li a:link,.stock li a:visited,.stock li a:hover{color:#2b2b2b;}
+.stock .current{background:url(http://img.ifeng.com/tres/finance/deco/2011/0727/icon02.gif) no-repeat center top;border:0px;height:26px;padding:2px 6px 0;}
+.stock .current a:link,.stock .current a:visited,.stock .current a:hover{color:#fff;}
+.datePic{height:158px;}
+.datePic .green{color:#008000;}
+.datePic span{font-size:14px;display:block;padding:6px 0;color:#bd2436;font:Arial;}
+
+
+.btnAsk{ float:right; width:58px; height:20px; background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat -13px -104px;border:0px;cursor:pointer; margin:5px 0 8px 0}
+.label01 li,.label02 li,.label07 li{border:1px solid #E0E0E0;border-bottom:0px;cursor:pointer;float:left;text-align:center; line-height:14px; font-size:14px}
+.label01 li.current,.label02 li.current,.label07 li.current{border:0px;color:#fff;font-weight:bold;}
+
+.label01{background:url(http://img.ifeng.com/tres/finance/deco/2011/0727/repeat_sprite.gif) repeat-x 0 -68px;height:33px;}
+.label01 li{height:20px;padding:7px 11px 0px 10px;background:#F8F9FB;}
+.label01 .current{background:url(http://img.ifeng.com/tres/finance/deco/2011/0711/tag.gif) no-repeat center top;height:26px;}
+
+.label02{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/newBg.gif) no-repeat right top;height:33px; width:239px;}
+.label02 li{height:20px;padding:7px 8px 0px;background:#F8F9FB; }
+.label02 .current{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/lable01.gif) no-repeat center top;height:26px;}
+
+
+
+.label07{ background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/bmBG02.gif) no-repeat; height:38px}
+.label07 li{height:22px; width:96px;background:#ffffff; padding-top:9px;}
+.label07 .current{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/span01.gif) no-repeat center top;height:28px;padding-top:10px;}
+
+
+.list01{ margin:8px 0 10px 0}
+.list01 li{background:url(http://img.ifeng.com/tres/finance/deco/2012/0731/video_09.gif) no-repeat left 9px;padding-left:24px;line-height:24px; margin-left:10px}
+.list02 li{background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat left -171px;padding-left:14px; font-size:14px; line-height:24px}
+.list03 li{line-height:24px;background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat 0 -349px;padding-left:13px;}
+.list04 li{ line-height:24px; width:112px; padding-left:2px; float:left}
+
+.hotNews{ color:#004276}
+.hotNews h1{font:20px "黑体";height:28px; color:#ba2636}
+.hotNews h2{font:18px "黑体";height:26px;}
+.hotNews h3{font-size:14px;line-height:20px;font-weight:normal;}
+.line01,.line02,.line03,.line04,.line05,.line06,.line07,.line08,.line09{background:url(http://img.ifeng.com/tres/finance/deco/2011/0708/sprite.gif) repeat-x 0 -370px;font-size:0;height:1px;line-height:1px;}
+.line06{margin:8px 0 12px 0;}
+.line09{margin:13px 0 7px;}
+
+
+.tit{background:url(http://img.ifeng.com/tres/finance/deco/2011/0727/repeat_sprite.gif) repeat-x 0 -492px;height:79px;}
+.tit img{display:block;float:left;}
+.tit_menu{float:right;padding:26px 0 0 0;color:#cccccc; font-size:14px;}
+.tit_menu a{ padding:0 7px}
+.tit02{ height:40px; border-bottom:#ccc solid 1px; color:#2b2b2b; font:normal 14px/40px simsun; text-indent:10px}
+.tit03{ background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/tit02.gif) no-repeat; font-size:14px}
+.tit04_new{border-top: 2px solid #A8C0DA;height:10px;}
+.tit04{border-top:2px solid #a8c0da;font-size:16px;padding:7px 0 0 0;height:26px;overflow:hidden; color:#2b2b2b}
+.tit05,.tit06,.tit07,.tit08{padding-top:7px;height:28px;font-size:14px; }
+.tit05{ padding-top:5px}
+.tit06{ height:24px; border-bottom:#d9d9d9 solid 1px}
+.tit08{ font-size:16px}
+
+/*理财工具*/
+.money_tools { float:left; width:236px; }
+.money_tools .nav_name { float:left; width:236px; border-bottom:1px #336699 solid; margin-top:3px }
+.nav_name ul { width:240px }
+.nav_name li { float:left; width:39px; height:15px; line-height:15px; padding-top:1px; text-align:center; color:#185083; cursor:pointer }
+.nav_name li a { color:#185083 }
+.nav_name li.current {background:  #336699; width:41px}
+.nav_name li.current a {color: #FFFFFF;}
+
+.money_tools .tools { float:left; width:236px  }
+.tools ul { width:240px; padding-top:8px; }
+.tools li { float:left; width:118px; height:35px; margin:5px 4px 0 0; line-height:35px; background:url(http://img.ifeng.com/tres/finance/deco/2012/0731/graytool.gif) no-repeat; text-align:center; display:inline }
+
+/*银行卡产品查询*/
+.searchbar {padding-left: 10px;width: 293px;}
+.searchbar li {height: 30px;line-height: 30px; float:left; width:293px}
+.searchbar li input{ width:231px; height:17px; border:#aaadb2 solid 1px}
+.searchbar li select{ width:80px}
+.searchbar li.w152{ width:152px}
+.searchbar li.w141{ width:141px}
+.searchbar li a {color: #1A4F83;}
+.searchbar li span, .sx_search  span{ float:right; display:block}
+.searchbar li span input, .sx_search span input{ width:51px; height:20px; background:url(http://img.ifeng.com/tres/finance/deco/2011/0926/fin_sprite.gif) no-repeat -76px -126px; border:none; cursor:pointer}
+
+/*寿险产品查询*/.sx_search{ padding-left:10px; padding-right:10px; margin:5px 0 12px 0}
+.sx_search select{ width:204px}
+.sx_search input{ width:202px; height:17px; border:#aaadb2 solid 1px}
+/*基金筛选器*/
+.MPicNW{ width:240px; }
+.MPicNW select{ width:240px}
+.MPicNW  td{ height:26px}
+.MPicNW input{ width:86px; height:19px; float:right}
+
+/*基金工具栏*/
+.fundTool{ width:240px;  line-height:24px; margin-top:3px}
+.fundTool dt{ float:left; color:#666; padding:0 28px 0 5px}
+.fundTool dd{ float:left; margin-right:9px; display:inline}
+
+/*基金排行*/
+.tagList {background: url("http://img.ifeng.com/tres/finance/deco/2011/0727/repeat_sprite.gif") repeat-x  0 -356px ;height: 24px;padding-top: 9px; margin-bottom:4px}
+.tagList li {color: #FFFFFF; cursor: pointer;display: inline;float: left;margin: 0 5px;padding-top: 5px;}
+.tagList .current {background:  #FFFFFF; border:#E0E0E0 solid 1px; border-bottom:none; color: #004276;font-weight: bold;height: 17px;padding: 5px 0 0 0;text-align: center; width:91px}
+
+/*案例搜索*/
+.ex_sear{ width:240px; margin-top:7px}
+.label03{ width:69px; float:left}
+.label03 ul li{ width:69px; height:20px; line-height:20px; margin-bottom:4px; color:#004276; text-indent:9px; cursor:pointer}
+.label03 ul li.current{ background:url(http://img.ifeng.com/tres/finance/deco/2012/0731/tab_08.gif) no-repeat}
+.ex_sear .choose{ float:right; width:171px; float:right}
+.ex_sear .choose ul li{ line-height:20px; text-align:right; margin-bottom:4px}
+.ex_sear .choose ul li select{ width:103px; color:#999}
+
+
+.picTxt02 img{float:left;display:inline;margin-right:10px;}
+.picTxt02 h3{margin-bottom:3px;line-height:18px;}
+.picTxt02 P{color:#666666; line-height:18px}
+
+
+/*焦点图*/
+.box335-2{float:left;width:335px;background:#fff;padding-bottom:10px;_padding-bottom:6px;position:relative;z-index:0;}
+.fPic03{float:left;width:335px;height:230px;position:relative;z-index:-1;}
+#prevSlide,#nextSlide{width:35px;height:34px;position:absolute;top:100px;left:0;z-index:10;text-align:center;cursor:pointer}
+
+#nextSlide{left:300px}
+#nextSlide img{left:15px}
+.dotList{position:absolute;right:3px;top:213px;}
+.dotList li{float:left;width:7px;height:7px;background:url(http://res.img.ifeng.com/8cbe73a7378dafdb/2011/0615/i_dot06.gif) no-repeat top right;margin:0 7px 0 0;display:inline;cursor:pointer}
+.dotList li.current{background:url(http://res.img.ifeng.com/8cbe73a7378dafdb/2011/0615/i_dot06.gif) no-repeat top left}
+.bigPic03 .textbg{position:absolute;width:335px;height:27px;top:203px;left:0;background:#000;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6}
+.bigPic03 .text{position:absolute;width:325px;height:27px;line-height:27px;top:203px;*top:203px;_top:203px;left:10px}
+.bigPic03 .text h3{float:left;font-weight:bold;font-size:14px;}
+
+.video_tit{ width:313px; height:40px; background:url(http://img.ifeng.com/tres/finance/deco/2012/0731/video_03.jpg) no-repeat}
+.video_box{ width:313px; height:248px}
+
+.finance_ask{ width:225px; color:#333; height:144px; overflow-x:hidden;overflow-y:auto;margin-bottom:10px;padding-left:10px;}
+.finance_ask ul{ width:225px;}
+.finance_ask li{ line-height:21px;}
+.finance_ask li.da{ background:#f0f0f0}
+.finance_ask .kk{ margin-right:4px; padding:1px;border:1px #8f1d22 solid; color:#8f1d22; }
+.finance_ask .aa{ margin-right:4px; padding:1px;border:1px #F96 solid; color:#F96; }
+
+.input_style01{ width:130px; height:21px; border:#ccc solid 1px; line-height:21px; padding:0 3px; vertical-align:middle; margin:5px 3px}
+.box315 .login{ margin-left:50px; padding-top:30px; vertical-align:middle}
+
+.h_searchDiv{width:980px;margin:0 auto;height:44px;padding:15px 10px 0;}
+.h_theLogo{float:left;font-size:12px}
+.h_theLogo img{float:left;}
+#h_f_logo{width:130px;height:36px;}
+#h_s_logo{width:52px;height:26px;}
+.h_theLogo span{float:left; height:31px; margin-left:10px; display:inline; border-left:1px solid #ccc; padding:3px 0 0 10px; overflow:hidden;}
+.h_navFind{float:right;width:348px;padding:6px 0 0}
+.h_navFind span{float:left}
+.h_navFind .h_text{width:182px;height:16px;padding:2px 0 0 5px;margin-top:1px !important;*margin-top:0px !important;margin-top:0;margin-right:7px;background:#fff;border:1px solid #819bb4;color:#646464;font-size:12px}
+.h_navFind .h_sel{width:80px;height:16px;margin:1px 9px 0 0;padding:2px 0 0 11px;border:1px solid #819bb4;border-right:none;background:#fff url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/nav0416_04.gif) no-repeat right center;font-size:12px;color:#646464;cursor:pointer}
+.h_navFind .h_button{width:51px;height:20px;padding:1px 0 0 2px;margin:1px 0 0;border:none;background:url(http://img.ifeng.com/tres/TemplateRes/14705/14705/images/general_head/navFind.gif) no-repeat 0 0;color:#000;font-weight:bold;cursor:pointer}
+#h_searchFormOption{position:relative;float:left;z-index:80}
+#loginFldselectop{position:absolute;border:1px solid #DFDFDF;top:20px;left:0px;width:73px;background:#fff;z-index:99}
+#loginFldselectop li{line-height:20px;height:20px}
+#loginFldselectop li a{line-height:20px;height:20px;text-decoration:none;color:#000000;padding-left:11px}
+.h_stockList{position:absolute;top:28px;left:0;width:300px; border:1px solid #195184; background:#fff; z-index:999;}
+.h_stockList a,.h_stockList a:visited{color:#0A5EA6;}
+.h_stockList .tab td{border-bottom:1px solid #ECECEC; height:21px!important;*height:20px!important;height:20px; padding-left:12px; text-align:left; color:#333;}
+.h_stockList .tab tr.current{background:#194E80;}
+.h_stockList .tab tr.current td{color:#fff;background:#194E80;}
+.h_stockList .tab tr.current td a{color:#fff;}
+.h_stockList .red{color:#f00;}
+.h_subNav{width:980px;margin:0 auto;height:30px;border-top:9px solid #2b2b2b;border-bottom:1px solid #ccc;padding:0 10px;}
+.h_navList{width:890px}
+.h_navList li{float:left;height:30px;line-height:30px;padding:0 10px;border-right:1px solid #ccc}
+.h_firstli{border-left:1px solid #ccc}
+#h_backIndex{background:#f0f0f0;font-weight:bold;}
+.h_siteMap2{float:right; width:70px; padding:7px 10px 0 0;}
+.h_siteMap2 span{float:left; width:50px;background:url(http://res.img.ifeng.com/44dae7fce8dacdb1/2011/0614/n_16.gif) no-repeat right center; padding-right:20px;_padding-top:2px;cursor:pointer;line-height:20px;_line-height:18px;}
+
+#h_adpic{float:left;padding:6px 0 0 30px;}
+.h_siteMap span a{color:#fff;}
+.h_finNav{border-top:10px solid #1b5fab;width:1000px;margin:0 auto;}
+.h_finNav .h_menuHeaderBg{background:url(http://res.img.ifeng.com/44dae7fce8dacdb1/2011/0728/headIcon03.gif) repeat-x;width:1000px;}
+.h_menuHeader{float:left;}
+.h_menuHeader li{float:left;padding:9px 4px 9px 20px;}
+.h_menuHeader li span{float:left;padding:5px 0 0 0;}
+.h_menuHeader li p{float:left;line-height:20px;}
+.h_menuHeader li p a{padding-left:11px;line-height:20px;}
+.h_menuHeader li p a:link{color:#2b2b2b;}
+.h_menuHeader li p a:visited{color:#2b2b2b;}
+.h_menuHeader li p a:hover{color:#ba2636;}
+.h_menuHeader li p a:active{color:#2b2b2b;}
+
+.h_infoNav a,.h_mainNav a:visited{color:#2b2b2b}
+
+
+/*黄金分析师*/
+.hjfxs_top{ width:240px; height:147px; background:url(http://img.ifeng.com/tres/finance/deco/2012/0731/fxsbg.jpg) no-repeat 0 -1px; text-align:right}
+.hjfxs_top h3{ color:#1b5fab; font-weight:normal; line-height:27px; padding-right:20px; padding-top:2px}
+.label11 {height: 26px; float:right; margin-top:13px}
+.label11 li {color: #CDCDCD;cursor: pointer;float: left;font-size: 12px;line-height: 24px;position: relative; }
+.label11 li span{ padding:0 7px; color:#004276}
+.label11 .current span { color:#ba2636}
+.txt02 {border: 1px solid #DFDFDF;height: 255px;overflow-y: scroll; margin-top:1px}
+.txt02 p {line-height: 18px;padding: 3px 6px 3px 25px;}
+.txt02 .p1 {background: url("http://img.ifeng.com/tres/finance/news/2012/0330/bg09.gif") no-repeat scroll 6px 6px transparent;}
+.txt02 .p2 {background: url("http://img.ifeng.com/tres/finance/news/2012/0330/bg09.gif") no-repeat scroll 6px -89px transparent;}
+.w_d {background: url("http://img.ifeng.com/tres/finance/news/2012/0330/line.gif") no-repeat scroll center bottom transparent;padding-bottom: 5px;}
+
+.txt01 {float: right;overflow: hidden;width: 198px;}
+.txt01 textarea {border: 1px solid #DFDFDF;color: #999;font-size: 12px;height: 47px;line-height: 18px;width: 178px; font-family:simsun; margin-bottom:4px}
+
+/*国际现货*/
+.label12 {background: url("http://img.ifeng.com/tres/finance/news/2012/0330/bg11.gif") no-repeat scroll 0 0 transparent;height: 32px;}
+.label12 li {cursor: pointer;display: inline;float: left;font-size: 14px;height: 32px;line-height: 32px;padding: 0 10px; position: relative;text-align: center;}
+.label12 li span {color: #E0E0E0;display: block;padding: 0 6px;position: absolute;right: -13px;text-align: center;top: 0; width: 12px;}
+.label12 .current {background: none repeat scroll 0 0 #4F90D0;color: #FFFFFF;font-weight: bold;height: 32px;z-index: 100;}
+.label12 .current span {display: none;}
+.table03 tr {background: url("http://img.ifeng.com/tres/finance/news/2012/0330/bg07.gif") repeat-x 0 -8px ;}
+.table03 {line-height: 25px;text-align: center;}
+.table03 td {line-height: 25px;}
+.thTit01 th { color:#666;text-align: center; margin-bottom:10px;}
+.thTit02 th , .thTit03 th{ background:#F8F9FB;border-bottom: 1px solid #E0E0E0;color:#666;text-align: center; margin-bottom:10px; border-top: 1px solid #E0E0E0;}
+.thTit03 th { border-top:none;}
+
+.bd {background: #FFFFFF; border: 1px solid #CCCCCC; border-top:none}
+
+/*收藏精品*/
+.collection{ }
+.collection .bigPic{ float:left; width:239px; padding-right:21px; text-align:center; padding-left:10px}
+.collection .bigPic img{ display:block; margin-bottom:12px}
+.collection .smallPic{ float:right; width:729px; background:#fff; height:289px; overflow:hidden}
+.collection .smallPic ul{ padding-top:12px}
+.collection .smallPic ul li{ float:left; width:150px; line-height:32px; text-align:center; margin:0 11px 27px 19px; display:inline}
+.collection .smallPic ul li img{ display:block}
+
+/*财经封面秀*/
+.cover{border:1px solid #cccccc;border-top:none; width:1000px; margin:0 auto}
+.cover_tit{background:url(http://img.ifeng.com/tres/finance/deco/2011/0727/repeat_sprite.gif) repeat-x 0 -596px;height:48px;}
+.cover_tit span{background:url(http://img.ifeng.com/tres/finance/deco/2011/0727/repeat_sprite.gif) repeat-x 0 -664px;height:28px;display:block;font-size:14px;padding:19px 0 0 10px;width:83px;}
+.scrCover{padding:20px 0px 0 19px;}
+.scrCover .btn04,.scrCover .btn05{float:left;display:inline;padding-top:59px;cursor:pointer;}
+.scrCover .btn04{margin-right:20px;}
+.scrCover .picList{float:left;display:inline;}
+.picList li{float:left;display:inline;margin-right:20px;width:92px;text-align:center;}
+.picList li img{border:1px solid #646263;display:block;margin-bottom:8px;}
+.picList li h3{font-weight:normal;}
+.scrollList_30 {float: left;height: 144px;overflow: hidden;position: relative;width: 896px;}
+.scrollList_30 .photolist {position: relative;overflow: visible;width:10000px;}
+.scrollList_30 .photolist ul{float:left;margin:0px;padding:0px;}
+.scrollList_30 .photolist li {float:left;height:144px;}
+
+
+/*友情链接*/
+.cooper{border-top:7px solid #cccccc; width:1000px; margin:0 auto}
+.cooper_L{float:left;width:748px;border-right:1px solid #cccccc;}
+.cooper_R{float:left;width:250px;}
+.tit11{border-bottom:1px solid #cccccc;font-size:14px;padding:12px 0 12px 10px;}
+.media{padding:20px 0 0 11px;}
+.media li{line-height:24px;}
+.contact{padding:54px 0 0 34px;}
+.contact p{line-height:24px;color:#666666;font-size:14px;margin-top:25px;}
+.contact p span{color:#004276;}

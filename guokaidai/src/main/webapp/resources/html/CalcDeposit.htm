@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://finance.ifeng.com/app/money/calc/Html/CalcDeposit.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+ //window.resizeTo(585,464);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(590,478);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcDeposit.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<SCRIPT language=javascript>
+		  function getrate()
+		  {
+		    if (document.DepositCalculator.rbDepositWay_0.checked==true)
+		    {
+		      document.DepositCalculator.tbYearRate.value=GetRMBSaveRatio(2,document.DepositCalculator.tbSaveTime.options(document.DepositCalculator.tbSaveTime.selectedIndex).value,window.xmlRMBSaveRate.XMLDocument);
+		      }
+		    if (document.DepositCalculator.rbDepositWay_1.checked==true)
+		    {
+		       document.DepositCalculator.tbYearRate.value=GetRMBSaveRatio(5,document.DepositCalculator.tbSaveTime.options(document.DepositCalculator.tbSaveTime.selectedIndex).value,window.xmlRMBSaveRate.XMLDocument);
+		      }
+		  }
+		  function check()
+		  {
+		    if (!CheckEmpty(this.document.all.tbYearRate,"初始存入日期格式不正确"))
+			  return false;
+		    if (!CheckFN3(this.document.all.tbYearRate,"请在年利率输入正数",false,null,4))
+	   		 return false;				
+		   if (this.document.all.rbCalcOption_0.checked)
+		    {
+			if (!CheckFN3(this.document.all.tbInitSaveSum,"请在" + document.all.Layer1.innerText
+					+ "输入正数",false))  // 初期存入金额
+	   			return false;			
+	    	}
+	     	else		
+	   	   {
+			if (!CheckFN3(this.document.all.tbInitSaveSum,"请在到期本息总额输入正数",false))
+	   			return false;				   		
+	   	   }	
+	   	    return true;
+		  }
+		  
+		  function calcu()
+		  {
+		    if (check()==false) return false;
+		    CalcDeposit();
+					         
+		     return false;
+		  }
+			</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM name=DepositCalculator>
+<DIV id=bg1 style="width:575px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=300 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:575px"><IMG src="CalcFiles/bg4.gif" width=25 height=190><IMG 
+src="CalcFiles/bg5.gif" width=525 height=190><IMG 
+src="CalcFiles/bg6.gif" width=25 height=190></DIV>
+<DIV id=bg3 style="width:575px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=525 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">存款计算器</DIV>
+<DIV style="WIDTH: 540px" id=FDiv2 class=FDiv2 
+Movable="1">银行存款是使用较多的投资方式，通过本计算器，可以对零存整取与整存整取的初始存入金额或到期本息总额进行计算。其中，到期本息总额为扣除利息税后的净值。</DIV>
+<DIV style="WIDTH: 500px" id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 426px" id=Table1 border=0 cellSpacing=1 cellPadding=1 
+width=376>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px">存款方式</TD>
+    <TD style="WIDTH: 300px; HEIGHT: 30px">
+      <TABLE id=rbDepositWay border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rbDepositWay_0 language=javascript tabIndex=1 
+            onclick=changeall() name=rbDepositWay value=1 CHECKED type=radio> 
+            <LABEL for=rbDepositWay_0>整存整取</LABEL></TD>
+          <TD><INPUT id=rbDepositWay_1 language=javascript onclick=changeall() 
+            name=rbDepositWay value=2 type=radio> <LABEL 
+            for=rbDepositWay_1>零存整取</LABEL></TD></TR></TBODY></TABLE></TD>
+    <TD style="HEIGHT: 30px"><INPUT id=btnExecute class=btn tabIndex=8 onclick="return calcu()" name=btnExecute value=" 计算 " type=submit></TD></TR>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px" vAlign=middle>计算选项</TD>
+    <TD style="HEIGHT: 30px">
+      <TABLE id=rbCalcOption border=0 width="100%" height=28>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rbCalcOption_0 tabIndex=2 name=rbCalcOption value=1 
+            CHECKED type=radio> <LABEL for=rbCalcOption_0>计算到期本息总额</LABEL></TD>
+          <TD><INPUT id=rbCalcOption_1 name=rbCalcOption value=2 type=radio> 
+            <LABEL for=rbCalcOption_1>计算初期存入金额</LABEL></TD></TR></TBODY></TABLE></TD>
+    <TD rowSpan=8></TD></TR>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px">初始存入日期</TD>
+    <TD style="HEIGHT: 30px"><INPUT onblur=ChkCZDate(beginDateID); onClick="WdatePicker()"
+      style="WIDTH: 90px" id=beginDateID class=txt tabIndex=3 name=beginDate 
+      value=2001-1-1> <IMG style="CURSOR: hand" 
+      onclick="WdatePicker({el:'beginDateID'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"></TD></TR>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px">储蓄存期</TD>
+    <TD style="HEIGHT: 30px"><SELECT style="WIDTH: 123px" id=tbSaveTime 
+      language=javascript onchange=getrate() tabIndex=4 
+      name=tbSaveTime></SELECT> </TD></TR>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px">年利率</TD>
+    <TD><INPUT style="WIDTH: 112px" id=tbYearRate class=txtnum tabIndex=5 
+      name=tbYearRate value=1.98> &nbsp;%</TD></TR>
+  <TR>
+    <TD id=LabQcMq>
+      <DIV style="Z-INDEX: 102" id=Layer1>初期存入金额</DIV><!--<DIV id="Layer2" style="Z-INDEX:101">每期存入金额</DIV>--></TD>
+    <TD><INPUT style="WIDTH: 112px" id=tbInitSaveSum class=txtnum tabIndex=6 
+      name=tbInitSaveSum> &nbsp;元</TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <HR SIZE=1 width="100%">
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px">
+      <DIV id=layerresult>到期本息总额</DIV></TD>
+    <TD><INPUT style="WIDTH: 112px" id=tbTermEndSum class=txtd disabled 
+      name=tbTermEndSum readOnly value=计算得出> &nbsp;元</TD></TR>
+  <TR>
+    <TD style="WIDTH: 110px; HEIGHT: 30px">扣除利息税金额</TD>
+    <TD><INPUT style="WIDTH: 112px" id=tbInterestTaxSum class=txtd disabled 
+      name=tbInterestTaxSum readOnly value=计算得出> 
+&nbsp;元</TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript>
+		function changeall()
+		{		
+			Cleartxt();
+		    if (document.DepositCalculator.rbDepositWay_0.checked==true)
+		    {
+				document.DepositCalculator.tbSaveTime.options.length = 0;
+				ComSaveTime(document.DepositCalculator.tbSaveTime,2,window.xmlRMBSaveRate.XMLDocument);
+
+				if (document.DepositCalculator.E_tbSaveTime!=null)
+					document.DepositCalculator.E_tbSaveTime.value = document.DepositCalculator.tbSaveTime.options(0).text;
+				document.DepositCalculator.tbSaveTime.selectedIndex = 0;
+				if (this.document.all.rbCalcOption_0.checked)
+				{
+					this.document.all.Layer1.innerText="初期存入金额";
+					this.document.all.layerresult.innerText="到期本息总额";
+				}  
+				else
+				{
+	    			this.document.all.Layer1.innerText="到期本息总额";
+	    			this.document.all.layerresult.innerText="初期存入金额";
+	    		}		    
+		    }
+			if (document.DepositCalculator.rbDepositWay_1.checked==true)
+			{
+				document.DepositCalculator.tbSaveTime.options.length = 0;
+				ComSaveTime(document.DepositCalculator.tbSaveTime,5,window.xmlRMBSaveRate.XMLDocument);
+
+				if (document.DepositCalculator.E_tbSaveTime!=null)
+					document.DepositCalculator.E_tbSaveTime.value = document.DepositCalculator.tbSaveTime.options(0).text;
+				document.DepositCalculator.tbSaveTime.selectedIndex = 0;		
+				if (this.document.all.rbCalcOption_0.checked)
+				{
+					this.document.all.Layer1.innerText="每期存入金额";
+					this.document.all.layerresult.innerText="到期本息总额";
+				}  
+				else
+				{
+	    		this.document.all.Layer1.innerText="到期本息总额";
+	    		this.document.all.layerresult.innerText="每期存入金额";
+	    		}
+			}
+			document.DepositCalculator.tbSaveTime.selectedIndex = 0;
+			getrate(); 
+		}
+		</SCRIPT>
+
+<SCRIPT language=javascript for=rbCalcOption event=onclick>	
+		Cleartxt();
+		if (this.document.all.rbCalcOption_0.checked)
+     	{	    		
+		    document.all.layerresult.innerText = "到期本息总额";
+		    if (document.DepositCalculator.rbDepositWay_0.checked==true)
+		        this.document.all.Layer1.innerText="初期存入金额";
+		    else 
+		        this.document.all.Layer1.innerText="每期存入金额";
+		}
+		else
+		{
+		    document.all.Layer1.innerText = "到期本息总额";	    
+		    if (document.DepositCalculator.rbDepositWay_0.checked==true)
+		        document.all.layerresult.innerText = "初期存入金额";
+		    else
+		        document.all.layerresult.innerText = "每期存入金额"; 
+		}		 
+		</SCRIPT>
+<xml id=xmlRMBSaveRate ondatasetcomplete=star() src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+function Cleartxt()
+{
+	document.all.tbInitSaveSum.value = "";
+	document.all.tbTermEndSum.value = "计算得出";
+	document.all.tbInterestTaxSum.value = "计算得出";
+}
+function star()
+{
+	changeall();
+	getrate();
+	Cleartxt();
+}
+function ChkCZDate(edit)
+{
+	edit.value=Trim(edit.value);
+	if(edit.value=='') return true;
+	if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+	{
+		alert('日期格式不正确,日期有效范围为1910年到3000年');
+		edit.focus();
+	}
+ }
+document.DepositCalculator.beginDateID.value=datetostring(new Date());
+//this.document.all.Layer1.style.display="block";
+//this.document.all.Layer2.style.display="none";
+this.document.all.rbDepositWay_0.checked = true;
+//GetCalc_Close();
+</SCRIPT>
+</BODY></HTML>

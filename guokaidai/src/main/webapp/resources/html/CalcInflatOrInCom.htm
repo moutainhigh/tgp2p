@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0066)http://finance.ifeng.com/app/money/calc/Html/CalcInflatOrInCom.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  			//window.resizeTo(535,405);
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,419);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="CalcFiles/CalcInflatOrInCom.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY leftMargin=0 topMargin=0 bgColor=#ffffff text=#000000>
+<FORM id=InflatOrInCom method=post name=InflatOrInCom>
+<DIV id=bg1 style="width:525px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px;"><IMG src="CalcFiles/bg4.gif" width=25 height=130><IMG 
+src="CalcFiles/bg5.gif" width=475 height=130><IMG 
+src="CalcFiles/bg6.gif" width=25 height=130></DIV>
+<DIV id=bg3 style="width:525px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">通货膨胀影响消费计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">通货膨胀是指商品和劳务的货币价格总水平的持续上涨现象。如果通货膨胀持续为正数，它会使持有的现金在将来的购买力减弱，也会使商品价格水平逐年提升。 
+</DIV>
+<DIV style="WIDTH: 450px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=0 borderColorLight=#336666 borderColorDark=#e9f3f4 
+cellPadding=0 width="90%" height=170>
+  <TBODY>
+  <TR>
+    <TD>您希望计算</TD>
+    <TD colSpan=2><INPUT style="WIDTH: 68px" id=edYear class=txtnum tabIndex=1 
+      name=edYear> &nbsp;&nbsp;年后通货膨胀对消费的影响</TD></TR>
+  <TR>
+    <TD>计算选项</TD>
+    <TD colSpan=2><SELECT style="WIDTH: 220px" id=cbType tabIndex=2 
+      name=cbType> <OPTION selected value=0>将来某时刻的现金实际购买力价值</OPTION> <OPTION 
+        value=1>将来某时刻某种商品的价格</OPTION></SELECT></TD></TR>
+  <TR>
+    <TD id=tdcaption>目前持有的现金金额</TD>
+    <TD><INPUT style="WIDTH: 120px" id=edSum class=txtnum tabIndex=3 
+      name=edSum> </TD>
+    <TD><INPUT style="WIDTH: 60px" id=btnCalc onClick="Lance();" class=btn tabIndex=5 name=btnCalc value=" 计算 " type=button> 
+    </TD></TR>
+  <TR>
+    <TD>您所预期的年通货膨胀率(%)</TD>
+    <TD colSpan=2><INPUT style="WIDTH: 120px" id=edInflatRate class=txtnum 
+      tabIndex=4 name=edInflatRate> </TD></TR>
+  <TR>
+    <TD style="PADDING-TOP: 20px" colSpan=3><SPAN style="TEXT-ALIGN: left" 
+      id=lbResult></SPAN></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript for=cbType event=onchange>
+		  init();
+		</SCRIPT>
+
+<SCRIPT>
+
+function Lance(){
+		msg="请在目前持有的现金金额输入正数";
+		if (!CheckPN(edYear,"请在年份输入正整数",false))
+	   		return false;	       		
+		if (cbType.selectedIndex>0)
+			msg="请在目前该种商品的价格输入正数";
+		if (!CheckFN3(edSum,msg,false))
+	   		return false;	       		    	
+		if (!CheckFN3(edInflatRate,"请在预期的年通货膨胀率输入正数",false))
+	   		return false;	   	
+	   var Sum=CalcInflatOrInCom(document);
+	   	if (cbType.selectedIndex>0)
+	   	{
+	   	    lbResult.innerText=edYear.value+"年后该种商品的价格："+NBround(new Number(Sum),2)+"元";
+	   	}    
+	   	else
+	   	{
+	   	    lbResult.innerText=edYear.value+"年后您的现金实际购买力价值："+NBround(new Number(Sum),2)+"元";
+	   	}
+	   	
+		return false;
+}
+		</SCRIPT>
+
+<SCRIPT language=javascript>
+  		function init()
+		{
+		 	if(this.document.all.cbType.selectedIndex==0)
+				this.document.all.tdcaption.innerText = "目前持有的现金金额(元)";
+			else
+			    this.document.all.tdcaption.innerText = "目前该种商品的价格(元)";
+		}
+		window.attachEvent("onload",init);
+		//GetCalc_Close();
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

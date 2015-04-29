@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0068)http://finance.ifeng.com/app/money/calc/Html/CalcBondDealCompare.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT language=javascript 
+src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(530,498);</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcBondDealCompare.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css"><xml id=xmlSaveRate src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript>
+		<!--
+			function GetRate(month)
+			{
+				if (month == 0) month = 0.1;
+				if (month > 60) month = 60;	// 整存整取最大期限
+				return GetRMBSaveRatio("2", month, xmlSaveRate) / 100;  // 整存整取typeID = 2
+			}
+			function Hidden(ctrl)
+			{
+				ctrl.disabled=true;
+			}
+			function Show(ctrl)
+			{
+				ctrl.disabled=false;
+			}
+			function setvisible1()
+			{
+				if(this.document.all.rblID_0.checked)
+				{
+					Hidden(this.document.all.lblPrice);
+					Hidden(this.document.all.tbPrice);
+					Hidden(this.document.all.lblBuyDate);
+					Hidden(this.document.all.dpBuyDate);
+					Hidden(this.document.all.lblSellDate);
+					Hidden(this.document.all.dpSellDate);
+					Show(this.document.all.lblWillBuyDate);
+					Show(this.document.all.dpWillBuyDate);
+					
+					Hidden(this.document.all.dpBuyDateImg);
+					
+					Hidden(this.document.all.dpSellDateImg);
+					
+					Show(this.document.all.dpWillBuyDateImg);
+
+					Show(this.document.all.lblLimitDate);
+					Show(this.document.all.dpLimitDate); 
+					Show(this.document.all.dpLimitDateImg);
+				}
+				else
+				{
+					Show(this.document.all.lblPrice);
+					Show(this.document.all.tbPrice);
+					Show(this.document.all.lblBuyDate);
+					Show(this.document.all.dpBuyDate);
+					Show(this.document.all.lblSellDate);
+					Show(this.document.all.dpSellDate);
+					Hidden(this.document.all.lblWillBuyDate);
+					Hidden(this.document.all.dpWillBuyDate);
+					
+					Show(this.document.all.dpBuyDateImg);
+					Show(this.document.all.dpSellDateImg);
+					
+					Hidden(this.document.all.dpWillBuyDateImg);
+
+					Hidden(this.document.all.lblLimitDate);
+					Hidden(this.document.all.dpLimitDate); 
+					Hidden(this.document.all.dpLimitDateImg);
+				}
+			}
+			function setvisible2()
+			{
+				v=this.document.all.ddlType.value;
+				if(v=="3")
+				{
+					Show(this.document.all.lblYearTime);
+					Show(this.document.all.tbYearTime);
+				}
+				else
+				{
+					Hidden(this.document.all.lblYearTime);
+					Hidden(this.document.all.tbYearTime);
+				}
+				if(v=="1")
+				{
+					Hidden(this.document.all.lblRate);
+					Hidden(this.document.all.tbRate);
+				}
+				else
+				{
+					Show(this.document.all.lblRate);
+					Show(this.document.all.tbRate);
+				}
+				if(v=="2" && this.document.all.rblID_0.checked)
+				{
+					Show(this.document.all.lblRetTerm);
+					Show(this.document.all.tbRetTerm);
+				}
+				else
+				{
+					Hidden(this.document.all.lblRetTerm);
+					Hidden(this.document.all.tbRetTerm);
+				}
+			}
+			
+			function window.onload()
+			{
+				setvisible1();
+				setvisible2();
+			}
+			function IsEnabled(ctrl)
+			{
+				return (ctrl.disabled!=true);  // ctrl.style.disabled==false : modified by huhao, 2003/3/28
+			}
+		//-->
+			</SCRIPT>
+
+<SCRIPT language=javascript for=rblID event=onclick>
+		<!--
+			setvisible1();
+			setvisible2();
+		//-->
+			</SCRIPT>
+
+<SCRIPT language=javascript for=ddlType event=onchange>
+		<!--
+			setvisible2();
+		//-->
+			</SCRIPT>
+
+<SCRIPT language=javascript for=btnCalc event=onclick>
+		<!--
+			if(!CheckFN3(this.document.all.tbCost,"请在[债券票面面值]中输入正数！",false))
+				return false;
+			if(IsEnabled(this.document.all.tbYearTime))
+				if(!CheckPN(this.document.all.tbYearTime,"请在[年付息次数]中输入正整数！",false))
+					return false;
+			if(IsEnabled(this.document.all.tbRetTerm))
+				if(!CheckPN(this.document.all.tbRetTerm,"请在[债券偿还期限]中输入正整数！",false))
+					return false;
+			if(IsEnabled(this.document.all.tbRate))
+				if(!CheckFN3(this.document.all.tbRate,"请在[债券票面年利率]中输入正数！",false))
+					return false;
+			if(!CheckEmpty(this.document.all.dpLimitDate,"请输入债券到期兑换日期！"))
+				return false;
+			if(IsEnabled(this.document.all.tbPrice))
+				if(!CheckFN3(this.document.all.tbPrice,"请在[债券成本价格]中输入正数！",false))
+					return false;
+			if(IsEnabled(this.document.all.dpBuyDate))
+				if(!CheckEmpty(this.document.all.dpBuyDate,"请输入债券购入日期！"))
+					return false;
+			if(IsEnabled(this.document.all.dpSellDate))
+			{
+				if(!CheckEmpty(this.document.all.dpSellDate,"请输入预计卖出日期！"))
+					return false;
+				if(!CheckDiffDate(this.document.all.dpBuyDate,this.document.all.dpSellDate,"债券购入日期不能晚于预计卖出日期！"))
+					return false;
+			}
+			if(IsEnabled(this.document.all.dpWillBuyDate))
+			{
+				if(!CheckEmpty(this.document.all.dpWillBuyDate,"请输入预计购入日期！"))
+					return false;
+				if(!CheckDiffDate(this.document.all.dpWillBuyDate,this.document.all.dpLimitDate,"预计购入日期不能晚于债券到期兑换日期！"))
+					return false;
+			}
+			Calc(document);
+			return false;
+		//-->
+			</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=EduCalc name=EduCalc>
+<DIV id=bg1 style="width:525px;"><IMG class=moveimg src="CalcFiles/bg1.gif"><IMG 
+class=moveimg src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+class=moveimg src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px;"><IMG src="CalcFiles/bg4.gif" width=25 
+height=210><IMG src="CalcFiles/bg5.gif" width=475 
+height=210><IMG src="CalcFiles/bg6.gif" width=25 
+height=210></DIV>
+<DIV id=bg3 style="width:525px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">债券买卖比较器</DIV>
+<DIV style="WIDTH: 450px" id=FDiv2 class=FDiv2 
+Movable="1">本计算器通过将债券投资收益与当前银行存款利率（扣除利息税影响）的比较，帮助确定非上市债券交易的合理价格。</DIV>
+<DIV style="WIDTH: 411px" id=FDiv3 class=FDiv3 align=center>
+<TABLE id=Table1 border=0 cellSpacing=0 borderColorLight=#336666 
+borderColorDark=#e9f3f4 cellPadding=0 width="90%">
+  <TBODY>
+  <TR>
+    <TD align=center><SPAN 
+      style="Z-INDEX: 101; POSITION: absolute; TOP: 58px; LEFT: 46px" 
+      id=lblCost>债券票面面值(元)</SPAN> <SPAN 
+      style="Z-INDEX: 110; POSITION: absolute; TOP: 33px; LEFT: 46px" 
+      id=lblType>债券类型</SPAN> <SPAN 
+      style="Z-INDEX: 102; POSITION: absolute; TOP: 84px; LEFT: 46px" 
+      id=lblYearTime>年付息次数</SPAN> <SPAN 
+      style="Z-INDEX: 102; POSITION: absolute; TOP: 84px; LEFT: 256px" 
+      id=lblRetTerm>债券偿还期限(月)</SPAN> <SPAN 
+      style="Z-INDEX: 103; POSITION: absolute; TOP: 107px; LEFT: 46px" 
+      id=lblRate>债券票面年利率(%)</SPAN> <SPAN 
+      style="Z-INDEX: 104; POSITION: absolute; TOP: 134px; LEFT: 46px" 
+      id=lblLimitDate>债券到期兑换日期</SPAN> <SPAN 
+      style="Z-INDEX: 105; POSITION: absolute; TOP: 216px; LEFT: 46px" 
+      id=lblSellDate>预计卖出日期</SPAN> <INPUT 
+      style="Z-INDEX: 106; POSITION: absolute; WIDTH: 126px; TOP: 105px; LEFT: 162px" 
+      id=tbRate class=txtnum tabIndex=6 name=tbRate> <INPUT style="Z-INDEX: 107; POSITION: absolute; TOP: 27px; LEFT: 365px" id=btnCalc class=btn name=btnCalc value=" 计算 " type=submit> 
+      <SPAN style="Z-INDEX: 109; POSITION: absolute; TOP: 159px; LEFT: 46px" 
+      id=lblPrice>债券成本价格(元)</SPAN><INPUT 
+      style="Z-INDEX: 111; POSITION: absolute; WIDTH: 126px; TOP: 158px; LEFT: 162px" 
+      id=tbPrice class=txtnum tabIndex=8 name=tbPrice> <SPAN 
+      style="Z-INDEX: 112; POSITION: absolute; TOP: 188px; LEFT: 46px" 
+      id=lblBuyDate>债券购入日期</SPAN> 
+      <TABLE style="Z-INDEX: 113; POSITION: absolute; TOP: 3px; LEFT: 161px" 
+      id=rblID border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rblID_0 tabIndex=1 name=rblID value=1 
+            type=radio><LABEL for=rblID_0>买方</LABEL></TD>
+          <TD><INPUT id=rblID_1 tabIndex=1 name=rblID value=2 CHECKED 
+            type=radio><LABEL for=rblID_1>卖方</LABEL></TD></TR></TBODY></TABLE><SPAN 
+      style="Z-INDEX: 114; POSITION: absolute; TOP: 11px; LEFT: 46px" 
+      id=lblID>请选择交易身份</SPAN> <SPAN 
+      style="Z-INDEX: 115; POSITION: absolute; TOP: 245px; LEFT: 46px" 
+      id=lblWillBuyDate>预计购入日期</SPAN> <INPUT 
+      style="Z-INDEX: 117; POSITION: absolute; WIDTH: 127px; TOP: 55px; LEFT: 162px" 
+      id=tbCost class=txtnum tabIndex=3 name=tbCost> <INPUT 
+      style="Z-INDEX: 118; POSITION: absolute; WIDTH: 42px; TOP: 80px; LEFT: 162px" 
+      id=tbYearTime class=txtnum tabIndex=4 name=tbYearTime value=1> <INPUT 
+      style="Z-INDEX: 118; POSITION: absolute; WIDTH: 42px; TOP: 80px; LEFT: 374px" 
+      id=tbRetTerm class=txtnum tabIndex=5 name=tbRetTerm value=12> <INPUT 
+      onblur=ChkCZDate(dpLimitDate) onClick="WdatePicker()"
+      style="Z-INDEX: 120; POSITION: absolute; WIDTH: 100px; TOP: 130px; LEFT: 162px" 
+      id=dpLimitDate class=txt tabIndex=7 name=dpLimitDate value=2001-1-1 
+      size=13> <IMG 
+      style="Z-INDEX: 120; POSITION: absolute; CURSOR: hand; TOP: 130px; LEFT: 265px" 
+      id=dpLimitDateImg onclick="WdatePicker({el:'dpLimitDate'})"
+      align=absMiddle src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       <INPUT onblur=ChkCZDate(dpBuyDate) onClick="WdatePicker()"
+      style="Z-INDEX: 121; POSITION: absolute; WIDTH: 100px; TOP: 182px; LEFT: 162px" 
+      id=dpBuyDate class=txt tabIndex=9 name=dpBuyDate value=2001-1-1 size=13> 
+      <IMG 
+      style="Z-INDEX: 121; POSITION: absolute; CURSOR: hand; TOP: 182px; LEFT: 265px" 
+      id=dpBuyDateImg onclick="WdatePicker({el:'dpBuyDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       <INPUT onblur=ChkCZDate(dpSellDate) onClick="WdatePicker()"
+      style="Z-INDEX: 122; POSITION: absolute; WIDTH: 100px; TOP: 211px; LEFT: 162px" 
+      id=dpSellDate class=txt tabIndex=10 name=dpSellDate value=2001-1-1 
+      size=13> <IMG 
+      style="Z-INDEX: 122; POSITION: absolute; CURSOR: hand; TOP: 211px; LEFT: 265px" 
+      id=dpSellDateImg onclick="WdatePicker({el:'dpSellDate'})"
+      align=absMiddle src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       <INPUT onblur=ChkCZDate(dpWillBuyDate) onClick="WdatePicker()"
+      style="Z-INDEX: 123; POSITION: absolute; WIDTH: 100px; TOP: 241px; LEFT: 162px" 
+      id=dpWillBuyDate class=txt tabIndex=11 name=dpWillBuyDate value=2001-1-1 
+      size=13> <IMG 
+      style="Z-INDEX: 123; POSITION: absolute; CURSOR: hand; TOP: 241px; LEFT: 265px" 
+      id=dpWillBuyDateImg onclick="WdatePicker({el:'dpWillBuyDate'})"
+      align=absMiddle src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       <!--<DIV style="Z-INDEX: 119; LEFT: 26px; POSITION: absolute; TOP: 299px" ms_positioning="text2D">计算得出：</DIV>-->
+      <DIV 
+      style="Z-INDEX: 120; POSITION: absolute; WIDTH: 371px; DISPLAY: inline; HEIGHT: 38px; TOP: 265px; LEFT: 26px" 
+      ms_positioning="FlowLayout">
+      <TABLE style="WIDTH: 359px; HEIGHT: 13px" id=Table2 border=0 cellSpacing=1 
+      cellPadding=1 width=359 height=13>
+        <TBODY>
+        <TR height="100%">
+          <TD align=left><SPAN id=lblInfo><FONT 
+        face=宋体></FONT></SPAN></TD></TR></TBODY></TABLE></DIV><SELECT 
+      style="Z-INDEX: 121; POSITION: absolute; WIDTH: 175px; TOP: 28px; LEFT: 162px" 
+      id=ddlType tabIndex=2 name=ddlType> <OPTION selected 
+        value=1>贴现债券</OPTION> <OPTION value=2>到期一次还本付息债券</OPTION> <OPTION 
+        value=3>固定利率债券和浮动利率债券</OPTION></SELECT> </TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+  document.EduCalc.dpBuyDate.value = datetostring(new Date());
+  document.EduCalc.dpLimitDate.value = datetostring(new Date());
+  document.EduCalc.dpSellDate.value = datetostring(new Date());
+  document.EduCalc.dpWillBuyDate.value = datetostring(new Date());
+</SCRIPT>
+</BODY></HTML>

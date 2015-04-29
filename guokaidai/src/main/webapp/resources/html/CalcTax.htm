@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://finance.ifeng.com/app/money/calc/Html/CalcTax.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT language=JavaScript>
+  //window.resizeTo(535,404);
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,418);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcTax.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+		function CheckData()
+		{
+			if (!CheckFN3(this.document.all.tbIncomeBeforeTax,"税前收入请输入正数",false))
+				return false;
+			if (this.document.all.ddlIncomeType.selectedIndex==0)
+					{				
+						if (!CheckFN3(this.document.all.tbAllInsureFee,"各项社会保险费请输入非负数",true))
+							return false;
+						if (!CheckPN(this.document.all.tbThresholdSum,"起征额请输入正整数",false))
+							return false;
+					}
+			return true;
+		}							
+		</SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY leftMargin=0 topMargin=0 bgColor=#ffffff text=#000000>
+<FORM id=TaxCalculator onsubmit="return false;" name=TaxCalculator>
+<DIV id=bg1 style="width:525px"><IMG src="CalcFiles/bg1.gif"><IMG src="CalcFiles/bg2.gif" 
+width=250 height=126><IMG src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px"><IMG src="CalcFiles/bg4.gif" width=25 height=130><IMG 
+src="CalcFiles/bg5.gif" width=475 height=130><IMG 
+src="CalcFiles/bg6.gif" width=25 height=130></DIV>
+<DIV id=bg3 style="width:525px"><IMG src="CalcFiles/bg7.gif"><IMG src="CalcFiles/bg8.gif" 
+width=475 height=119><IMG src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">个人所得税计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">个人所得税的计算方法比较复杂，使用本计算器可以方便的算出应纳税款金额和税后收入。 </DIV>
+<DIV style="WIDTH: 450px" id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 380px; HEIGHT: 199px" id=Table3 border=0 cellSpacing=0 
+cellPadding=0 width=380>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 120px; HEIGHT: 25px"><FONT face=宋体>收入类型</FONT></TD>
+    <TD style="WIDTH: 180px; HEIGHT: 25px"><FONT face=宋体><SELECT 
+      style="WIDTH: 180px" id=ddlIncomeType name=ddlIncomeType> <OPTION 
+        selected value=0>工资、薪金所得</OPTION> <OPTION value=2>个体工商户的生产、经营所得 
+        (年度)</OPTION> <OPTION value=3>对企事业单位的承包经营、承租经营所得 (年度)</OPTION> <OPTION 
+        value=4>劳务报酬所得</OPTION> <OPTION value=5>稿酬所得</OPTION> <OPTION 
+        value=6>特许权使用费所得</OPTION> <OPTION value=8>财产租赁所得</OPTION> <OPTION 
+        value=9>财产转让所得</OPTION> <OPTION value=7>利息、股息、红利所得</OPTION> <OPTION 
+        value=10>偶然所得</OPTION></SELECT> </FONT></TD>
+    <TD style="WIDTH: 80px; HEIGHT: 25px" align=right><INPUT id=btnCalculate class=btn tabIndex=6 onclick="javascript:if(CheckData()) CalcTax(document);" name=btnCalculate value=" 计算 " type=submit></TD></TR>
+  <TR>
+    <TD style="WIDTH: 120px; HEIGHT: 26px"><FONT face=宋体>应纳税额</FONT></TD>
+    <TD style="WIDTH: 180px; HEIGHT: 26px"><INPUT style="WIDTH: 136px" 
+      id=tbIncomeBeforeTax class=txtnum name=tbIncomeBeforeTax value=0> 
+    &nbsp;元</TD></TR>
+  <TR>
+    <TD style="WIDTH: 120px; HEIGHT: 26px">各项社会保险费</TD>
+    <TD style="WIDTH: 180px; HEIGHT: 26px"><FONT face=宋体><INPUT 
+      style="WIDTH: 136px" id=tbAllInsureFee class=txtnum name=tbAllInsureFee 
+      value=0> <FONT face=Arial>&nbsp;</FONT>元</FONT></TD>
+    <TD style="WIDTH: 80px; HEIGHT: 26px"></TD></TR>
+  <TR>
+    <TD style="WIDTH: 120px; HEIGHT: 28px">起征额</TD>
+    <TD style="WIDTH: 180px; HEIGHT: 28px"><INPUT style="WIDTH: 135px" 
+      id=tbThresholdSum class=txtnum name=tbThresholdSum value=1600> &nbsp;元</TD>
+    <TD style="WIDTH: 80px; HEIGHT: 28px"><FONT face=宋体>&nbsp;</FONT></TD></TR>
+  <TR>
+    <TD colSpan=3 align=center>
+      <HR SIZE=1 width="100%">
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 120px; HEIGHT: 28px">应纳税款</TD>
+    <TD style="WIDTH: 180px; HEIGHT: 28px"><FONT face=宋体><INPUT 
+      style="WIDTH: 136px" id=tbTax class=txtd disabled name=tbTax readOnly 
+      value=计算得出> <FONT face=Arial>&nbsp;</FONT>元</FONT></TD>
+    <TD style="WIDTH: 80px; HEIGHT: 28px"></TD></TR>
+  <TR>
+    <TD style="WIDTH: 120px; HEIGHT: 28px">税后收入</TD>
+    <TD style="WIDTH: 180px; HEIGHT: 28px"><INPUT style="WIDTH: 135px" 
+      id=tbIncomeAfterTax class=txtd disabled name=tbIncomeAfterTax readOnly 
+      value=计算得出> &nbsp;元</TD>
+    <TD style="WIDTH: 80px; HEIGHT: 28px"></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript for=ddlIncomeType event=onchange>			
+			Incometypechg();
+		</SCRIPT>
+
+<SCRIPT language=javascript>		
+			function Incometypechg()
+			{
+				if (this.document.all.ddlIncomeType.selectedIndex==0)
+				{			    
+					this.document.all.tbThresholdSum.disabled = false;
+					this.document.all.tbAllInsureFee.disabled = false;
+					this.document.all.tbThresholdSum.value = "2000";
+					this.document.all.tbAllInsureFee.value = "0";
+				}
+				else
+				{
+					this.document.all.tbThresholdSum.disabled = true;
+					this.document.all.tbAllInsureFee.disabled = true;
+					this.document.all.tbThresholdSum.value = "不填";
+					this.document.all.tbAllInsureFee.value = "不填";
+				}	
+			}
+			window.attachEvent("onload",Incometypechg);
+           //GetCalc_Close();
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

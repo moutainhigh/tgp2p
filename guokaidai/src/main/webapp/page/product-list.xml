@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<page-table 	xmlns="http://www.w3school.com.cn" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.w3school.com.cn http://www.pomo.org/page-table.xsd"
+        id="table_page" class="table_page projectTab3 pjtTabrow" primary="[0]" page-per-size="10"> 
+	
+	
+	<tr class="ss">
+		
+		<td attr="[1]" text="产品名称" >
+			<link href="/visitor/product-info?id="/>
+		</td>
+		
+		<td attr="[2]" text="投资期限">
+			<replace attr="[8]">
+				<if equals="0" value="@天" />
+				<if equals="1" value="@个月" />
+				<if equals="2" value="@年" />
+			</replace>
+		</td>
+		
+		 <td attr="[3]" text="预期年化利率">
+		 	<replace expression="true" value="@%"></replace>
+		 	<format-decimals decimals-position="2"/>
+		 </td>
+		
+		<td attr="[4]" text="利息支付方式" />
+		
+		<td attr="[5]" text="发布日期" />
+		
+		<td attr="[6]" text="投资金额" null-value="0" >
+			<replace expression="true" value="￥ @" />
+		</td>
+		
+	</tr>
+	
+	<handle text="操作">
+		<button text="投资" href="/visitor/product-info?id=">
+    		<replace other="投资" attr="[7]" equals="0" value="成功交易" />
+    	</button>
+	</handle>
+	
+</page-table>

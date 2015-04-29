@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://finance.ifeng.com/app/money/calc/Html/CalcLoanAdv.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(700,474);  
+    </SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(730,550);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcLoanAdv.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=LoanAdvCalc method=post name=LoanAdvCalc action=LoanAdvCalc.aspx>
+<DIV id=Div1 style="width:690px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=415 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=Div2 style="width:690px;"><IMG src="CalcFiles/bg4.gif" width=25 height=200><IMG 
+src="CalcFiles/bg5.gif" width=640 height=200><IMG 
+src="CalcFiles/bg6.gif" width=25 height=200></DIV>
+<DIV id=Div3 style="width:690px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=640 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="LEFT: 280px" id=FDiv1 class=FDiv1>提前还款计算器</DIV>
+<DIV style="WIDTH: 640px; TOP: 70px; LEFT: 30px" id=FDiv2 
+class=FDiv2>在按揭一段时间后（等额本息还款），如果客户的收入水平有了较大的提高，则可以考虑提前偿还部分或全部的贷款，以减少还款利息的支出。</DIV>
+<DIV id=Div6 class=FDiv3>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width=656 ms_2d_layout="TRUE">
+  <TBODY>
+  <TR vAlign=top>
+    <TD>
+      <DIV id=bg1>
+      <TABLE id=TABLE2 border=0 cellSpacing=0 cellPadding=0 width=649 
+      ms_2d_layout="TRUE">
+        <TBODY>
+        <TR vAlign=top></TR></TBODY></TABLE>
+      <TABLE id=Table1 border=0 width=607>
+        <TBODY>
+        <TR>
+          <TD style="DISPLAY: none" width=157>贷款类型</TD>
+          <TD style="DISPLAY: none" width=168><SELECT id=edType 
+            onchange=TypeChange() name=edType> <OPTION selected 
+              value=1>商业贷款</OPTION> <OPTION value=2>公积金贷款</OPTION></SELECT></TD>
+          <TD width=100></TD>
+          <TD></TD></TR>
+        <TR>
+          <TD width=157>贷款总额(元)</TD>
+          <TD width=168><INPUT id=edLoanSum class=txtnum tabIndex=1 
+            name=edLoanSum></TD>
+          <TD width=100>提前还款日期</TD>
+          <TD><INPUT onblur=ChkCZDate(edAdvRetDate); onClick="WdatePicker()" id=edAdvRetDate class=txt 
+            tabIndex=5 name=edAdvRetDate value=2014-1-3> <IMG 
+            style="CURSOR: hand" onclick="WdatePicker({el:'edAdvRetDate'})"
+            align=absMiddle src="CalcFiles/Calendar1.gif"></TD></TR>
+        <TR>
+          <TD width=157 DESIGNTIMEURL="../Images/Calendar1.gif">原贷款期限(年)</TD>
+          <TD width=168><INPUT onblur=TypeChange() id=edLoanYears class=txtnum 
+            tabIndex=2 name=edLoanYears value=10></TD>
+          <TD width=100>一次性提前还清</TD>
+          <TD><INPUT id=rbOnce_0 tabIndex=6 name=rbOnce value=false CHECKED 
+            type=radio>否 <INPUT id=rbOnce_1 tabIndex=6 name=rbOnce value=true 
+            type=radio>是 </TD></TR>
+        <TR>
+          <TD width=157>初始还款日期</TD>
+          <TD width=168><INPUT onblur=ChkCZDate(edInitRetDate); onClick="WdatePicker()"
+            id=edInitRetDate class=txt tabIndex=3 name=edInitRetDate 
+            value=2014-1-3> <IMG style="CURSOR: hand" 
+            onclick="WdatePicker({el:'edInitRetDate'})" align=absMiddle 
+            src="CalcFiles/Calendar1.gif"> </TD>
+          <TD width=100>部分提前还款(元)</TD>
+          <TD><INPUT id=edPartRet class=txtnum tabIndex=7 
+name=edPartRet></TD></TR>
+        <TR>
+          <TD width=157>贷款年利率(%)</TD>
+          <TD width=168><INPUT id=edRate class=txtnum tabIndex=4 name=edRate 
+            value=4.77></TD>
+          <TD width=100>处理方式</TD>
+          <TD id=dealway1><INPUT id=rd1 tabIndex=8 name=RadioGroup value=rd1 
+            CHECKED type=radio>减月还款,年限不变</TD></TR>
+        <TR>
+          <TD width=431 colSpan=3>&nbsp;</TD>
+          <TD id=dealway2><INPUT id=rd2 tabIndex=8 name=RadioGroup value=rd2 
+            type=radio>缩短年限,还款不变</TD></TR>
+        <TR>
+          <TD width=157></TD>
+          <TD width=168 align=right><INPUT onClick="btnCalClick();" id=btnCalc class=btn tabIndex=9 name=btnCalc value=" 计算 " type=button></TD>
+          <TD width=100></TD>
+          <TD></TD></TR>
+        <TR>
+          <TD colSpan=4 align=center>
+            <HR SIZE=1 width=550>
+          </TD></TR>
+        <TR>
+          <TD colSpan=4 align=center>
+            <TABLE id=Table3 border=0>
+              <TBODY>
+              <TR>
+                <TD>原月还款额</TD>
+                <TD width=120><SPAN id=OrgMthRet></SPAN></TD>
+                <TD>提前还款当月还款额</TD>
+                <TD width=120><SPAN id=ThisMthTotalAdvRet></SPAN></TD></TR>
+              <TR>
+                <TD>原最后还款日期</TD>
+                <TD width=120><SPAN id=RetOrgEndRetDate></SPAN></TD>
+                <TD>提前还款后的月还款额</TD>
+                <TD width=120><SPAN id=AfterMthRet></SPAN></TD></TR>
+              <TR>
+                <TD>至提前还款上月已还款总额</TD>
+                <TD width=120><SPAN id=RetedSum></SPAN></TD>
+                <TD>提前还贷节省的利息支出</TD>
+                <TD width=120><SPAN id=ScantyInterest><FONT 
+                  face=宋体></FONT></SPAN></TD></TR>
+              <TR>
+                <TD>至提前还款上月已还利息额</TD>
+                <TD width=120><SPAN id=RetedInterest></SPAN></TD>
+                <TD>提前还贷后的最后还款日期</TD>
+                <TD width=120><SPAN 
+          id=EndRetDate></SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<DIV></DIV></FORM><xml id=xmlLoan src="../Data/LoanAndOtherLoan.xml"></xml>
+<SCRIPT language=javascript>
+		function ChkCZDate(edit)
+		{
+			edit.value=Trim(edit.value);
+			if(edit.value=='') return true;
+			if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+			{
+				alert('日期格式不正确,日期有效范围为1910年到3000年');
+				edit.focus();
+			}
+		}
+    </SCRIPT>
+
+<SCRIPT language=javascript for=rbOnce event=onclick>
+		  ToggleRbOnce();
+    </SCRIPT>
+
+<SCRIPT language=javascript for=btnCalc event=onclick>
+			btnCalClick();
+    </SCRIPT>
+
+<SCRIPT language=javascript>
+		function TypeChange()
+		{
+			var IDType = "1";
+			if (document.all.edType.selectedIndex == 1) 
+				IDType = "2";
+			var period = document.all.edLoanYears.value * 12;
+			if(!CheckPN(document.all.edLoanYears,'输入了非法的贷款年限！',false))
+				document.all.edRate.value = '';
+			else
+				document.all.edRate.value = GetLoanRatio(IDType, period, xmlLoan);
+		}
+		function ToggleRbOnce()
+		{
+		  	if(document.all.rbOnce_0.checked)
+			{				
+    			  document.all.edPartRet.disabled = false;
+    			  if(isNaN(document.all.edPartRet.value))    			      
+					document.all.edPartRet.value="";											
+				document.all.dealway1.style["display"] = "";
+				document.all.dealway2.style["display"] = "";
+			}
+			if(document.all.rbOnce_1.checked)
+			{				
+				document.all.edPartRet.disabled = true;
+				document.all.edPartRet.value="不填";
+				document.all.dealway1.style["display"] = "none";
+				document.all.dealway2.style["display"] = "none";
+			}
+		}
+		function init()
+		{
+			ToggleRbOnce();
+			TypeChange();
+			document.all.edAdvRetDate.value=datetostring(new Date());
+			document.all.edInitRetDate.value=datetostring(new Date());
+		}
+		window.attachEvent("onload",init);
+		  
+     //GetCalc_Close();
+		
+    </SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

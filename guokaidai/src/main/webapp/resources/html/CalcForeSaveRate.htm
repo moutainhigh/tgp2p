@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0065)http://finance.ifeng.com/app/money/calc/Html/CalcForeSaveRate.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(554,447);
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(565,488);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000>
+<DIV id=bg1 style="width:550px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=275 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:550px;"><IMG src="CalcFiles/bg4.gif" width=25 height=200><IMG 
+src="CalcFiles/bg5.gif" width=500 height=200><IMG 
+src="CalcFiles/bg6.gif" width=25 height=200></DIV>
+<DIV id=bg3 style="width:550px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=500 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">外币存款利率表</DIV>
+<DIV style="WIDTH: 500px" id=FDiv2 class=FDiv2 
+Movable="1">可查询各种类型、期限的外汇存款利率。</DIV>
+<DIV style="WIDTH: 400px; HEIGHT: 280px" id=FDiv3 class=FDiv3 align=center>
+<SCRIPT language=javascript>
+		function SetTitle(oTable, xmlDoc)
+		{
+			var oRow = oTable.insertRow();
+			var oCell;
+			var xmlroot = xmlDoc.documentElement; 
+			var moneyname="";
+		  
+			for(i=0; i<xmlroot.childNodes.length; i++)
+			{
+				if (moneyname != xmlroot.childNodes.item(i).childNodes.item(3).text&&i!=0)
+					break;
+    
+				if (i==0)
+				{
+					oCell = oRow.insertCell();
+					oCell.innerText = " ";
+					moneyname = xmlroot.childNodes.item(i).childNodes.item(3).text;  
+				}
+				oCell = oRow.insertCell();
+				oCell.innerText = xmlroot.childNodes.item(i).childNodes.item(1).text;
+		     
+			}
+		}
+			
+		function SetContent(oTable, xmlDoc)
+		{
+			var xmlroot = xmlDoc.documentElement; 
+			var oRow;
+			var oCell;
+			var moneyname="";
+
+			for(i=0; i<xmlroot.childNodes.length; i++)
+			{
+				if (moneyname != xmlroot.childNodes.item(i).childNodes.item(3).text)
+				{
+					oRow = oTable.insertRow();
+					oCell = oRow.insertCell();
+					oCell.innerText = xmlroot.childNodes.item(i).childNodes.item(3).text;
+					moneyname = xmlroot.childNodes.item(i).childNodes.item(3).text;
+		 		}
+				oCell = oRow.insertCell();
+				oCell.innerText = xmlroot.childNodes.item(i).childNodes.item(7).text;
+			}
+		}
+			</SCRIPT>
+
+<FORM id=fmSaveRate name=fmSaveRate>
+<DIV style="HEIGHT: 260px" class=scdiv>
+<TABLE 
+style="BORDER-BOTTOM: navy 1px solid; BORDER-LEFT: navy 1px solid; WIDTH: 460px; BORDER-COLLAPSE: collapse; BORDER-TOP: navy 1px solid; BORDER-RIGHT: navy 1px solid" 
+id=Table1 border=1 rules=all cellSpacing=0 borderColor=navy>
+  <SCRIPT language=javascript>
+						function init()
+						{
+							SetTitle(window.Table1, window.xmlForeignSaveRate.XMLDocument);
+							SetContent(window.Table1, window.xmlForeignSaveRate.XMLDocument);
+						}
+						</SCRIPT>
+
+  <TBODY></TBODY></TABLE></DIV></FORM></DIV>
+<SCRIPT>
+     //GetCalc_Close();
+		</SCRIPT>
+<xml id=xmlForeignSaveRate ondatasetcomplete=init(); src="../Data/ForeignSaveRate.xml"></xml>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

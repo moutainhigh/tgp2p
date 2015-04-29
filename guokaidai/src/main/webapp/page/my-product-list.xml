@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<page-table 	xmlns="http://www.w3school.com.cn" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.w3school.com.cn http://www.pomo.org/page-table.xsd"
+        id="table_page" class="table_page" primary="[0]" page-per-size="10"> 
+	
+	
+	<tr class="ss">
+		
+		<td attr="[1]" text="产品名称" >
+			<link href="cdr/creditor-list?id="/>
+		</td>
+		
+		<td attr="[2]" text="期限" />
+		
+		 <td attr="[3]" text="年化收益率" />
+		
+		<td attr="[4]" text="认购金额上限 " />
+		
+		<td attr="[5]" text="线上投资起点" />
+		
+		<td attr="[6]" text="线下投资起点" null-value="-"/>
+		
+	</tr>
+	
+	
+</page-table>

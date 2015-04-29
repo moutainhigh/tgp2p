@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://finance.ifeng.com/app/money/calc/Html/CalcSavingComb.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(535,374);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,388);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcOptiCombine.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY leftMargin=0 topMargin=0 bgColor=#ffffff text=#000000>
+<FORM id=SavingCombCalc onsubmit="return false;" name=SavingCombCalc>
+<DIV id=bg1 style="width:525px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px"><IMG src="CalcFiles/bg4.gif" width=25 height=100><IMG 
+src="CalcFiles/bg5.gif" width=475 height=100><IMG 
+src="CalcFiles/bg6.gif" width=25 height=100></DIV>
+<DIV id=bg3 style="width:525px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">最佳存款组合计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">当希望的储蓄存期不符合银行的固有存期时，本计算器可以协助您对存款制定一个最佳组合计划，即收益最大的组合计划。</DIV>
+<DIV style="WIDTH: 450px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=0 borderColorLight=#336666 borderColorDark=#e9f3f4 
+cellPadding=0 width="80%" height=180>
+  <TBODY>
+  <TR>
+    <TD width=120>初始存入金额</TD>
+    <TD width=150><INPUT style="WIDTH: 121px" id=edSum class=txtnum tabIndex=1 
+      name=edSum>元 </TD>
+    <TD><INPUT id=btnCalc class=btn tabIndex=3 onclick="javascript:if (CheckData()) calc(document);" name=btnCalc value=" 计算 " type=button> 
+    </TD></TR>
+  <TR>
+    <TD>希望的储蓄存期</TD>
+    <TD><SELECT style="WIDTH: 121px" id=cbTerm tabIndex=2 name=cbTerm> 
+        <OPTION selected value=2>2年</OPTION> <OPTION value=3>3年</OPTION> <OPTION 
+        value=4>4年</OPTION> <OPTION value=5>5年</OPTION> <OPTION 
+        value=6>6年</OPTION> <OPTION value=7>7年</OPTION> <OPTION 
+        value=8>8年</OPTION> <OPTION value=9>9年</OPTION> <OPTION 
+        value=10>10年</OPTION></SELECT></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <HR SIZE=1 width="100%">
+    </TD></TR>
+  <TR>
+    <TD colSpan=3><SPAN style="TEXT-ALIGN: left; WIDTH: 95%; HEIGHT: 49px" 
+      id=lbResult>计算得出</SPAN></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT>
+     //GetCalc_Close();
+		</SCRIPT>
+<xml id=xmlRMBSaveRate src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+function CheckData()
+{
+ if (!CheckFN3(document.all.edSum,"请在初始存入金额输入正数",false))
+	 return false;
+else
+	return true;
+}
+</SCRIPT>
+</BODY></HTML>

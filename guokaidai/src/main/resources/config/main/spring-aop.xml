@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/tx 
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	   http://www.springframework.org/schema/mvc 
+	   http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       http://www.springframework.org/schema/util 
+       http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean id="userUnLoginException" class="com.tpy.base.spring.exception.SimpleResponseException">
+		<constructor-arg index="0" value="/visitor/to-login" />
+		<constructor-arg index="1" value="请先登录后，执行操作!" />
+		<property name="attr" value="user_error" />
+		<property name="val" value="请先登录后，执行操作!" />
+		<property name="json" value='[-404,"请先登录后，执行操作!"]' />
+		<property name="ajaxView" ref="ajaxResponseView" />
+		<property name="urlView" ref="urlResponseView" />
+	</bean>
+	
+	<bean id="responseExceptionFactory" class="com.tpy.base.spring.exception.ResponseExceptionFactory">
+		<property name="url" value="/error-500.jsp" />
+		<property name="attr" value="msg" />
+		<property name="val" value="您请求的方式非法!" />
+		<property name="ajaxView" ref="ajaxResponseView" />
+		<property name="urlView" ref="urlResponseView" />
+	</bean>
+
+	<bean id="checkLoginAspect" class="com.tpy.base.spring.aspect.CheckLoginAspect">
+		<constructor-arg index="0" value="session_user" />
+		<constructor-arg index="1" value="com.tpy.p2p.chesdai.entity.Userbasicsinfo" />
+		<constructor-arg index="2" ref="userUnLoginException" />
+	</bean>
+
+	<aop:config>
+		<aop:pointcut id="bussinessService"
+			expression="(execution(* com.tpy.base.spring.service.*.*(..)) or execution(* com.tpy.p2p.chesdai.spring.service.*.*(..)) or execution(* com.tpy.p2p.chesdai.admin.spring.service.*.*(..)) or execution(* com.tpy.p2p.chesdai.admin.spring.service.*.*.*(..)) or execution(* com.tpy.p2p.core.service.*.*(..))) or execution(* com.tpy.p2p.chesdai.spring.service.borrow.*.*(..)))" />
+		<aop:advisor pointcut-ref="bussinessService" advice-ref="txAdvice" />
+        <aop:aspect id="aspectCheckLogin" ref="checkLoginAspect">
+        	<aop:pointcut id="pointLogin" expression="@annotation(com.tpy.base.annotation.LoginedUser)"/>
+            <aop:before method="executeBefore" pointcut-ref="pointLogin" arg-names="login" />
+        </aop:aspect>
+    </aop:config>
+    
+    <!-- 安全中心拦截器 -->
+	<bean id="fundsSafeInterceptor" class="com.tpy.base.spring.interceptor.FundsSafeInterceptor" ></bean>
+    <aop:config>  
+           <!--切入点-->  
+           <aop:pointcut id="checkFundsSafePoint" expression="@annotation(com.tpy.p2p.chesdai.spring.annotation.CheckFundsSafe)"/>
+           <!--在该切入点使用自定义拦截器-->
+           <aop:advisor advice-ref="fundsSafeInterceptor" pointcut-ref="checkFundsSafePoint"/>
+      </aop:config>  
+</beans>

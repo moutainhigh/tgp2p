@@ -1,0 +1,292 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.card-box {
+	/*overflow: hidden;*/
+	width: 230px;
+	height: 160px;
+	margin: 20px 17px 20px 20px;
+	background: #EFF0F1;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	border: 1px solid #DDDDDD;
+	float: left;
+}
+.card-box-name {
+	border-radius: 4px 4px 0 0;
+	height: 46px;
+	position: relative;
+	line-height: 46px;
+	font-size: 12px;
+}
+
+
+.card-box:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#E6E8EB));
+}
+.addCard-box{
+	width: 230px;
+	height: 160px;
+	margin: 20px 17px 20px 20px;
+	background: #FAFAFB;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	border: 1px dashed #8599B2;
+	transition: all 0.15s ease-in;
+	float: left;
+}
+.addCard-box a {
+	display: block;
+	overflow: hidden;
+	zoom: 1;
+	height: 112px;
+	padding: 48px 0 0 0;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: 700;
+	border: 1px dashed #AACCDD;
+	outline: none;
+	cursor: pointer;
+	-webkit-transition: all 0.15s ease-in;
+	transition: all 0.15s ease-in;
+}
+.addCard-box:hover {
+	background-color: #DFEEF7;
+}
+.bank-logo {
+	margin-left: 10px;
+}
+.bank-name {
+	font-size: 18px;
+}
+.card-box-express {
+	height: 37px;
+	margin: 0 0 15px 0;
+	background: #9A9B9F;
+	border-top: 1px solid #ABADAF;
+}
+.iconfont {
+	display: block;
+	margin: 0 auto;
+	vertical-align: -5px;
+	font-size: 35px;
+	color: #A8B5C4;
+	font-family: "rei";
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	line-height: 30px;
+}
+.card-type {
+
+}
+.express-num {
+	line-height: 37px;
+	text-align: center;
+	font-size: 20px;
+	font-family: "Consolas";
+	color: white;
+	font-weight: bolder;
+}
+
+.vipContBox {
+	width: 100%;
+	border: 1px solid #d0d0d0;
+	margin-bottom: 30px;
+	height: 600px;
+}
+
+/*添加银行卡*/
+.addCardTitle{
+	width: 640px;
+	height: 30px;
+	margin: 10px 20px 0px 20px;
+	/*background-color: #9A9B9F;*/
+	background-color: #F0F0F0;
+	border-radius: 5px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	font-size: 16px;
+	line-height: 30px;
+	padding-left: 10px;
+}
+.addBank {
+	width: 648px;
+	height: 530px;
+	#margin-left: 20px;
+	#border: 1px solid #D0D0D0;
+}
+.addBank em{
+	color: red;
+	font-style: normal;
+}
+.addBankTable {
+	width: 650px;
+	/*background-color: #EFF0F1;*/
+}
+.addBankTable td {
+	padding-left: 30px;
+	height: 50px;
+}
+.addBank input {
+	width: 250px;
+	height: 30px;
+	font-size: 14px;
+}
+.addBank select {
+	width: 254px;
+	height: 36px;
+	font-size: 14px;
+}
+.addBank .btn_ok {
+	width: 72px;
+	height: 32px;
+	font-size: 14px;
+	border-radius: 5px;
+	background: #33B9FF;
+}
+
+.addBank .btn_cl {
+	width: 72px;
+	height: 32px;
+	font-size: 14px;
+	border-radius: 5px;
+	background: #999;
+}
+
+.addBank a {
+	width: 72px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	/*background: #4169E1;*/
+	display: inline-block;
+	margin-right: 15px;
+	text-decoration:none;
+}
+.addBank a:hover {
+	color: #E6E6FA;
+}
+.addBank a:active {
+	/*background-color: #6495ED;*/
+	background-color: #6CC9FA;
+}
+
+.addBankTable .left {
+	width: 160px;
+	text-align: right;
+}
+.addBankTable .bottombtn{
+	height: 80px;
+	text-align: center;
+}
+.card-box {
+	/*overflow: hidden;*/
+	width: 230px;
+	height: 160px;
+	margin: 20px 17px 20px 20px;
+	background: #EFF0F1;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	border: 1px solid #DDDDDD;
+}
+.card-box-name {
+	border-radius: 4px 4px 0 0;
+	height: 46px;
+	position: relative;
+	line-height: 46px;
+	font-size: 12px;
+}
+.card-box:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#E6E8EB));
+}
+.bank-logo {
+	margin-left: 10px;
+}
+.bank-name {
+	font-size: 18px;
+}
+.card-type {
+	margin-left: 28px;
+}
+.card-box-express {
+	height: 37px;
+	margin: 0 0 15px 0;
+	background: #9A9B9F;
+	border-top: 1px solid #ABADAF;
+}
+.express-num {
+	line-height: 37px;
+	text-align: center;
+	font-size: 20px;
+	font-family: "Consolas";
+	color: white;
+	font-weight: bolder;
+}
+.pg-container-content {
+	padding-bottom: 344px;
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+.bankList {
+	padding-bottom: 20px;
+}
+
+.title {
+	font-size: 22px;
+	height: 30px;
+	line-height: 30px;
+	padding-left:10px;
+	padding-top:10px;
+}
+.fn-clear {
+	zoom: 1;
+}
+
+.bankList ul li {
+	width: 224px;
+	height: 120px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	float: left;
+	margin: 10px;
+	display: inline;
+	cursor: pointer;
+	color: #a5a5a5;
+	overflow: hidden;
+	position: relative;
+}
+.bankList ul li img {
+	margin-top: 15px;
+}
+
+.bankList ul li .card {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	line-height: 30px;
+	color: #A5A5A5;
+	border-top: 1px solid #DDD;
+}
+
+.bankList ul li .mod {
+}
+
+.bankList ul li .del {
+}
+
+.p20bs.addattr{
+	/* border: 1px solid #e0e0e0; */
+	/* box-shadow: 0 0 2px 1px #efefef; */
+	padding: 19px;
+}

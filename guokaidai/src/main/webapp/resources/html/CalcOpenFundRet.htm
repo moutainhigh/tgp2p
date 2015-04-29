@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://finance.ifeng.com/app/money/calc/Html/CalcOpenFundRet.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  			//window.resizeTo(535,395);
+	</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,409);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcOpenFundRet.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<SCRIPT id=clientEventHandlersJS language=javascript>
+<!--
+
+function btnCalc_onclick() {
+
+if (!CheckFN3(edprice,"请在赎回上一日基金单位净值中输入正数",false,null,4))
+	   		return false;
+			if (!CheckFN3(edunit,"请在赎回份额中输入正数",false))
+	   		return false;
+	   		if (!CheckFN(edrate,"请在赎回费率中输入非负数",null))
+	   		return false;
+            document.all.edsum.value=CalcRetSum(document);
+
+}
+
+//-->
+	  </SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=EduCalc name=EduCalc>
+<DIV id=bg1 style="width:525px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px"><IMG src="CalcFiles/bg4.gif" width=25 height=120><IMG 
+src="CalcFiles/bg5.gif" width=475 height=120><IMG 
+src="CalcFiles/bg6.gif" width=25 height=120></DIV>
+<DIV id=bg3 style="width:525px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">开放式基金赎回金额计算器</DIV>
+<DIV style="WIDTH: 450px" id=FDiv2 class=FDiv2 
+Movable="1">输入赎回份数、基金单位净值、赎回费率，本计算器将计算出可能赎回的金额。 </DIV>
+<DIV style="WIDTH: 450px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=0 borderColorLight=#336666 borderColorDark=#e9f3f4 
+cellPadding=0 width="90%" height=170>
+  <TBODY>
+  <TR>
+    <TD>赎回上一日基金单位净值(元)</TD>
+    <TD><INPUT style="WIDTH: 125px" id=edprice class=txtnum tabIndex=1000 
+      name=edprice> </TD>
+    <TD><INPUT style="WIDTH: 60px" id=btnCalc class=btn tabIndex=1003 onclick="return btnCalc_onclick()" value=" 计算 " type=button> 
+    </TD></TR>
+  <TR>
+    <TD>赎回份额(份)</TD>
+    <TD><INPUT style="WIDTH: 125px" id=edunit class=txtnum tabIndex=1001 
+      name=edunit> </TD></TR>
+  <TR>
+    <TD>赎回费率(%)</TD>
+    <TD><INPUT style="WIDTH: 125px" id=edrate class=txtnum tabIndex=1002 
+      name=edrate> </TD></TR>
+  <TR>
+    <TD colSpan=3 align=left>
+      <HR SIZE=1 width="90%">
+    </TD></TR>
+  <TR>
+    <TD>上一日可赎回金额(元)</TD>
+    <TD><INPUT style="WIDTH: 125px" id=edsum class=txtd disabled tabIndex=3 
+      name=edsum readOnly value=计算得出> </TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript for=btnCalc event=onclick>
+			
+	   		
+	   //		var cal = new ActiveXObject("FinanceCalculator.ICalcFundRet");
+	  // 		cal.Execute(edprice.value,edunit.value,edrate.value);
+	   		
+		//	document.all.edsum.value=cal.RetSum;
+	</SCRIPT>
+
+<SCRIPT>
+     //GetCalc_Close();
+	</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

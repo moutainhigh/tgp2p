@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3school.com.cn" xmlns="http://www.w3school.com.cn"
+	elementFormDefault="qualified">
+
+	<!-- 复合元素执行顺序 -->
+	<!-- 1、替换 2、长度限制,小数精度,图片转换 3、添加链接 -->
+
+	<!-- 备注 -->
+	<!-- 当属性与子标签冲突时，以子标签为准 -->
+
+	<xs:element name="page-table">
+		<xs:complexType>
+			
+			<xs:sequence>
+			
+				<xs:choice minOccurs="0">
+					<xs:element name="checkbox" type="checkbox" />
+					<xs:element name="radio" type="radio" />
+				</xs:choice>
+			
+				<xs:element name="tr">
+					<xs:complexType>
+					
+						<!-- maxOccurs="unbounded" 表示该元素可以无限重复 -->
+						<xs:sequence maxOccurs="unbounded" minOccurs="1">
+							<xs:element name="td" type="td" />
+						</xs:sequence>
+						
+						<xs:attribute name="class" type="xs:string" />						<!-- 设置tr样式[不包括标题列] -->
+					</xs:complexType>
+				</xs:element>
+			
+				<xs:choice minOccurs="0">
+					<xs:element name="handle" type="handle" />
+				</xs:choice>
+				
+				<xs:choice minOccurs="0">
+					<xs:element name="shade" type="shade" />
+				</xs:choice>
+				
+				<xs:choice minOccurs="0">
+					<xs:element name="pagination" type="pagination" />
+				</xs:choice>
+				
+				<xs:choice minOccurs="0">
+					<xs:element name="callback" type="callback" />
+				</xs:choice>
+			</xs:sequence>
+			
+			
+			<!-- page标签的属性 -->
+			<xs:attribute name="primary" type="xs:string" use="required" />					<!-- 分页查询的主键 -->
+			<xs:attribute name="id" type="xs:string" />		<!-- table 的 id -->
+			<xs:attribute name="class" type="xs:string" />		<!-- table 的 class -->
+			<xs:attribute name="page-per-size" type="xs:int" default="10" />				<!-- 每页显示条数 -->
+		</xs:complexType>
+	</xs:element>
+
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||↓ 根标签的子标签  ↓||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+	<!-- 回调方法标签  -->
+	<xs:complexType name="callback">
+		<!-- maxOccurs="unbounded" 表示该元素可以无限重复 -->
+		<xs:sequence maxOccurs="4" minOccurs="1">
+					<xs:element name="function">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="level" type="callback-level" />
+									<xs:attribute name="value" type="xs:string" />
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- 遮罩  -->
+	<xs:complexType name="shade">
+		<xs:attribute name="class" type="xs:string" />						<!-- DIV的class -->
+		<xs:attribute name="opacity" type="opacity" default="0.5" />		<!-- 透明度(0~1) -->
+		<xs:attribute name="area" type="shade-area" default="data" />		<!-- 遮罩范围 -->
+	</xs:complexType>
+
+	<!-- 底部分页块  -->
+	<xs:complexType name="pagination">
+		<xs:attribute name="class" type="xs:string" />									<!-- DIV的class -->
+		<xs:attribute name="paging" type="paging-handle-type" default="invisible" />	<!-- 是否启用,当值为false时,其他属性失效 -->
+		<xs:attribute name="page-piece-size" type="page-piece-size" default="9" />		<!-- 底部最大分页小块 -->
+	</xs:complexType>
+
+	<!-- 多选文本框列  -->
+	<xs:complexType name="checkbox">
+		<xs:attribute name="able" type="xs:boolean" default="true" />		<!-- 是否启用,当值为false时,其他属性失效 -->
+		<xs:attribute name="keep" type="xs:boolean" default="true" />		<!-- 是否允许翻页记忆勾选 -->
+		<xs:attribute name="bottom-tip" type="bottom-tip" default="auto" />	<!-- 底部tr处理类型 -->
+	</xs:complexType>
+	
+	<!-- 单选列  -->
+	<xs:complexType name="radio">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="event" type="event" />
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- 处理类型 -->
+	<xs:complexType name="handle">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="button">
+				<xs:complexType>
+					
+					<xs:sequence>
+						<xs:choice minOccurs="0">
+							<xs:element name="replace" type="replace" />	<!-- 替换元素 -->
+						</xs:choice>
+						<xs:choice minOccurs="0">
+							<xs:element name="link" type="link" />			<!-- 链接元素 -->
+						</xs:choice>
+					</xs:sequence>
+					
+					
+
+					<xs:attribute name="class" type="xs:string" />		<!-- 设置a样式 -->
+					<xs:attribute name="text" type="xs:string"  />		<!-- 按钮名称  -->
+					
+					<!-- 备注：link属性会叠加到link标签上，href、attr会以link标签为准 -->
+					
+					
+					<xs:attribute name="attr" type="xs:string"  />		<!-- 获取的分页的attr，默认使用ID,仅针对link -->
+					<xs:attribute name="href" type="xs:string"  />		<!-- 按钮的link[href]  -->
+					<xs:attribute name="event" type="events" />			<!-- 按钮的link[事件]  -->
+					<xs:attribute name="executeor" type="xs:string" />	<!-- 按钮的link[事件执行者]  -->
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+		<xs:attribute name="text" type="xs:string" />		<!-- 设置该列名称 -->
+		<xs:attribute name="class" type="xs:string" />		<!-- 设置td样式 -->
+	</xs:complexType>
+
+	<!-- 普通列  -->
+	<xs:complexType name="td">
+	
+		<!-- 最少可以不选 -->
+		<xs:sequence>
+		
+			<xs:choice minOccurs="0">
+				<xs:element name="replace" type="replace" />
+			</xs:choice>
+		
+			<!-- 以下标签三选一 -->
+			<xs:choice minOccurs="0">
+				<xs:element name="format-decimals" type="format-decimals" />
+				<xs:element name="array" type="array" />
+				<xs:element name="img" type="img" />
+			</xs:choice>
+			
+			<xs:choice minOccurs="0">
+				<xs:element name="link" type="link" />
+			</xs:choice>
+			
+		</xs:sequence>
+
+		
+		<xs:attribute name="class" type="xs:string" />						<!-- 设置td样式 -->
+		<xs:attribute name="maxlength" type="xs:int" />						<!-- column 的 最大长度 -->
+		<xs:attribute name="attr" type="xs:string" use="required" />		<!-- column 的 JSON键值 -->
+		<xs:attribute name="text" type="xs:string" />						<!-- column 的 列名 -->
+		<xs:attribute name="null-value" type="xs:string" />					<!-- 当返回值为null时的默认填充值  -->
+		<xs:attribute name="tip" type="xs:string" />						<!-- column 的 html 的title属性[若字符串被${}包裹则，从JSON中取值] -->
+		<xs:attribute name="hide" type="xs:boolean" />						<!-- column 的 是否不予显示 -->
+		
+	</xs:complexType>
+
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||↓ 普通列普通转换方式  ↓||||||||||||||||||||||||||||||||||||||||||||| -->
+
+	<!-- 链接类型 -->
+	<xs:complexType name="link">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="event" type="event" />
+		</xs:choice>
+
+		<xs:attribute name="attr" type="xs:string" />	<!-- column 的 JSON键值 -->
+		<xs:attribute name="href" type="xs:string" default="javascript:void(0);" />
+		<xs:attribute name="event" type="events" />
+		<xs:attribute name="executeor" type="xs:string" />
+	</xs:complexType>
+	
+	
+	<!-- 图片转换 -->
+	<xs:complexType name="img">
+		<xs:attribute name="class" type="xs:string" />	<!-- 设置img样式 -->
+		<xs:attribute name="prefix" type="xs:string" />	<!-- column 的 JSON键值 的 前缀-->
+		<xs:attribute name="suffix" type="xs:string" />	<!-- column 的 JSON键值 的 后缀-->
+		<xs:attribute name="width" type="xs:int" />	<!-- column 的 JSON键值 的 后缀-->
+		<xs:attribute name="height" type="xs:int" />	<!-- column 的 JSON键值 的 后缀-->
+	</xs:complexType>
+	
+	<!-- 小数精度保留 -->
+	<xs:complexType name="format-decimals">
+		<xs:attribute name="decimals-position" type="decimals-position" />	<!-- 小数点后位数 -->
+		<xs:attribute name="type" type="retention-type" default="round" />		<!-- 保留方式-->
+	</xs:complexType>
+
+	<!-- 替换类型 -->
+	<!-- 1、当表达式与eq同时存在时，优先执行eq -->
+	<xs:complexType name="replace">
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element name="if">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="expression" type="xs:string" />	<!-- @代表动态值 -->
+							<xs:attribute name="equals" type="xs:string" />
+							<xs:attribute name="value" type="xs:string" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+
+		<xs:attribute name="attr" type="xs:string" />	<!-- column 的 JSON键值 -->
+		<xs:attribute name="other" type="xs:string" />
+		<xs:attribute name="expression" type="xs:string" />
+		<xs:attribute name="equals" type="xs:string" />
+		<xs:attribute name="value" type="xs:string" />
+	</xs:complexType>
+
+
+	<!-- 数组替换类型(枚举) -->
+	<xs:complexType name="array">
+		<xs:attribute name="name" type="xs:string" use="required"/>	<!-- 保存于作用域中的值  -->
+		<xs:attribute name="scope" type="scope" default="application" />
+	</xs:complexType>
+
+	
+	
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||↓ 自定义枚举  ↓||||||||||||||||||||||||||||||||||||||||||||||||| -->
+	
+
+	<!-- JS事件 -->
+	<xs:simpleType name="events">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="click" />		<!-- 单		击	-->
+			<xs:enumeration value="dblclick" />		<!-- 双		击 	-->
+			<xs:enumeration value="mouseup" />		<!-- 鼠	标移	上	-->
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- event标签 -->
+	<xs:complexType name="event">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="events" />
+				<xs:attribute name="value" type="xs:string" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<!-- 作用域 -->
+	<xs:simpleType name="scope">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="application" />
+			<xs:enumeration value="session" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 回调方法级别 -->
+	<xs:simpleType name="callback-level">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="start" />	<!-- 回传参数[1:$page] -->
+			<xs:enumeration value="td" />		<!-- 回传参数[1:index[0],2:$td,3:$item,4:$page] -->
+			<xs:enumeration value="tr" />		<!-- 回传参数[1:$tr,2:$item,3:$page] -->
+			<xs:enumeration value="end" />		<!-- 回传参数[1:$table,3:$page] -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 保留小数的方式 -->
+	<xs:simpleType name="retention-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ceil" />		<!-- 向上取值 -->
+			<xs:enumeration value="floor" />	<!-- 向下取值 -->
+			<xs:enumeration value="round" />	<!-- 四舍五入取值 -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- check底部tr -->
+	<xs:simpleType name="bottom-tip">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="auto" />		<!-- 自          动 -->
+			<xs:enumeration value="visible" />	<!-- 始终显示 -->
+			<xs:enumeration value="gone" />		<!-- 始终隐藏 -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 底部分页块在翻页时的处理方式 -->
+	<xs:simpleType name="paging-handle-type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="visible" />		<!-- 始终显示 -->
+			<xs:enumeration value="invisible" />	<!-- 隐藏占位 -->
+			<xs:enumeration value="gone" />			<!-- 完全隐藏-->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 底部分页块在翻页时的处理方式 -->
+	<xs:simpleType name="shade-area">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="column_data" />					<!-- 列名+数据  -->
+			<xs:enumeration value="data" />							<!-- 数据 -->
+			<xs:enumeration value="data_check" />					<!-- 数据+底部check -->
+			<xs:enumeration value="column_data_check" />			<!-- 列名+数据+底部check -->
+			<xs:enumeration value="data_check_pagination" />		<!-- 数据+底部check+分页块 -->
+			<xs:enumeration value="column_data_check_pagination" />	<!-- 列名+数据+底部check+分页块 -->
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||↓ 自定义范围  ↓||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+	<!-- 透明度 -->
+	<xs:simpleType name="opacity">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0" />		<!-- 最小取值为0 -->
+			<xs:maxInclusive value="1" />		<!-- 最小取值为1 -->
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 分页块限制 -->
+	<xs:simpleType name="page-piece-size">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="5" />		<!-- 最小取值为5 -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 分页块限制 -->
+	<xs:simpleType name="decimals-position">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1" />		<!-- 最小取值为5 -->
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

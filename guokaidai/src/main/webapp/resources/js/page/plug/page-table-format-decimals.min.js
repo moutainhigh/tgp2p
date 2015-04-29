@@ -1,0 +1,1 @@
+function decimals_parse(e,t){return t!=null&&isNaN(t)&&t.indexOf(".")>0?t:(e.type=="ceil"?t=(t+.5).toFixed(e.decimalsPosition):e.type=="floor"?t=(t-.5).toFixed(e.decimalsPosition):t=t.toFixed(e.decimalsPosition),t)}

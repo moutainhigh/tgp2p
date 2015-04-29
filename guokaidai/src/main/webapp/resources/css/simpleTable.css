@@ -1,0 +1,145 @@
+a{
+	color: #000;
+}
+
+/*顶层div_page*/
+.div_page{
+	border:0px solid #000;
+}
+
+/*黑色遮罩*/
+#div_black {
+	width: 100%;
+	height: 365px;
+	background: #CCCCCC;
+	position: absolute;
+	top: 20px;
+	filter: alpha(opacity =   50);
+	z-index: 1;
+}
+
+/*加载中GIF图片*/
+#div_load {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 550px;
+	top: 130px;
+	z-index: 2;
+	background:url("../img/load_img.gif");
+}
+
+/*[数据表格]*/
+#table_page{
+	border:1px solid #C0C0C0; 
+	border-collapse:collapse;
+	font-size:12px;
+	text-align:center;
+	width:90%;
+	margin-right:5%;
+	margin-bottom:5px;
+	float:right;
+	background:#FFF;
+}
+
+
+
+/*[数据表格标题列]*/
+#table_page .start{
+	color:#FFF;
+	height:29px;
+	border:1px solid #C0C0C0;
+	border-collapse:collapse;
+	font-size:12px;
+	background:url("../img/border-start.png");
+}
+
+
+/*[数据Check小结]*/
+#table_page .end{
+	color:#FFF;
+	height:29px;
+	border:1px solid #C0C0C0;
+	border-collapse:collapse;
+	font-size:12px;
+	background:url("../img/border-end.png");
+}
+
+/*[数据Check小结]*/
+#table_page .end span{
+	padding-left:8px;
+	padding-right:8px;
+}
+
+#table_page .end a{
+	color:#FFF;
+}
+
+#table_page .end span{
+	line-height: 29px;
+}
+
+/*[数据表格单元格]*/
+#table_page td {
+	text-align: center;
+	height:29px;
+	border-collapse:collapse;
+	font-size:12px;
+	border:1px solid #C0C0C0;
+}
+
+/*分页块DIV*/
+#div_pagination{
+	margin-right:5%;
+	padding-top:5px;
+	padding-bottom:5px;
+	float:right;
+}
+
+/*页码块*/
+#div_pagination .toPage {
+	border: 1px solid #CCCCCC;
+	margin: 0 5px;
+	color: #000;
+	cursor: pointer;
+	padding-right:4px;
+	padding-left:4px;
+	padding-top:2px;
+}
+
+/*页码块-光标移上*/
+#div_pagination .toPage_hover {
+	border: 1px solid #CCCCCC;
+	background: #CCCCCC;
+	cursor: pointer;
+}
+
+/*页码块-选中*/
+#div_pagination .toPage_selected {
+	border: 0px solid #CCCCCC;
+	cursor:auto;
+	color:#000;
+	font-weight:bold;
+}
+
+/*数据列-光标移上*/
+.light_bar_hover{
+	color:#FFF;
+	background:url("../img/border_hover.png");
+}
+
+/*数据列-光标移上*/
+.light_bar_hover a{
+	color:#FFF;
+}
+
+/*数据列-被选中*/
+.light_bar_checked{
+	color:#FFF;
+	background:url("../img/border_hover.png");
+}
+
+/*数据列-被选中*/
+.light_bar_checked a{
+	color:#FFF;
+}

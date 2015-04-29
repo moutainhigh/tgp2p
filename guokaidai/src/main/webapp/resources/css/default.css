@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+/* CSS base litao coder */
+.bannerBox{width:100%; height:350px; position:relative; top:-3px; text-align:center; background:#ffdeb4; overflow:hidden;}
+.bannerBox a{width:100%; height:350px; margin:auto; text-align:left; display:inline-block;}
+.bannerNavBox{width:100%; height:30px; position:absolute; bottom:0px; left:0px; background:url(../images/df_bannerBottomBG.png) repeat-x bottom; text-align:center; z-index:10;}
+.bannerNavBox a{width:16px; height:16px; overflow:hidden; display:inline-block; background:url(../images/bannerNavBg.png) no-repeat; cursor:pointer; margin:0px 5px;}
+.bannerNavBox a.no{background-position:0px -25px;}
+.bannerNavBox a.yes{background-position:0px 0px;}
+/* Content */
+.Content{width:100%; height:auto; margin-top:10px;}
+.tuwenList{width:100%; height:116px;}
+.tuwenList li{float:left; margin-left:22px; display:inline; text-align:left;}
+.tuwenList li span{width:108px; height:108px; background:url(../images/baseIcon.png) no-repeat; display:inline-block; margin:auto;}
+.tuwenList li span.tuwenIcon_1{background-position:-60px -49px;}
+.tuwenList li span.tuwenIcon_2{background-position:-251px -59px;}
+.tuwenList li span.tuwenIcon_3{background-position:-441px -61px;}
+.tuwenList li h2{width:100%; height:30px; line-height:1.6; font-size:23px; text-align:left; margin-top:5px; font-weight:400;color:#2BA6CB;}
+.tuwenList li p{width:100%; height:auto; line-height:25px; font-size:12px; color:#666666; text-align:left; margin-top:5px;}
+.tuwenList li a{width:100%; height:auto; display:inline-block;}
+.tuwenList li a h2{color:#366384;}
+.tuwenList li a:hover h2{color:#366384;}
+.tuwenList li a:hover p{color:#323335;}
+.tuwenList li a:hover span.tuwenIcon_1{background-position:-60px -192px;}
+.tuwenList li a:hover span.tuwenIcon_2{background-position:-251px -202px;}
+.tuwenList li a:hover span.tuwenIcon_3{background-position:-441px -204px;}
+
+.desc-icon1 {
+    background: url(/upload/banner/intro_1.png) no-repeat;
+}
+.desc-icon2 {
+    background: url(/upload/banner/intro_2.png) no-repeat;
+}
+.desc-icon3 {
+    background: url(/upload/banner/intro_3.png) no-repeat;
+}
+.desc-icon1:hover {
+    background: url(/upload/banner/intro_1.gif) no-repeat;
+}
+.desc-icon2:hover {
+    background: url(/upload/banner/intro_2.gif) no-repeat;
+}
+.desc-icon3:hover {
+    background: url(/upload/banner/intro_3.gif) no-repeat;
+}
+
+
+.df_newBox{width:100%; height:auto; margin-top:30px;}
+.df_newLeft,.df_newRight{width:470px; height:auto;}
+.df_newLeft{float:left;}
+.df_newRight{float:right;}
+.newstitleBox{width:100%; height:40px; border-bottom:1px solid #e5e5e5; position:relative;}
+.newstitleBox i{width:32px; height:32px; display:inline-block; vertical-align:middle; margin:0px 5px; background:url(../images/baseIcon.png) no-repeat; overflow:hidden;}
+.newstitleBox i.newsIcon_1{background-position:0px -202px;}
+.newstitleBox i.newsIcon_2{background-position:0px -240px;}
+.newstitleBox span{width:100px; height:40px; line-height:40px; font-size:20px; color:#545454; display:inline-block; font-weight:normal;}
+.newstitleBox a{width:auto; height:20px; line-height:20px; position:absolute; right:0px; top:10px; color:#c8c8c8;}
+.txList ul{width:100%; height:auto; margin-top:10px;}
+.txList ul li{width:450px; height:30px; line-height:1.8; padding-left:20px; background:url(../images/newsItem.png) no-repeat 5px 8px; border-bottom:1px solid #f1f1f1; font-size:14px; color:#666666;}
+.txList ul li a,.txList ul li span{line-height:1.8; font-size:14px; color:#666666; display:inline-block;}
+.txList ul li a{width:350px; float:left;}
+.txList ul li a:hover{color:#0094d9;}
+.txList ul li span{float:right; width:100px; text-align:right;}

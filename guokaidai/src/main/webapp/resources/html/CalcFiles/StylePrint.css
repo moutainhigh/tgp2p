@@ -1,0 +1,39 @@
+TR.trnoprt {
+	DISPLAY: none
+}
+TD.tdnoprt {
+	DISPLAY: none
+}
+DIV.divnoprt {
+	DISPLAY: none
+}
+IMG {
+	VISIBILITY: hidden
+}
+TABLE {
+	BACKGROUND-COLOR: white
+}
+TR {
+	BACKGROUND-COLOR: white
+}
+TD {
+	BACKGROUND-COLOR: white
+}
+TABLE {
+	FONT-SIZE: 9pt
+}
+TEXTAREA.txta {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; OVERFLOW: visible
+}
+DIV.scdiv {
+	BORDER-BOTTOM-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; OVERFLOW: visible
+}
+.noprint {
+	DISPLAY: none
+}
+TD.tdbackleft {
+	DISPLAY: none
+}
+IFRAME {
+	DISPLAY: none
+}

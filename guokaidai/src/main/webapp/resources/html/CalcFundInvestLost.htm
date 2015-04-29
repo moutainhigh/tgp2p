@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0067)http://finance.ifeng.com/app/money/calc/Html/CalcFundInvestLost.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  			//window.resizeTo(515,415);
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(514,429);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcFundInvestLost.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=EduCalc onsubmit="return false;" name=EduCalc>
+<DIV id=bg1 style="width:505px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=230 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:505px;"><IMG src="CalcFiles/bg4.gif" width=25 height=140><IMG 
+src="CalcFiles/bg5.gif" width=455 height=140><IMG 
+src="CalcFiles/bg6.gif" width=25 height=140></DIV>
+<DIV id=bg3 style="width:505px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=455 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">封闭式基金投资损益计算器</DIV>
+<DIV style="WIDTH: 450px" id=FDiv2 class=FDiv2 
+Movable="1">投资损益是客户进行投资关注的焦点。本计算器将根据基金的买入、卖出价格和交易费率等已知条件，计算出封闭式基金投资损益。</DIV>
+<DIV style="WIDTH: 250px" id=FDiv3 class=FDiv3 align=center>
+<TABLE id=Table1 border=0 cellSpacing=0 borderColorLight=#336666 
+borderColorDark=#e9f3f4 cellPadding=0 width="90%">
+  <TBODY>
+  <TR>
+    <TD align=center>
+      <HR 
+      style="Z-INDEX: 104; POSITION: absolute; WIDTH: 400px; HEIGHT: 1px; TOP: 170px; LEFT: 22px" 
+      SIZE=1 width="91.31%">
+      <INPUT 
+      style="Z-INDEX: 101; POSITION: absolute; WIDTH: 108px; TOP: 18px; LEFT: 201px" 
+      id=edinprice class=txtnum tabIndex=1010 name=edinprice> <INPUT 
+      style="Z-INDEX: 102; POSITION: absolute; WIDTH: 108px; TOP: 72px; LEFT: 200px" 
+      id=edoutprice class=txtnum tabIndex=1020 name=edoutprice> 
+      <DIV 
+      style="Z-INDEX: 105; POSITION: absolute; WIDTH: 120px; HEIGHT: 19px; TOP: 190px; LEFT: 35px" 
+      align=left ms_positioning="FlowLayout">基金的投资损益(元)</DIV><INPUT style="Z-INDEX: 106; POSITION: absolute; WIDTH: 53px; HEIGHT: 20px; TOP: 17px; LEFT: 354px" id=btnCalc class=btn tabIndex=1050 name=btnCalc onClick="Lance();" value=" 计算 " type=button> 
+
+      <DIV style="Z-INDEX: 107; POSITION: absolute; TOP: 73px; LEFT: 35px" 
+      ms_positioning="text2D">基金的卖出价格（元）</DIV><INPUT 
+      style="Z-INDEX: 108; POSITION: absolute; WIDTH: 108px; TOP: 99px; LEFT: 200px" 
+      id=edoutnum class=txtnum tabIndex=1030 name=edoutnum> 
+      <DIV style="Z-INDEX: 109; POSITION: absolute; TOP: 128px; LEFT: 35px" 
+      ms_positioning="text2D">基金的交易费率（%）</DIV><INPUT 
+      style="Z-INDEX: 110; POSITION: absolute; WIDTH: 109px; TOP: 189px; LEFT: 202px" 
+      id=txttotal class=txtd name=txttotal value=计算得出> 
+      <DIV style="Z-INDEX: 111; POSITION: absolute; TOP: 102px; LEFT: 35px" 
+      ms_positioning="text2D">基金的卖出单位（份）</DIV><INPUT 
+      style="Z-INDEX: 112; POSITION: absolute; WIDTH: 108px; TOP: 126px; LEFT: 200px" 
+      id=edtraderate class=txtnum tabIndex=1040 name=edtraderate 
+      value=0.25><STRONG> </STRONG><STRONG></STRONG>
+      <DIV style="Z-INDEX: 113; POSITION: absolute; TOP: 20px; LEFT: 35px" 
+      ms_positioning="text2D">基金的买入价格（元）</DIV>
+      <DIV style="Z-INDEX: 114; POSITION: absolute; TOP: 48px; LEFT: 35px" 
+      ms_positioning="text2D">基金持有期间的分红金额（元）</DIV><INPUT 
+      style="Z-INDEX: 115; POSITION: absolute; WIDTH: 108px; TOP: 45px; LEFT: 200px" 
+      id=edcake class=txtnum tabIndex=1010 name=edcake> 
+</TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT>
+
+function Lance(){
+
+			if (!CheckFN3(edinprice,"请在基金的买入价格中输入正数",false))
+	   		return false;	   					
+	   		if (!CheckFN3(edcake,"请在基金持有期间的分红金额中输入非负数",true))
+	   		return false;	   	   		
+	   		if (!CheckFN3(edoutprice,"请在基金的卖出价格中输入正数",false))
+	   		return false;	   
+	   		if (!CheckPN(edoutnum,"请在基金的卖出单位中输入正整数",false))
+	   		return false;	   	   		
+	   		if (!CheckFN3(edtraderate,"请在基金的交易费率中输入正数",false))
+	   		return false;
+			calc(document);
+}
+		</SCRIPT>
+
+<SCRIPT language=javascript>
+		function loadinit() { this.document.all.txttotal.disabled=true;
+		 }
+		window.attachEvent("onload",loadinit); 
+		
+     //GetCalc_Close();
+		
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

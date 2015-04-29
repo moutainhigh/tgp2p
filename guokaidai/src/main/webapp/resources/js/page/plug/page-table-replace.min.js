@@ -1,0 +1,1 @@
+function replace_parse(replace,value,replaceVal){var sign=!0;return $.each(replace.ifs,function(k,ifs){if(ifs.equals&&replaceVal==ifs.equals[0]||ifs.expression&&eval(ifs.expression.replace(/[@]/g,replaceVal)))return value=ifs.value.replace(/[@]/g,value),sign=!1,!1}),sign&&replace.other&&(value=replace.other.replace(/[@]/g,value)),value}

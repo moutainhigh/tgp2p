@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://finance.ifeng.com/app/money/calc/Html/CalcBuyHouse.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<SCRIPT>
+		//window.resizeTo(564,475);  
+    </SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(562,498);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcBuyHouse.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0>
+<FORM id=EduCalc onsubmit="return false;" method=post name=EduCalc 
+action=BuyHouseCalc.aspx>
+<DIV id=bg1 style="width:560px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=285 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:560px;"><IMG src="CalcFiles/bg4.gif" width=25 height=210><IMG 
+src="CalcFiles/bg5.gif" width=510 height=210><IMG 
+src="CalcFiles/bg6.gif" width=25 height=210></DIV>
+<DIV id=bg3 style="width:560px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=510 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">按揭购房相关税费计算器</DIV>
+<DIV style="WIDTH: 500px" id=FDiv2 class=FDiv2 
+Movable="1">输入希望购买房屋的面积和每平方米价格，本计算器将计算出购房所可能发生的税费金额，以供参考。</DIV>
+<DIV style="WIDTH: 520px; HEIGHT: 90px" id=FDiv3 class=FDiv3>
+<TABLE id=Table1 border=0 cellSpacing=0 cellPadding=0 width="100%" height=308 
+ms_2d_layout="TRUE">
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE border=0 width="95%" align=center>
+        <TBODY>
+        <TR>
+          <TD width=190>房屋面积（平方米）</TD>
+          <TD width=150><INPUT style="WIDTH: 120px" id=edHouseArea class=txtd 
+            tabIndex=1 name=edHouseArea></TD>
+          <TD width=120>&nbsp;</TD>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>每平方米价格（元）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=edHousePrice class=txtd 
+            tabIndex=2 name=edHousePrice></TD></TR>
+        <TR>
+          <TD>契税（%）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=edQiTax class=txtd tabIndex=3 
+            name=edQiTax value=1.5></TD>
+          <TD>印花税（%）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=YHSL class=txtd tabIndex=4 
+            name=YHSL value=0.05></TD></TR>
+        <TR>
+          <TD>公共维修基金（%）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=WXFL class=txtd tabIndex=5 
+            name=WXFL value=2></TD>
+          <TD>律师费（%）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=LSFL class=txtd tabIndex=6 
+            name=LSFL value=0.4></TD></TR>
+        <TR style="DISPLAY: none">
+          <TD>保险费率（%）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=BXFL class=txtd name=BXFL 
+          value=0></TD>
+          <TD>贷款期限（年）</TD>
+          <TD><INPUT style="WIDTH: 120px" id=edHouseYears class=txtd 
+            name=edHouseYears value=0></TD></TR>
+        <TR>
+          <TD colSpan=3></TD>
+          <TD><INPUT id=btnCalc class=btn tabIndex=7 name=btnCalc onClick="Carson();S" value=" 计算 " type=button></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height=10>
+      <HR SIZE=1 width="98%">
+    </TD></TR>
+  <TR>
+    <TD style="PADDING-TOP: 10px" vAlign=top>
+      <TABLE border=0 cellSpacing=2 cellPadding=3 width="95%" align=center>
+        <TBODY>
+        <TR>
+          <TD title=是指在土地、房屋权属转移时，向取得土地使用权、房屋所有权的单位和个人征收的一种税。>契税(元)</TD>
+          <TD width=130><INPUT style="WIDTH: 120px" id=Tax onchange=Change(); 
+            class=txtd tabIndex=8 name=Tax value=计算得出(可修改)></TD>
+          <TD title=是对经济活动和经济交往中书立、领受凭证征收的一种税。 width=80>印花税(元)</TD>
+          <TD width=130><INPUT style="WIDTH: 120px" id=Match 
+            onchange=Change(); class=txtd tabIndex=9 name=Match 
+          value=计算得出(可修改)></TD></TR>
+        <TR>
+          <TD title=房屋买卖手续费按件收取。>房屋买卖手续费(元)</TD>
+          <TD><INPUT style="WIDTH: 120px" id=BuyFee onchange=Change(); 
+            class=txtd tabIndex=10 name=BuyFee value=计算得出(可修改)></TD>
+          <TD title=因银行指定律师审查购房者的贷款资信而产生的费用，由购房者支付。>律师费(元)</TD>
+          <TD><INPUT style="WIDTH: 120px" id=Lawer onchange=Change(); 
+            class=txtd tabIndex=11 name=Lawer value=计算得出(可修改)></TD></TR>
+        <TR>
+          <TD title=是指住宅楼房的公共部位和共用设施、设备的维修养护基金。>公共维修基金(元)</TD>
+          <TD><INPUT style="WIDTH: 120px" id=Fund onchange=Change(); 
+            class=txtd tabIndex=12 name=Fund value=计算得出(可修改)></TD>
+          <TD>合计(元)</TD>
+          <TD><INPUT style="WIDTH: 120px; COLOR: red" id=TotalSum class=txtd 
+            tabIndex=13 name=TotalSum readOnly value=计算得出></TD></TR>
+        <TR style="DISPLAY: none">
+          <TD>保险费</TD>
+          <TD><INPUT id=Insur class=txtd name=Insur value=计算得出(可修改)></TD>
+          <TD></TD>
+          <TD></TD></TR>
+        <TR style="DISPLAY: none" id=trcontrol align=center>
+          <TD colSpan=4><INPUT id=btnOk class=btn onclick=window.returnValue=TotalSum.value;window.close(); name=btnOk value=" 确定 " type=button>&nbsp;&nbsp;&nbsp;&nbsp;<INPUT id=btnCancel class=btn onclick="window.returnValue='';window.close();" name=btnCancel value=" 取消 " type=button></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT>
+
+function Carson(){
+			if (!CheckFN(edHouseArea,"请在房屋面积中输入正数",false))
+	   		return false;
+			if (!CheckFN(edHousePrice,"请在每平米价格中输入正数",false))
+	   		return false;
+	   		if (!CheckIntRange(edHouseYears,0,30,"请在贷款期限中输入0-30的整数"))
+	   		return false;
+			if (!CheckFN(edHousePrice,"请在契税中输入正数",false))
+	   		return false;
+			if (!CheckFN(YHSL,"请在印花税中输入正数",false))
+	   		return false;
+			if (!CheckFN(BXFL,"请在房屋买卖手续费中输入正数",false))
+	   		return false;
+			if (!CheckFN(LSFL,"请在律师费中输入正数",false))
+	   		return false;
+			if (!CheckFN(WXFL,"请在公共维修基金中输入正数",false))
+	   		return false;	   		
+			calc(document);
+}
+    </SCRIPT>
+
+<SCRIPT language=javascript>
+		function Change()
+		{
+			//if (!CheckFN(Insur,"请在保险费中输入非负数",false))
+	   		//return false;
+			if (!CheckFN(document.all.Tax,"请在契税中输入非负数",false))
+	   		return false;
+			if (!CheckFN(document.all.Match,"请在印花税中输入非负数",false))
+	   		return false;
+			if (!CheckFN(document.all.BuyFee,"请在房屋买卖手续费中输入非负数",false))
+	   		return false;
+			if (!CheckFN(document.all.Lawer,"请在律师费中输入非负数",false))
+	   		return false;
+			if (!CheckFN(document.all.Fund,"请在公共维修基金中输入非负数",false))
+	   		return false;
+			recalculate(document); 		
+		}		
+    </SCRIPT>
+
+<SCRIPT>
+		 function loadinit()            //初始化页面，接受从上级页面传过来的参数。 刘川庆 2003.3.31  增加
+		 {
+			if (window.dialogArguments!=null)
+			{
+				trcontrol.style.display='block';
+				var oj=window.dialogArguments;
+				this.document.all.edHouseArea.value=oj.area;
+				this.document.all.edHousePrice.value=oj.price;
+				this.document.all.YHSL.value=oj.YHSL*100;
+				this.document.all.LSFL.value=oj.LSFL*100;
+				this.document.all.WXFL.value=oj.WXFL*100;
+				this.document.all.BXFL.value=oj.BXFL*100;
+			}
+		 }
+		 window.attachEvent("onload",loadinit);
+		 //GetCalc_Close();
+    </SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

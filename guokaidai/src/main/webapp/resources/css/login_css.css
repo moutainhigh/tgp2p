@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+body,img,ul,li,input,a{ margin:0px; padding:0px; text-decoration:none; list-style-type:none; }
+a {outline: none;star:expression(this.onFocus=this.blur());}
+
+
+body{ background:url(../images/login_bg1.png) no-repeat center top #057CBA; font-size:12px;}
+.login_div{ width:100%; height:600px; background:url(../images/login_ta1.png) repeat-x left 517px; position:absolute; top:0px;}
+.login_con{ background:url(../images/login_k1.png) no-repeat center bottom; width:100%; height:600px;}
+.login_ma{ margin:0px auto; width:500px; height:600px; position:relative;}
+.log_in_div1{ position:absolute; top:278px; left:155px;}
+.log_pnp_c1{ border:0px; background:none; height:20px; line-height:20px; width:250px; color:#FFF; outline:none;}
+.log_in_div2{ position:absolute; top:327px; left:155px;}
+.log_pnp_c2{ border:0px; background:none; height:20px; line-height:20px; width:250px; color:#FFF; outline:none;}
+.log_in_div3{ position:absolute; top:377px; left:155px;}
+.log_pnp_c3{ border:0px; background:none; height:20px; line-height:20px; width:140px; color:#FFF; outline:none;}
+.log_in_div4{ position:absolute; top:377px; left:309px; width:90px; height:22px; line-height:22px; color:#FFF; text-align:center;}
+.log_but{ position:absolute; top:457px; right:6px; width:122px; height:53px; cursor:pointer;}
+
+.login_ts{ position:absolute; width:250px; height:25px; line-height:25px; top:235px; left:124px; text-align:center; color:#FF0;}

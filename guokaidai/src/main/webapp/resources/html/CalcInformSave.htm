@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://finance.ifeng.com/app/money/calc/Html/CalcInformSave.htm -->
+<html><style type="text/css" id="__360se_success_css"></style><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script>
+ window.resizeTo(539,528);  
+		</script>
+		<title>金融计算器</title>
+		<script language="javascript" src="CalcFiles/wincontrol.js"></script>
+		<script language="javascript">CaculResize(539,508);</script>
+		<script language="javascript" src="CalcFiles/Calendar.js"></script>
+		<script language="javascript" src="CalcFiles/Calculator.js"></script>
+		<script language="javascript" src="CalcFiles/WBselect.js"></script>
+		<script language="javascript" src="CalcFiles/GetRate.js"></script>
+		<script language="javascript" src="CalcFiles/Components.js"></script>
+		<script language="javascript" src="CalcFiles/CheckDataFunction.js"></script>
+		<script language="javascript" src="CalcFiles/CalcInformSave.js"></script>
+		<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+		<link href="CalcFiles/Style.css" type="text/css" rel="STYLESHEET">
+	</head>
+	<body text="#000000" bottommargin="0" bgcolor="#ffffff" leftmargin="0" topmargin="0" rightmargin="0" ms_positioning="GridLayout">
+		<form name="CompPartSumCalc" id="CompPartSumCalc">
+			<div id="bg1" style="width:525px;"><img src="CalcFiles/bg1.gif"><img src="CalcFiles/bg2.gif" width="250" height="126"><img src="CalcFiles/bg3.gif"></div>
+			<div id="bg2" style="width:525px;"><img src="CalcFiles/bg4.gif" width="25" height="220"><img src="CalcFiles/bg5.gif" width="475" height="220"><img src="CalcFiles/bg6.gif" width="25" height="220"></div>
+			<div id="bg3" style="width:525px;"><img src="CalcFiles/bg7.gif"><img src="CalcFiles/bg8.gif" height="119" width="475"><img src="CalcFiles/bg9.gif"></div>
+			<div id="FDiv1" class="FDiv1" movable="1" style="width:300">通知存款计算器</div>
+			<div id="FDiv2" class="FDiv2" movable="1" style="width:480">通知存款兼具定期存款的收益性和活期存款的方便性。依据一定的已知数据，本计算器可方便的计算出通知存款的实得本息总额（已扣除利息税）和提取金额。
+			</div>
+			<div id="FDiv3" class="FDiv3" style="width:450" align="center">
+				<table id="Table1" style="WIDTH: 390px; HEIGHT: 287px" cellspacing="1" cellpadding="1" width="390" border="0">
+					<tbody><tr>
+						<td style="width:40"></td>
+						<td style="WIDTH: 128px;height:30px">计算项目</td>
+						<td style="WIDTH: 165px"><font face="宋体">
+								<select tabindex="1" name="CalcType" id="CalcType" style="width:112px;">
+									<option value="1">实得本息总额</option>
+									<option value="2">提取金额</option>
+									<option value="3">提取日期</option>
+								</select>
+							</font>
+						</td>
+						<td>
+							<input class="btn" id="btnCalc" onclick="return compute(1)" type="button" value=" 计算 "></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px;height:30px">储蓄类型</td>
+						<td style="WIDTH: 165px"><font face="宋体">
+								<select tabindex="2" name="SaveType" id="SaveType" style="width:112px;">
+									<option value="1">一天通知存款</option>
+									<option value="7">七天通知存款</option>
+								</select>
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px; HEIGHT: 30px">初始存入日期</td>
+						<td style="WIDTH: 165px; ">
+							<input tabindex="3" name="beginDate" class="txt" type="text" value="2002-2-21" id="beginDateID" style="width:87px;" onblur="ChkCZDate(beginDateID);" onClick="WdatePicker()">
+							<img src="CalcFiles/Calendar1.gif" style="cursor:hand" align="AbsMiddle" onclick="WdatePicker({el:'beginDateID'})">
+							<script language="javascript">
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</script>
+						</td>
+						<td><font face="宋体">&nbsp;</font></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px;height:30px" id="lbdrawsum">提取金额(元)</td>
+						<td style="WIDTH: 165px" id="tddrawsum">
+							<input tabindex="4" name="edInitSaveSum" type="text" id="edInitSaveSum" class="txtnum" style="width:112px;"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px;height:30px" id="lbdrawdate">
+							提取日期
+						</td>
+						<td style="WIDTH: 165px" id="tddrawdate">
+							<input tabindex="5" name="drawDate" class="txt" type="text" value="2002-2-21" id="drawDateID" style="width:87px;" onblur="ChkCZDate(drawDateID);" onClick="WdatePicker()">
+							<img id="imgdd" src="CalcFiles/Calendar1.gif" style="cursor:hand" align="AbsMiddle" onclick="WdatePicker({el:'drawDateID'})">
+							<script language="javascript">
+												function ChkCZDate(edit) {edit.value=Trim(edit.value);if(edit.value=='') return 
+												true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+												{alert('日期格式不正确,日期有效范围为1910年到3000年'); edit.focus();} }</script>
+						</td>
+						<td><font face="宋体">&nbsp;</font></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px;height:30px">年利率(%)</td>
+						<td style="WIDTH: 165px">
+							<input tabindex="6" name="edFullRate" type="text" id="edFullRate" class="txtnum" style="width:112px;">
+							&nbsp;</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<hr>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px;height:30px" id="lbfullsum">实得本息总额(元)</td>
+						<td style="WIDTH: 165px" id="tdfullsum">
+							<input tabindex="7" name="edFullSum" type="text" value="计算得出" id="edFullSum" class="txtd" style="width:112px;">
+							&nbsp;</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td style="WIDTH: 128px;height:30px">扣除利息税金额(元)</td>
+						<td style="WIDTH: 165px">
+							<input tabindex="8" name="edTaxSum" type="text" value="计算得出" id="edTaxSum" class="txtd" style="width:112px;"></td>
+						<td></td>
+					</tr>
+				</tbody></table>
+			</div>
+			<script language="javascript">
+<!--
+	var startdate =  new Array('2002-2-21','2002-2-21');
+	var minterm =  new Array(1,7);
+	//获得1天和7天存款利率
+	var rate1;
+	
+	var rate7; 
+	var rate;
+		// -->
+			</script>
+		</form>
+		<script language="javascript" src="CalcFiles/CheckDataFunction.js"></script>
+		<script language="javascript" event="onclick" for="btnCalc">
+		
+				if (document.all.CalcType.selectedIndex!=1)
+					if (!CheckFN3(edInitSaveSum,"提取金额请输入正数",false))
+						return false;				
+				if (!CheckFN3(edFullRate,"年利率请输入正数",false))				 
+						return false;			
+				if (document.all.CalcType.selectedIndex!=0)
+					if (!CheckFN3(edFullSum,"实得本息总额请输入正数",false))
+						return false;														
+				if (!CheckEmpty(CompPartSumCalc.beginDateID,"无效的初始存入日期"))
+					return false;	
+				if (document.all.CalcType.selectedIndex!=2)
+				 {
+					if (!CheckEmpty(CompPartSumCalc.drawDateID,"无效的提取日期"))
+						return false;	
+					if ( Cal_strtodate(CompPartSumCalc.drawDateID.value)< Cal_strtodate("1999-11-1"))
+					{
+						DispMessage(CompPartSumCalc.drawDateID,"提取日期不得小于1999年11月1日");
+						return false;
+					}	
+					var SaveDate=new Date();
+					SaveDate.setTime(Cal_strtodate(CompPartSumCalc.beginDateID.value));								
+					var AdvDrawDate=new Date();
+					AdvDrawDate.setTime(Cal_strtodate(CompPartSumCalc.drawDateID.value));									
+					var days=SaveType.selectedIndex==0 ? 1:7;
+					addday(SaveDate,days);
+					if (AdvDrawDate<SaveDate)
+						{ 
+							DispMessage(CompPartSumCalc.drawDateID,"提取日期不得小于初始存入日期+"+days+"天");
+							return false;
+						}								
+				 }
+				if ( Cal_strtodate(CompPartSumCalc.beginDateID.value)< Cal_strtodate("1998-7-1"))
+				{
+						DispMessage(CompPartSumCalc.beginDateID,"初始存入日期不得小于1998年7月1日");
+						return false;
+				}									
+				return compute(document.all.CalcType.selectedIndex);
+		</script>
+		<script language="javascript" event="onchange" for="CalcType">
+			calctypechange();
+		</script>
+		<script language="javascript" event="onchange" for="SaveType">
+			savetypechange();
+		</script>
+		<script language="javascript">
+			function changeobject(objectid)
+			{
+			  	   var ss1=document.all.tddrawsum.innerHTML;
+				    var ss2=document.all.tdfullsum.innerHTML;
+				    var ss3=document.all.tddrawdate.innerHTML;
+				    
+				    if (ss1.indexOf(objectid)>0)
+				    {
+				         ls=document.all.lbdrawsum.innerHTML;
+				        document.all.lbdrawsum.innerHTML=document.all.lbfullsum.innerHTML;
+    				    document.all.lbfullsum.innerHTML=ls;
+    				    
+    				    document.all.tddrawsum.innerHTML=document.all.tdfullsum.innerHTML;
+    				    document.all.tdfullsum.innerHTML=ss1;
+    			    }   
+    				if (ss3.indexOf(objectid)>0)    
+    				{
+				        document.all.tddrawdate.innerHTML=document.all.tdfullsum.innerHTML;
+    				    document.all.tdfullsum.innerHTML=ss3;
+				        
+				        ls=document.all.lbdrawdate.innerHTML;
+    				    document.all.lbdrawdate.innerHTML=document.all.lbfullsum.innerHTML;
+    				    document.all.lbfullsum.innerHTML=ls;
+				    }
+			
+			}
+			function calctypechange()
+			{
+					document.all.edFullSum.value="";
+					document.all.edFullSum.className="txtnum";
+					document.all.edFullSum.disabled=false;
+					document.all.edInitSaveSum.value="";
+					document.all.edInitSaveSum.className="txtnum";
+					document.all.edInitSaveSum.disabled=false;
+					if (CompPartSumCalc.drawDateID.value=="计算得出") 
+					{
+						var SaveDate=new Date();
+						SaveDate.setTime(Cal_strtodate(CompPartSumCalc.beginDateID.value));													
+						addday(SaveDate,7);					
+						CompPartSumCalc.drawDateID.value=SaveDate.getFullYear()+"-"+(SaveDate.getMonth()+1)+"-"+SaveDate.getDate();
+					 }
+					CompPartSumCalc.drawDateID.disabled=false;
+					
+				if (document.all.CalcType.selectedIndex==0)
+				{
+				    changeobject("edFullSum");
+					document.all.edFullSum.value="计算得出";
+					document.all.edFullSum.className="txtd";
+					document.all.edFullSum.disabled=true;
+					document.all.imgdd.disabled=false;
+					
+				}
+				else if (document.all.CalcType.selectedIndex==1)
+				{
+				    changeobject("edInitSaveSum");
+					document.all.edInitSaveSum.value="计算得出";
+					document.all.edInitSaveSum.className="txtd";
+					document.all.edInitSaveSum.disabled=true;
+					document.all.imgdd.disabled=false;
+					//交换位置
+				
+				    
+				    
+				}
+				else
+				{
+				    changeobject("drawDateID");
+				    document.all.imgdd.disabled=true;
+					CompPartSumCalc.drawDateID.value="计算得出";
+					CompPartSumCalc.drawDateID.disabled=true;
+				}
+				
+				
+			}
+			
+			function loadinit()
+			{
+			 	rate1 = GetRMBSaveRatio(8,1,window.xmlRMBSaveRate.XMLDocument);
+				rate7 = GetRMBSaveRatio(8,7,window.xmlRMBSaveRate.XMLDocument); 
+				rate =  new Array(rate1/100,rate7/100);
+				calctypechange();		
+				document.all.edTaxSum.disabled=true;
+				savetypechange();
+			} 
+			
+			function locaterate(sdate,term)
+			{			 
+			 var result=null;
+			 for (var i=0; i<startdate.length;i++)
+			  if ( (sdate>=Cal_strtodate(startdate[i]))&&(term==minterm[i]) )
+			  {
+			    
+			    result=rate[i];
+			  }  
+				return result;
+			}
+			
+			
+			
+			function savetypechange()
+			{			   
+				if (Trim(CompPartSumCalc.beginDateID.value)!="")
+				{				    
+					var arate=locaterate(Cal_strtodate(CompPartSumCalc.beginDateID.value),parseInt(document.all.SaveType.value));
+					//alert(arate);
+					if (arate!=null)
+					 {					 
+						document.all.edFullRate.value=Round(arate*100,2); //回显时，年利率要乘100
+					 }
+				}
+			}
+			
+			function compute(type)
+			{
+				//fullsum	实得本息总额;
+				//initsum	   提取金额;
+				//SaveDate   初始存入日期;
+				//AdvDrawDate  提取日期;
+				
+				if (type!=0)
+					fullsum=parseFloat(document.all.edFullSum.value);				
+				if (type!=1)
+					initsum=parseInt(document.all.edInitSaveSum.value);				
+				var SaveDate=new Date();
+				SaveDate.setTime(Cal_strtodate(CompPartSumCalc.beginDateID.value));									
+				//var calcu = new ActiveXObject("FinanceCalculator.ICalcInformSave");
+				var AdvDrawDate = new Date();
+				
+				if (type!=2)
+				{								
+					var AdvDrawDate=new Date();
+					AdvDrawDate.setTime(Cal_strtodate(CompPartSumCalc.drawDateID.value));														
+					var diffday=getDiffDay(AdvDrawDate,SaveDate);
+				}
+				fullrate=parseFloat(document.all.edFullRate.value)/100;	//年利率要除100
+				
+				if (type==0)
+				{
+				 
+				 CalcGetSum(document,fullrate,AdvDrawDate,SaveDate);
+				 
+				 //calcu.CalcGetSum(CompPartSumCalc.beginDateID.value,document.all.edInitSaveSum.value,CompPartSumCalc.drawDateID.value,document.all.edFullRate.value);
+				 //document.all.edFullSum.value = calcu.Fullsum;
+				 //document.all.edTaxSum.value = calcu.TaxSum;
+				 //document.all.edFullSum.value=Round(initsum*(fullrate/360)* diffday * 0.8 + initsum);
+				 //document.all.edTaxSum.value=Round(initsum*(fullrate/360)* diffday * 0.2);
+				}
+				else if (type==1)
+					  {
+					    CalcSaveSum(document,fullrate,AdvDrawDate,SaveDate);
+						/*
+						calcu.CalcSaveSum(CompPartSumCalc.beginDateID.value,document.all.edFullSum.value,CompPartSumCalc.drawDateID.value,document.all.edFullRate.value);
+						document.all.edInitSaveSum.value=calcu.InitSum;						
+						document.all.edTaxSum.value=calcu.TaxSum;*/
+					  }
+				else if (type==2)
+					 {					
+					   /* var interestRate = 0.05;  //利息税率    
+						temp=Math.ceil((fullsum-initsum)/ ( (1-interestRate)*initsum*(fullrate/360) )); //取上整												
+						datevaild=addday(SaveDate,temp);																	
+						if ( (parseInt(document.all.SaveType.value) < temp) && (datevaild))
+						{
+						    /*
+						    calcu.CalcGetDate(document.all.edInitSaveSum.value,document.all.edFullSum.value,CompPartSumCalc.beginDateID.value,CompPartSumCalc.SaveType.value,document.all.edFullRate.value);
+						    if (calcu.Error!="") 
+						    {
+						      alert("计算出来的提取日期不符合实际情况");
+						      return false;
+						    }
+							CompPartSumCalc.drawDateID.value=calcu.AdvdrawDate;
+							document.all.edTaxSum.value=calcu.TaxSum;*/
+						/*	CalcGetDate(document,SaveDate,initsum,fullrate,temp);
+						}
+						else 
+						 {
+							DispMessage(document.all.edInitSaveSum,"提取金额应为不大于到期本息和的正数");
+							return false;
+						 }*/
+						 if(initsum>=fullsum)
+							{
+							  alert("提取金额应为不大于到期本息和的正数");
+							}else
+							{
+							  CalcGetDate(document,fullrate,SaveDate,initsum,fullsum);
+							}	
+					 }	  
+				 return false;
+			}
+			
+			//window.attachEvent("onload",loadinit);
+		</script>
+		<xml id="xmlRMBSaveRate" src="../Data/RMBSaveRate.xml" ondatasetcomplete="loadinit();"></xml>
+<script language="javascript" src="CalcFiles/sta_collection.js"></script><script type="text/javascript" src="CalcFiles/page.js"></script>
+	
+
+<script language="javascript">
+  document.CompPartSumCalc.beginDateID.value=datetostring(new Date());
+  document.CompPartSumCalc.drawDateID.value=datetostring(new Date());
+   //GetCalc_Close();
+
+</script>
+<div id="csscan-wrapper" style="display: none;"><h2 id="csscan-header">element</h2><table id="csscan-table"><tbody><tr><th colspan="2" id="csscan-header-font" class="csscan-header">Font</th></tr><tr id="csscan-row-font-family"><td id="csscan-property-font-family" class="csscan-property">font-family</td><td id="csscan-value-font-family" class="csscan-value"></td></tr><tr id="csscan-row-font-size"><td id="csscan-property-font-size" class="csscan-property">font-size</td><td id="csscan-value-font-size" class="csscan-value"></td></tr><tr id="csscan-row-font-style"><td id="csscan-property-font-style" class="csscan-property">font-style</td><td id="csscan-value-font-style" class="csscan-value"></td></tr><tr id="csscan-row-font-variant"><td id="csscan-property-font-variant" class="csscan-property">font-variant</td><td id="csscan-value-font-variant" class="csscan-value"></td></tr><tr id="csscan-row-font-weight"><td id="csscan-property-font-weight" class="csscan-property">font-weight</td><td id="csscan-value-font-weight" class="csscan-value"></td></tr><tr id="csscan-row-letter-spacing"><td id="csscan-property-letter-spacing" class="csscan-property">letter-spacing</td><td id="csscan-value-letter-spacing" class="csscan-value"></td></tr><tr id="csscan-row-line-height"><td id="csscan-property-line-height" class="csscan-property">line-height</td><td id="csscan-value-line-height" class="csscan-value"></td></tr><tr id="csscan-row-text-decoration"><td id="csscan-property-text-decoration" class="csscan-property">text-decoration</td><td id="csscan-value-text-decoration" class="csscan-value"></td></tr><tr id="csscan-row-text-align"><td id="csscan-property-text-align" class="csscan-property">text-align</td><td id="csscan-value-text-align" class="csscan-value"></td></tr><tr id="csscan-row-text-indent"><td id="csscan-property-text-indent" class="csscan-property">text-indent</td><td id="csscan-value-text-indent" class="csscan-value"></td></tr><tr id="csscan-row-text-transform"><td id="csscan-property-text-transform" class="csscan-property">text-transform</td><td id="csscan-value-text-transform" class="csscan-value"></td></tr><tr id="csscan-row-white-space"><td id="csscan-property-white-space" class="csscan-property">white-space</td><td id="csscan-value-white-space" class="csscan-value"></td></tr><tr id="csscan-row-word-spacing"><td id="csscan-property-word-spacing" class="csscan-property">word-spacing</td><td id="csscan-value-word-spacing" class="csscan-value"></td></tr><tr id="csscan-row-color"><td id="csscan-property-color" class="csscan-property">color</td><td id="csscan-value-color" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-background" class="csscan-header">Background</th></tr><tr id="csscan-row-background-attachment"><td id="csscan-property-background-attachment" class="csscan-property">bg-attachment</td><td id="csscan-value-background-attachment" class="csscan-value"></td></tr><tr id="csscan-row-background-color"><td id="csscan-property-background-color" class="csscan-property">bg-color</td><td id="csscan-value-background-color" class="csscan-value"></td></tr><tr id="csscan-row-background-image"><td id="csscan-property-background-image" class="csscan-property">bg-image</td><td id="csscan-value-background-image" class="csscan-value"></td></tr><tr id="csscan-row-background-position"><td id="csscan-property-background-position" class="csscan-property">bg-position</td><td id="csscan-value-background-position" class="csscan-value"></td></tr><tr id="csscan-row-background-repeat"><td id="csscan-property-background-repeat" class="csscan-property">bg-repeat</td><td id="csscan-value-background-repeat" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-size" class="csscan-header">Box</th></tr><tr id="csscan-row-width"><td id="csscan-property-width" class="csscan-property">width</td><td id="csscan-value-width" class="csscan-value"></td></tr><tr id="csscan-row-height"><td id="csscan-property-height" class="csscan-property">height</td><td id="csscan-value-height" class="csscan-value"></td></tr><tr id="csscan-row-border-top"><td id="csscan-property-border-top" class="csscan-property">border-top</td><td id="csscan-value-border-top" class="csscan-value"></td></tr><tr id="csscan-row-border-right"><td id="csscan-property-border-right" class="csscan-property">border-right</td><td id="csscan-value-border-right" class="csscan-value"></td></tr><tr id="csscan-row-border-bottom"><td id="csscan-property-border-bottom" class="csscan-property">border-bottom</td><td id="csscan-value-border-bottom" class="csscan-value"></td></tr><tr id="csscan-row-border-left"><td id="csscan-property-border-left" class="csscan-property">border-left</td><td id="csscan-value-border-left" class="csscan-value"></td></tr><tr id="csscan-row-margin"><td id="csscan-property-margin" class="csscan-property">margin</td><td id="csscan-value-margin" class="csscan-value"></td></tr><tr id="csscan-row-padding"><td id="csscan-property-padding" class="csscan-property">padding</td><td id="csscan-value-padding" class="csscan-value"></td></tr><tr id="csscan-row-max-height"><td id="csscan-property-max-height" class="csscan-property">max-height</td><td id="csscan-value-max-height" class="csscan-value"></td></tr><tr id="csscan-row-min-height"><td id="csscan-property-min-height" class="csscan-property">min-height</td><td id="csscan-value-min-height" class="csscan-value"></td></tr><tr id="csscan-row-max-width"><td id="csscan-property-max-width" class="csscan-property">max-width</td><td id="csscan-value-max-width" class="csscan-value"></td></tr><tr id="csscan-row-min-width"><td id="csscan-property-min-width" class="csscan-property">min-width</td><td id="csscan-value-min-width" class="csscan-value"></td></tr><tr id="csscan-row-outline-color"><td id="csscan-property-outline-color" class="csscan-property">outline-color</td><td id="csscan-value-outline-color" class="csscan-value"></td></tr><tr id="csscan-row-outline-style"><td id="csscan-property-outline-style" class="csscan-property">outline-style</td><td id="csscan-value-outline-style" class="csscan-value"></td></tr><tr id="csscan-row-outline-width"><td id="csscan-property-outline-width" class="csscan-property">outline-width</td><td id="csscan-value-outline-width" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-position" class="csscan-header">Positioning</th></tr><tr id="csscan-row-position"><td id="csscan-property-position" class="csscan-property">position</td><td id="csscan-value-position" class="csscan-value"></td></tr><tr id="csscan-row-top"><td id="csscan-property-top" class="csscan-property">top</td><td id="csscan-value-top" class="csscan-value"></td></tr><tr id="csscan-row-bottom"><td id="csscan-property-bottom" class="csscan-property">bottom</td><td id="csscan-value-bottom" class="csscan-value"></td></tr><tr id="csscan-row-right"><td id="csscan-property-right" class="csscan-property">right</td><td id="csscan-value-right" class="csscan-value"></td></tr><tr id="csscan-row-left"><td id="csscan-property-left" class="csscan-property">left</td><td id="csscan-value-left" class="csscan-value"></td></tr><tr id="csscan-row-float"><td id="csscan-property-float" class="csscan-property">float</td><td id="csscan-value-float" class="csscan-value"></td></tr><tr id="csscan-row-display"><td id="csscan-property-display" class="csscan-property">display</td><td id="csscan-value-display" class="csscan-value"></td></tr><tr id="csscan-row-clear"><td id="csscan-property-clear" class="csscan-property">clear</td><td id="csscan-value-clear" class="csscan-value"></td></tr><tr id="csscan-row-z-index"><td id="csscan-property-z-index" class="csscan-property">z-index</td><td id="csscan-value-z-index" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-list" class="csscan-header">List</th></tr><tr id="csscan-row-list-style-image"><td id="csscan-property-list-style-image" class="csscan-property">list-style-image</td><td id="csscan-value-list-style-image" class="csscan-value"></td></tr><tr id="csscan-row-list-style-type"><td id="csscan-property-list-style-type" class="csscan-property">list-style-type</td><td id="csscan-value-list-style-type" class="csscan-value"></td></tr><tr id="csscan-row-list-style-position"><td id="csscan-property-list-style-position" class="csscan-property">list-style-position</td><td id="csscan-value-list-style-position" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-table" class="csscan-header">Table</th></tr><tr id="csscan-row-vertical-align"><td id="csscan-property-vertical-align" class="csscan-property">vertical-align</td><td id="csscan-value-vertical-align" class="csscan-value"></td></tr><tr id="csscan-row-border-collapse"><td id="csscan-property-border-collapse" class="csscan-property">border-collapse</td><td id="csscan-value-border-collapse" class="csscan-value"></td></tr><tr id="csscan-row-border-spacing"><td id="csscan-property-border-spacing" class="csscan-property">border-spacing</td><td id="csscan-value-border-spacing" class="csscan-value"></td></tr><tr id="csscan-row-caption-side"><td id="csscan-property-caption-side" class="csscan-property">caption-side</td><td id="csscan-value-caption-side" class="csscan-value"></td></tr><tr id="csscan-row-empty-cells"><td id="csscan-property-empty-cells" class="csscan-property">empty-cells</td><td id="csscan-value-empty-cells" class="csscan-value"></td></tr><tr id="csscan-row-table-layout"><td id="csscan-property-table-layout" class="csscan-property">table-layout</td><td id="csscan-value-table-layout" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-effects" class="csscan-header">Effects</th></tr><tr id="csscan-row-text-shadow"><td id="csscan-property-text-shadow" class="csscan-property">text-shadow</td><td id="csscan-value-text-shadow" class="csscan-value"></td></tr><tr id="csscan-row--webkit-box-shadow"><td id="csscan-property--webkit-box-shadow" class="csscan-property">-webkit-box-shadow</td><td id="csscan-value--webkit-box-shadow" class="csscan-value"></td></tr><tr id="csscan-row-border-radius"><td id="csscan-property-border-radius" class="csscan-property">border-radius</td><td id="csscan-value-border-radius" class="csscan-value"></td></tr><tr><th colspan="2" id="csscan-header-other" class="csscan-header">Other</th></tr><tr id="csscan-row-overflow"><td id="csscan-property-overflow" class="csscan-property">overflow</td><td id="csscan-value-overflow" class="csscan-value"></td></tr><tr id="csscan-row-cursor"><td id="csscan-property-cursor" class="csscan-property">cursor</td><td id="csscan-value-cursor" class="csscan-value"></td></tr><tr id="csscan-row-visibility"><td id="csscan-property-visibility" class="csscan-property">visibility</td><td id="csscan-value-visibility" class="csscan-value"></td></tr></tbody></table></div></body></html>

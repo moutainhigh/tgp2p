@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://finance.ifeng.com/app/money/calc/Html/CalcEqualSumRet.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(530,574);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(535,588);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcEqualSumRet.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=CompPartSumCalc method=post name=CompPartSumCalc 
+action=EqualSumRetCalc.aspx>
+<DIV id=bg1 style="width:520px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=245 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:520px;"><IMG src="CalcFiles/bg4.gif" width=25 height=300><IMG 
+src="CalcFiles/bg5.gif" width=470 height=300><IMG 
+src="CalcFiles/bg6.gif" width=25 height=300></DIV>
+<DIV id=bg3 style="width:520px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=470 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">等额累进还款计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">贷款等额累进还款法是国际上十分通行的一种消费信贷还款方式，适合于预计未来收入将有较大变动的客户。本计算器可以依据一定的条件，计算出运用此还款法的还款额度变动情况，并可反向计算贷款金额。</DIV>
+<DIV style="WIDTH: 80px; HEIGHT: 90px" id=FDiv3 class=FDiv3>
+<TABLE id=Table1 border=0 width=450>
+  <TBODY>
+  <TR>
+    <TD height=25 width=155>计算项目</TD>
+    <TD height=25 width=186><INPUT id=rd1 name=RadioGroup CHECKED 
+      type=radio>首次还款金额 <INPUT id=rd2 name=RadioGroup type=radio>贷款金额 </TD>
+    <TD height=25><INPUT style="WIDTH: 70px" id=btnCalc class=btn tabIndex=1008 value=" 计算 " type=button></TD></TR>
+  <TR>
+    <TD height=25 width=155>还款方法</TD>
+    <TD height=25 width=186><SELECT style="WIDTH: 116px" id=RetType 
+      tabIndex=1000 name=RetType> <OPTION selected value=1>等额递增还款法</OPTION> 
+        <OPTION value=2>等额递减还款法</OPTION></SELECT></TD>
+    <TD height=25><INPUT style="WIDTH: 70px" id=btnReturn class=btn tabIndex=1008 name=Button1 value=计算还款表 type=button></TD></TR>
+  <TR>
+    <TD height=25 width=155>贷款金额(元)</TD>
+    <TD width=186><INPUT style="WIDTH: 116px" id=edLoanSum class=txtnum 
+      tabIndex=1003 name=edLoanSum></TD>
+    <TD><FONT face=宋体></FONT></TD></TR>
+  <TR>
+    <TD height=24 width=155>贷款期限(年)</TD>
+    <TD height=24 width=186><INPUT style="WIDTH: 116px" id=edLoanYears 
+      class=txtnum tabIndex=1003 name=edLoanYears></TD>
+    <TD height=24></TD></TR>
+  <TR>
+    <TD height=25 width=155>贷款年利率(％)</TD>
+    <TD height=25 width=186><INPUT style="WIDTH: 116px" id=edRate class=txtnum 
+      tabIndex=1003 name=edRate></TD>
+    <TD height=25></TD></TR>
+  <TR style="DISPLAY: none">
+    <TD height=25 width=155>开始还款日期</TD>
+    <TD height=25 width=186><INPUT onblur=ChkCZDate(edSRetDate); onClick="WdatePicker()" id=edSRetDate 
+      class=txt tabIndex=1004 name=edSRetDate value=2003-1-3 size=12> <IMG 
+      style="CURSOR: hand" onclick="WdatePicker({el:'edSRetDate'})"
+      align=absMiddle src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       </TD>
+    <TD height=25><FONT face=宋体></FONT></TD></TR>
+  <TR>
+    <TD height=25 width=155>开始变动的期次(期)</TD>
+    <TD width=186><INPUT style="WIDTH: 116px" id=edStartTerm class=txtnum 
+      tabIndex=1005 name=edStartTerm></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD height=25 width=155>每次变动间隔期数(期)</TD>
+    <TD width=186><INPUT style="WIDTH: 116px" id=edSpaceTerm class=txtnum 
+      tabIndex=1005 name=edSpaceTerm></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD height=25 width=155><FONT face=宋体><SPAN 
+    id=Lab1>递增金额(元)</SPAN></FONT></TD>
+    <TD width=186><INPUT style="WIDTH: 116px" id=edIncSum class=txtnum 
+      tabIndex=1005 name=edIncSum></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD height=18 colSpan=3>
+      <HR SIZE=1 width="100.13%">
+    </TD></TR>
+  <TR>
+    <TD height=25 width=155>首次还款金额(元)</TD>
+    <TD width=186><INPUT id=edFirstSum class=txtd tabIndex=7 name=edFirstSum 
+      value=计算得出></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD colSpan=4>
+      <DIV style="HEIGHT: 100px; OVERFLOW: auto" class=scdiv align=center>
+      <TABLE id=Table5 border=0 width="90%">
+        <THEAD>
+        <TR class=head>
+          <TH>期次 </TH>
+          <TH style="DISPLAY: none">还款日期 </TH>
+          <TH>偿还本息 </TH></TR></THEAD>
+        <TBODY></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript for=btnCalc event=onclick> //计算
+			 return ComputeData();
+		</SCRIPT>
+
+<SCRIPT language=javascript for=btnReturn event=onclick> //还款表
+			CaclEqualSum();
+			SetTableColor(document.all.Table5);
+		</SCRIPT>
+
+<SCRIPT language=javascript for=rd1 event=onclick>
+			calctypechange();			
+		</SCRIPT>
+
+<SCRIPT language=javascript for=rd2 event=onclick>
+			calctypechange();			
+		</SCRIPT>
+
+<SCRIPT language=javascript for=RetType event=onchange>
+		  document.all.Lab1.innerText=document.all.RetType.selectedIndex==0 ? "递增金额(元)" : "递减金额(元)";
+		</SCRIPT>
+
+<SCRIPT language=javascript>			
+	  function ComputeData()
+	  {
+		var FirstSum = new Number(0);
+		var Rate=parseFloat(document.all.edRate.value)/12/100;
+		var TotalTerm=parseInt(document.all.edLoanYears.value)*12;
+		var SpaceTerm=parseInt(document.all.edSpaceTerm.value);
+		var StartTerm=parseInt(document.all.edStartTerm.value);
+		var IncSum=document.all.RetType.selectedIndex==0 ? parseInt(document.all.edIncSum.value):-parseInt(document.all.edIncSum.value);
+		
+		if (!CheckData()) return false;
+		
+		if (document.all.rd2.checked)	//计算贷款金额
+		  {
+			  FirstSum=parseFloat(document.all.edFirstSum.value);		
+              LoanSum = CalcM(FirstSum, Rate, TotalTerm, StartTerm - 1, SpaceTerm, IncSum, true);
+ 			  document.all.edLoanSum.value=Math.round(LoanSum);
+		  }	
+		else //计算首次还款金额  										
+		{
+			  LoanSum=parseFloat(document.all.edLoanSum.value);
+			  FirstSum = CaclA(0, LoanSum * Math.pow(1 + Rate, TotalTerm), LoanSum, Rate, TotalTerm, StartTerm - 1, SpaceTerm, IncSum);
+			  document.all.edFirstSum.innerText=NBround(FirstSum,2);
+		}
+		return true;
+	  }		
+	  function SetTableColor(table)
+	  {
+		  for(i=0;i<=table.rows.length-1;i++)
+		  {
+			  if(i==0)
+			  {
+				  table.rows(i).className="head";
+				  continue;
+			  }
+			  if (i%2)
+				  table.rows(i).className="odd";
+			  else
+				  table.rows(i).className="even";
+		  }
+	  }	
+	  function calctypechange()
+	  {							
+		if (document.all.rd1.checked)
+		{
+			document.all.edFirstSum.value="计算得出";
+			document.all.edFirstSum.className="txtd";
+			document.all.edFirstSum.disabled=true;
+			document.all.edLoanSum.value="";
+			document.all.edLoanSum.className="txtnum";
+			document.all.edLoanSum.disabled=false;					
+		}
+		else
+		{
+			document.all.edLoanSum.value="计算得出";
+			document.all.edLoanSum.className="txtd";
+			document.all.edLoanSum.disabled=true;						
+			document.all.edFirstSum.value="";
+			document.all.edFirstSum.className="txtnum";
+			document.all.edFirstSum.disabled=false;				
+		}
+					
+		SetTableColor(Table5);
+	  }
+				  
+	  window.attachEvent("onload",calctypechange);
+	  document.all.edSRetDate.value = datetostring(new Date());
+      //GetCalc_Close();		
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

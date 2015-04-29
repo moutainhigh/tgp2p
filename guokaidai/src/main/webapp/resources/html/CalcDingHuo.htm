@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://finance.ifeng.com/app/money/calc/Html/CalcDingHuo.htm -->
+<HTML><HEAD><TITLE>定活两便计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  window.resizeTo(580,508);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/wincontrol.htm"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(580,508);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.htm"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcDingHuo.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<SCRIPT language=javascript>
+
+			function GetRate()
+			{
+				//获得年利率
+				var valstartdate=Cal_strtodate(this.document.all.beginDateID.value);
+				var valenddate=Cal_strtodate(this.document.all.endDateID.value);			
+				var dayMi=24*60*60*1000;
+				var months=(valenddate-valstartdate)/dayMi/30;
+				var month=parseInt(months);
+				if (month<0)
+				  return 0;
+				if (month<3)
+				  return GetRMBSaveRatio(1,"0",window.xmlRMBSaveRate.XMLDocument)/100;
+				else  
+				  return GetRMBSaveRatio(7,month,window.xmlRMBSaveRate.XMLDocument)/100;
+				
+			}
+			
+			function changeobject(objectid)
+			{
+			  	    var ss1=document.all.CSCRJE.innerHTML;
+				    var ss2=document.all.DQBX.innerHTML;
+				    var ss3=document.all.TQRQ.innerHTML;
+				    
+				    if (ss1.indexOf(objectid)>0)
+				    {
+				         ls=document.all.lbCSCRJE.innerHTML;
+				        document.all.lbCSCRJE.innerHTML=document.all.lbDQBX.innerHTML;
+    				    document.all.lbDQBX.innerHTML=ls;
+    				    
+    				    document.all.CSCRJE.innerHTML=document.all.DQBX.innerHTML;
+    				    document.all.DQBX.innerHTML=ss1;
+    			    }   
+    				if (ss3.indexOf(objectid)>0)    
+    				{
+				        document.all.TQRQ.innerHTML=document.all.DQBX.innerHTML;
+    				    document.all.DQBX.innerHTML=ss3;
+				        
+				        ls=document.all.lbTQRQ.innerHTML;
+    				    document.all.lbTQRQ.innerHTML=document.all.lbDQBX.innerHTML;
+    				    document.all.lbDQBX.innerHTML=ls;
+				    }
+			
+			}
+			
+			
+		    function funcontrol()
+		    {
+		    	if (this.document.all.rdselect_0.checked)
+				{
+				    changeobject("edend");
+					this.document.all.edend.value="计算得出";
+					this.document.all.edend.disabled=true;
+					
+					this.document.all.edend.className="txtd";
+					this.document.all.endDateID.className="txt";
+					this.document.all.edstart.className="txtnum";
+					this.document.all.imgdd.disabled=false;
+					this.document.all.edtax.value="计算得出";
+					this.document.all.edtax.disabled=true;
+					
+					this.document.all.edstart.value="";
+					this.document.all.edstart.disabled=false;
+					this.document.all.endDateID.disabled=false;
+					var d=new Date();
+					this.document.all.endDateID.value=datetostring(d);
+					//this.document.all.edRate.value="0.72";
+					dateout();
+
+				}
+				else if (this.document.all.rdselect_1.checked)
+				{
+				   changeobject("edstart");
+				    this.document.all.edend.className="txtnum";
+					this.document.all.endDateID.className="txt";
+					this.document.all.edstart.className="txtd";
+					this.document.all.imgdd.disabled=false;
+					this.document.all.edstart.value="计算得出";
+					this.document.all.edstart.disabled=true;
+					this.document.all.edtax.value="计算得出";				
+					this.document.all.edtax.disabled=true;
+					this.document.all.edend.value="";
+					this.document.all.edend.disabled=false;
+					this.document.all.endDateID.disabled=false;
+					var d=new Date();
+					this.document.all.endDateID.value=datetostring(d);
+					//this.document.all.edRate.value="0.72";
+					dateout();
+				}
+				else if (this.document.all.rdselect_2.checked)
+				{
+				    changeobject("endDateID");
+				    this.document.all.edend.className="txtnum";
+					this.document.all.endDateID.className="txtd";
+					this.document.all.edstart.className="txtnum";
+					this.document.all.imgdd.disabled=true;
+					this.document.all.edstart.value="";
+					this.document.all.edstart.disabled=false;
+					this.document.all.edtax.value="计算得出";			
+					this.document.all.edtax.disabled=true;
+					this.document.all.edend.value="";
+					this.document.all.edend.disabled=false;
+					this.document.all.endDateID.value="计算得出";
+					this.document.all.endDateID.disabled=true;
+					
+					dateout();
+				
+				}
+		    
+		    }
+		    function CheckData()
+		    {
+				return true;
+		    }
+		    function CheckData1()
+		    {
+				if (!CheckFN3(this.document.all.edstart,"请在[初始存入金额]中输入正数",false))
+				return false;
+				if (!CheckFN3(this.document.all.edRate,"请在[利率]中输入正数",false))
+				return false;
+				if (!CheckEmpty(this.document.all.beginDateID,"请在[初始存入日期]中输入日期格式"))
+				return false;
+				if (!CheckEmpty(this.document.all.endDateID,"请在[提取日期]中输入日期格式"))
+				return false;
+				if(!CheckDiffDate(this.document.all.beginDateID,this.document.all.endDateID,"初始存入日期应该小于等于提取日期！"))
+					return false;
+				
+				return true;	
+		    }
+		    function CheckData2()
+		    {
+				if (!CheckFN(this.document.all.edend,"请在[到期本息总额]中输入正数",null,2))
+				return false;
+				if (!CheckFN3(this.document.all.edRate,"请在[利率]中输入正数",false))
+				return false;
+				if (!CheckEmpty(this.document.all.beginDateID,"请在[初始存入日期]中输入日期格式"))
+				return false;
+				if (!CheckEmpty(this.document.all.endDateID,"请在[提取日期]中输入日期格式"))
+				return false;
+				if(!CheckDiffDate(this.document.all.beginDateID,this.document.all.endDateID,"初始存入日期应该小于等于提取日期！"))
+				return false;
+				
+				return true;
+		    }
+		    function CheckData3()
+		    {
+				if (!CheckFN3(this.document.all.edstart,"请在[初始存入金额]中输入正数",false))
+				return false;
+
+				if (!CheckFN3(this.document.all.edend,"请在[到期本息总额]中输入正数",false))
+				return false;
+				if (!CheckFN3(this.document.all.edRate,"请在[利率]中输入正数",false))
+				return false;
+				if (!CheckEmpty(this.document.all.beginDateID,"请在[初始存入日期]中输入日期格式"))
+				return false;
+				if (parseFloat(document.all.edstart.value) > parseFloat(document.all.edend.value))
+				{
+					DispMessage(document.all.edstart, "初始存入金额应小于等于到期本息总额");
+					return false;
+				}
+				return true;
+		    }
+		    
+			function calc()
+			{
+
+
+				if (!CheckData()) return false;
+				if (this.document.all.rdselect_0.checked)
+				{
+				    
+					if (!CheckData1()) return false;
+					calc1(document);
+				}
+				else if (this.document.all.rdselect_1.checked)
+				{
+					if (!CheckData2()) return false;
+					calc2(document);
+				}
+				else if (this.document.all.rdselect_2.checked)
+				{
+				   if (!CheckData3()) return false;	
+				   calc3(document);
+				}
+				
+				
+				
+			return true;
+			}
+			
+			function dateout()
+			{
+				this.document.all.edRate.value=GetRate()*100;
+			}
+			</SCRIPT>
+
+<SCRIPT language=javascript for=rdselect_0 event=onclick>
+			funcontrol();
+		
+			</SCRIPT>
+
+<SCRIPT language=javascript for=rdselect_1 event=onclick>
+			funcontrol();
+		
+			</SCRIPT>
+
+<SCRIPT language=javascript for=rdselect_2 event=onclick>
+			funcontrol();
+		
+			</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=WebForm4 onsubmit="return false;" name=WebForm4>
+<DIV id=bg1 style="width:575px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=300 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:575px"><IMG src="CalcFiles/bg4.gif" width=25 height=220><IMG 
+src="CalcFiles/bg5.gif" width=525 height=220><IMG 
+src="CalcFiles/bg6.gif" width=25 height=220></DIV>
+<DIV id=bg3 style="width:575px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=525 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">定活两便计算器</DIV>
+<DIV style="WIDTH: 520px" id=FDiv2 class=FDiv2 
+Movable="1">定活两便存款的优点在于兼顾了资金运用的收益性和灵活性。本计算器可方便的计算出定活两便存款的到期本息总额（已扣除利息税）、初始存入金额和储蓄存期。</DIV>
+<DIV style="WIDTH: 500px" id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 430px; HEIGHT: 307px" id=Table1 border=0 cellSpacing=1 
+cellPadding=1 width=430>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 34px">计算项目</TD>
+    <TD style="HEIGHT: 34px" colSpan=2>
+      <TABLE style="WIDTH: 300px" id=rdselect border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rdselect_0 name=rdselect value=1 CHECKED type=radio> 
+            <LABEL for=rdselect_0>到期本息总额</LABEL></TD>
+          <TD><INPUT id=rdselect_1 name=rdselect value=2 type=radio> <LABEL 
+            for=rdselect_1>初始存入金额</LABEL></TD>
+          <TD><INPUT id=rdselect_2 name=rdselect value=3 type=radio> <LABEL 
+            for=rdselect_2>提取日期</LABEL></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 33px" id=lbCSCRJE>初始存入金额</TD>
+    <TD style="HEIGHT: 33px" id=CSCRJE><INPUT id=edstart class=txtnum 
+      name=edstart1></TD>
+    <TD><INPUT id=btnenter class=btn tabIndex=20 onclick=javascript:calc(); value=" 计算 " type=button></TD></TR>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 36px">初始存入日期</TD>
+    <TD style="HEIGHT: 36px"><INPUT 
+      onblur=ChkCZDate(beginDateID);dateout(beginDateID) onClick="WdatePicker()" id=beginDateID 
+      class=txt name=beginDate value=2001-1-1 size=15> <IMG style="CURSOR: hand" 
+      onclick="WdatePicker({el:'beginDate'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> </TD></TR>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 36px" id=lbTQRQ>提取日期</TD>
+    <TD style="HEIGHT: 36px" id=TQRQ colSpan=2><INPUT 
+      onblur=ChkCZDate(endDateID);dateout(endDateID); onClick="WdatePicker()" id=endDateID class=txt 
+      name=endDate value=2001-1-1 size=15> <IMG style="CURSOR: hand" id=imgdd 
+      onclick="WdatePicker({el:'endDateID'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> </TD></TR>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 36px">利率(%)</TD>
+    <TD style="HEIGHT: 36px" colSpan=2><INPUT id=edRate class=txtnum 
+      name=edRate value=0.72></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <HR>
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 35px" id=lbDQBX>到期本息总额（元）</TD>
+    <TD style="HEIGHT: 35px" id=DQBX colSpan=2><INPUT id=edend 
+  class=txtnum></TD></TR>
+  <TR>
+    <TD style="WIDTH: 116px; HEIGHT: 37px">扣除利息税金额</TD>
+    <TD style="HEIGHT: 37px" colSpan=2><INPUT style="TEXT-ALIGN: right" 
+      id=edtax class=txt></TD></TR>
+  <TR>
+    <TD height=30 colSpan=3 align=center></TD></TR></TBODY></TABLE>
+<SCRIPT language=javascript> 
+var strcount=4;
+				</SCRIPT>
+</DIV></FORM><xml id=xmlRMBSaveRate ondatasetcomplete=funcontrol(); src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+
+<SCRIPT language=javascript>
+document.WebForm4.beginDateID.value=datetostring(new Date());
+document.WebForm4.endDateID.value=datetostring(new Date());
+//GetCalc_Close();
+</SCRIPT>
+</BODY></HTML>

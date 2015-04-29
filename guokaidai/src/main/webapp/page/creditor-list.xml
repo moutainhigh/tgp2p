@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<page-table 	xmlns="http://www.w3school.com.cn" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.w3school.com.cn http://www.pomo.org/page-table.xsd"
+        id="table_page" class="table_page" primary="[0]" page-per-size="10"> 
+	
+	
+	<tr class="ss">
+		
+		<td attr="[0]" text="债权编号" />
+		
+		<td attr="[1]" text="债权金额" />
+		
+		 <td attr="[2]" text="债权期限" />
+		
+		<td attr="[3]" text="债权开始时间 " />
+		
+		<td attr="[4]" text="债权结束时间" />
+		
+		<td attr="[5]" text="状态">
+			<array name="enum_creditor_state" />
+		</td>
+		
+	</tr>
+	
+	
+</page-table>

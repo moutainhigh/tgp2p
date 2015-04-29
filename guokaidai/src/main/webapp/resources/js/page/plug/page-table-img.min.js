@@ -1,0 +1,1 @@
+function img_parse(e,t){return $img=$('<img src="'+e.prefix+t+e.suffix+'" />'),e.height&&$img.attr("height",e.height),e.width&&$img.attr("width",e.width),e.clazz&&$img.addClass(e.clazz),$img}

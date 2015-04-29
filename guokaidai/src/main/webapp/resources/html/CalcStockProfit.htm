@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://finance.ifeng.com/app/money/calc/Html/CalcStockProfit.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  			//window.resizeTo(435,355);
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(440,369);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcStockProfit.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<SCRIPT language=javascript>
+			function CheckData()
+			{
+				if(!CheckFN3(this.document.all.edprice,"请在[股票价格]中输入正数",false))
+				   return false;
+				if(!CheckFN3(this.document.all.edone,"请在[企业每股税后利润]中输入正数",false))
+				   return false;
+			
+			
+			
+				return true;
+			}
+			</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=CalcBondProfit method=post name=CalcBondProfit 
+action=CalcBondProfit.aspx>
+<DIV id=bg1 style="width:425px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=150 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:425px"><IMG src="CalcFiles/bg4.gif" width=25 height=80><IMG 
+src="CalcFiles/bg5.gif" width=375 height=80><IMG 
+src="CalcFiles/bg6.gif" width=25 height=80></DIV>
+<DIV id=bg3 style="width:425px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=375 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">股票市盈率计算器</DIV>
+<DIV id=FDiv2 class=FDiv2 
+Movable="1">股票市盈率是客户选择股票的重要标准之一。依据股票价格和企业每股税后利润，本计算器可以迅速的计算出该股票的市盈率。 </DIV>
+<DIV id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 356px; HEIGHT: 150px" id=Table1 border=0 cellSpacing=1 
+cellPadding=1 width=356>
+  <TBODY>
+  <TR>
+    <TD style="WIDTH: 133px; HEIGHT: 33px">&nbsp;股票价格(元)</TD>
+    <TD style="HEIGHT: 33px"><INPUT id=edprice class=txtnum 
+  name=edamount></TD></TR>
+  <TR>
+    <TD style="WIDTH: 133px; HEIGHT: 35px">&nbsp;企业每股税后利润(元)</TD>
+    <TD style="HEIGHT: 35px"><INPUT id=edone class=txtnum name=edone></TD></TR>
+  <TR>
+    <TD style="HEIGHT: 25px" colSpan=2 align=center>
+      <HR SIZE=1>
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 133px; HEIGHT: 34px">&nbsp;股票市盈率</TD>
+    <TD style="HEIGHT: 34px"><INPUT style="TEXT-ALIGN: right" id=edresult 
+      class=txt disabled name=edresult value=计算得出></TD></TR></TBODY></TABLE><INPUT style="POSITION: absolute; TOP: 7px; LEFT: 300px" id=btnenter class=btn onclick="javascript:if (!CheckData()) return false; calc(document);" name=btnenter value=" 计算 " type=button> 
+</DIV></FORM>
+<SCRIPT>
+     //GetCalc_Close();
+		</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

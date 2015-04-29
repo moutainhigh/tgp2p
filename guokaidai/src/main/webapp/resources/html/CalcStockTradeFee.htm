@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0066)http://finance.ifeng.com/app/money/calc/Html/CalcStockTradeFee.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  			//window.resizeTo(535,475);
+	</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,489);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcStockTradeFee.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=EduCalc name=EduCalc>
+<DIV id=bg1 style="width:525px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px"><IMG src="CalcFiles/bg4.gif" width=25 height=200><IMG 
+src="CalcFiles/bg5.gif" width=475 height=200><IMG 
+src="CalcFiles/bg6.gif" width=25 height=200></DIV>
+<DIV id=bg3 style="width:525px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">股票交易手续费计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">在进行股票交易时，各种费用也应记入成本。本计算器能迅速计算出一定成交量下投资者投资上海A、B股，深圳A、B股需要缴纳的佣金、印花税、过户费及其他费用 
+</DIV>
+<DIV style="WIDTH: 450px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=0 borderColorLight=#336666 borderColorDark=#e9f3f4 
+cellPadding=0 width="90%">
+  <TBODY>
+  <TR>
+    <TD align=center>
+      <DIV style="POSITION: relative; WIDTH: 446px; HEIGHT: 257px" 
+      ms_positioning="GridLayout">
+      <HR 
+      style="Z-INDEX: 104; POSITION: absolute; WIDTH: 91.31%; HEIGHT: 1px; TOP: 145px; LEFT: 19px" 
+      SIZE=1 width="91.31%">
+      <INPUT 
+      style="Z-INDEX: 101; POSITION: absolute; WIDTH: 110px; TOP: 47px; LEFT: 180px" 
+      id=edtradeprice class=txtnum tabIndex=1010 name=edtradeprice> <INPUT 
+      style="Z-INDEX: 102; POSITION: absolute; WIDTH: 110px; TOP: 78px; LEFT: 180px" 
+      id=edtradenum class=txtnum tabIndex=1020 name=edtradenum> 
+      <DIV style="Z-INDEX: 105; POSITION: absolute; TOP: 20px; LEFT: 54px" 
+      ms_positioning="text2D"><FONT face=宋体>交易对象</FONT></DIV>
+      <DIV style="Z-INDEX: 106; POSITION: absolute; TOP: 49px; LEFT: 54px" 
+      ms_positioning="text2D">股票成交价格（元）</DIV>
+      <DIV 
+      style="Z-INDEX: 107; POSITION: absolute; WIDTH: 186px; HEIGHT: 19px; TOP: 158px; LEFT: 30px" 
+      align=left ms_positioning="FlowLayout">须交纳的股票交易手续费共计(元)</DIV><INPUT style="Z-INDEX: 108; POSITION: absolute; WIDTH: 53px; HEIGHT: 20px; TOP: 15px; LEFT: 344px" id=btnCalc class=btn onClick="Carson();" tabIndex=1040 value=" 计算 " type=button> 
+
+      <DIV style="Z-INDEX: 109; POSITION: absolute; TOP: 79px; LEFT: 54px" 
+      ms_positioning="text2D">股票成交量（股）</DIV><INPUT 
+      style="Z-INDEX: 110; POSITION: absolute; WIDTH: 111px; TOP: 109px; LEFT: 180px" 
+      id=edtraderate class=txtnum tabIndex=1030 name=edtraderate> 
+      <DIV style="Z-INDEX: 111; POSITION: absolute; TOP: 109px; LEFT: 54px" 
+      ms_positioning="text2D">佣金比率（%）</DIV><SELECT 
+      style="Z-INDEX: 112; POSITION: absolute; WIDTH: 110px; TOP: 13px; LEFT: 180px" 
+      id=TradeType tabIndex=1000 name=TradeType> <OPTION selected 
+        value=1>上海A股</OPTION> <OPTION value=2>上海B股</OPTION> <OPTION 
+        value=3>深圳A股</OPTION> <OPTION value=4>深圳B股</OPTION></SELECT> <INPUT 
+      style="Z-INDEX: 113; POSITION: absolute; WIDTH: 97px; TOP: 157px; LEFT: 233px" 
+      id=txttotal class=txtd name=txttotal value=计算得出> <INPUT 
+      style="Z-INDEX: 114; POSITION: absolute; WIDTH: 98px; TOP: 205px; LEFT: 111px" 
+      id=txt1 class=txtd name=txt1 readOnly value=计算得出> <SPAN 
+      style="Z-INDEX: 115; POSITION: absolute; WIDTH: 67px; HEIGHT: 19px; TOP: 208px; LEFT: 26px" 
+      id=Lab1>印花税(元)</SPAN><SPAN 
+      style="Z-INDEX: 116; POSITION: absolute; WIDTH: 67px; HEIGHT: 19px; TOP: 240px; LEFT: 22px" 
+      id=Lab2>佣金(元)</SPAN> <INPUT 
+      style="Z-INDEX: 117; POSITION: absolute; WIDTH: 98px; TOP: 240px; LEFT: 112px" 
+      id=txt2 class=txtd name=txt2 readOnly value=计算得出> <SPAN 
+      style="Z-INDEX: 118; POSITION: absolute; WIDTH: 67px; HEIGHT: 19px; TOP: 208px; LEFT: 235px" 
+      id=Lab3>过户费(元)</SPAN> <INPUT 
+      style="Z-INDEX: 119; POSITION: absolute; WIDTH: 98px; TOP: 205px; LEFT: 315px" 
+      id=txt3 class=txtd name=txt3 readOnly value=计算得出> 
+      <DIV style="Z-INDEX: 120; POSITION: absolute; TOP: 180px; LEFT: 30px" 
+      ms_positioning="text2D">包括：</DIV>
+      <TABLE 
+      style="Z-INDEX: 121; POSITION: absolute; WIDTH: 197px; HEIGHT: 28px; VISIBILITY: hidden; TOP: 243px; LEFT: 236px" 
+      id=Table1 border=0 cellSpacing=1 cellPadding=1 width=197>
+        <TBODY>
+        <TR>
+          <TD style="WIDTH: 74px"><SPAN id=Lab4>Lab4</SPAN></TD>
+          <TD><FONT face=宋体><INPUT style="WIDTH: 98px" id=txt4 class=txtd 
+            name=txt4 readOnly value=计算得出> 
+  </FONT></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT>
+
+function Carson(){
+	
+	if (!CheckFN3(edtradeprice,"请在股票成交价格中输入正数",false,null,4))
+	   		return false;
+			if (!CheckPN(edtradenum,"请在成交量中输入正整数",false))
+	   		return false;
+	   		if (!CheckFN3(edtraderate,"请在佣金比例中输入非负数",true))
+	   		return false;	   
+	   		var obj=ComputeTradeFee(document,parseInt(TradeType.value));
+	   		txt1.value=Round(obj.r1);
+	   		txt2.value=Round(obj.r2);
+	   		txt3.value=Round(obj.r3);
+	   		txttotal.value=Round(obj.r1+obj.r2+obj.r3);
+	   		if ( Table1.style.visibility=="visible" )
+	   		{
+	   			txt4.value=Round(obj.r4);
+	   			txttotal.value=Round(parseFloat(txttotal.value)+obj.r4);
+	   		}	
+			
+	}
+			
+	</SCRIPT>
+
+<SCRIPT language=javascript for=TradeType event=onchange>		
+			switch (document.all.TradeType.value ) 
+			 {
+				case "1": //上A
+				{				
+					Lab3.innerText="过户费(元)";			  			  
+					Table1.style.visibility="hidden";
+					break;
+				}
+				case "3": //深A
+				{				
+					Lab3.innerText="监督管理和经手费(元)";			  						
+					Table1.style.visibility="hidden";
+					break;
+				}
+				case "2": //上B
+				{				
+					Lab3.innerText="结算费(元)";			  			  
+					Table1.style.visibility="visible";
+					this.document.all.Lab4.innerText="过户费(元)"; 
+					break;
+				}
+				case "4": //深B
+				{					
+					Lab3.innerText="交易规费(元)";			  			  
+					Table1.style.visibility="visible";
+					document.all.Lab4.innerText="结算费(元)"; 
+					break;
+				}
+			 }			 
+			  txt1.value="计算得出";
+			  txt2.value="计算得出";
+			  txt3.value="计算得出";
+			  txt4.value="计算得出";
+			  txttotal.value="计算得出";
+	</SCRIPT>
+
+<SCRIPT language=javascript>
+		/*
+		 function ComputeTradeFee(Type)
+		 {
+		    var cal = new ActiveXObject("FinanceCalculator.ICalcStockFee");
+		    cal.Execute(Type,document.all.edtradeprice.value,document.all.edtradenum.value,document.all.edtraderate.value/100);
+		    
+			//var tradenum=parseInt(document.all.edtradenum.value);
+			//var tradeprice=parseFloat(document.all.edtradeprice.value);
+			//var traderate=parseFloat(document.all.edtraderate.value) /100;
+			//var tradesum=tradeprice * tradenum;
+			
+			var obj=new Object();
+			
+			obj.r1=cal.Tax; //印花税					
+			obj.r2 =cal.Comm; //佣金
+			switch (Type)
+			{				
+				case 1: //上A
+					{					
+					obj.r3=cal.Transfer; //过户费
+					break;
+					}
+				case 3: //深A
+					{					
+					obj.r3=cal.Manage; //监督管理费和经手费
+					break;
+					}
+				case 2: //上B
+					{					
+					obj.r3=cal.Balance; //结算费
+					obj.r4=cal.Transfer;  //交易过户费
+					break;
+					}	
+				case 4: //深B
+					{					
+					obj.r3=cal.Deal; //交易规费
+					obj.r4=cal.Balance;  //结算费
+					
+					break;
+					}			
+			} 
+			return obj;
+		 }
+		 */
+		 function loadinit()
+		 {
+		  this.document.all.txt1.disabled=true;
+		  this.document.all.txt2.disabled=true;
+		  this.document.all.txt3.disabled=true;
+		  this.document.all.txt4.disabled=true;
+		  this.document.all.txttotal.disabled=true;
+		 }
+		 window.attachEvent("onload",loadinit);
+		 
+     //GetCalc_Close();
+		
+	</SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

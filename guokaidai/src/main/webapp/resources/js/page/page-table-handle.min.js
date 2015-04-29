@@ -1,0 +1,1 @@
+function parse_handle(e,t,n){var r=$("<td class="+e.handle.clazz+"></td>");return $.each(e.handle.buttons,function(t,i){var s=i.text;i.replace&&(s=replace_parse(i.replace,n[i.replace.attr])),r.append(link_parse(e,n,s,i.link)),r.append("&nbsp;")}),t.append(r)}

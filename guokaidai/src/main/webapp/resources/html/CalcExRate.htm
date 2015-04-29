@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://finance.ifeng.com/app/money/calc/Html/CalcExRate.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+ //window.resizeTo(485,424);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(490,438);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcExRate.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=ExRateCalculator name=ExRateCalculator>
+<DIV id=bg1 style="width:475px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=200 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:475px;"><IMG src="CalcFiles/bg4.gif" width=25 height=150><IMG 
+src="CalcFiles/bg5.gif" width=425 height=150><IMG 
+src="CalcFiles/bg6.gif" width=25 height=150></DIV>
+<DIV id=bg3 style="width:475px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=425 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">外币兑换计算器</DIV>
+<DIV style="WIDTH: 430px" id=FDiv2 class=FDiv2 
+Movable="1">外币兑换计算器可计算各种币种之间的兑换金额。</DIV>
+<DIV style="WIDTH: 400px" id=FDiv3 class=FDiv3 align=center>
+<TABLE style="WIDTH: 371px" id=Table1 border=0 cellSpacing=1 cellPadding=3>
+  <TBODY>
+  <TR>
+    <TD height=20 colSpan=3></TD></TR>
+  <TR>
+    <TD style="WIDTH: 128px; HEIGHT: 34px">现持有货币种类</TD>
+    <TD style="HEIGHT: 34px"><SELECT style="WIDTH: 107px" id=ddlFromCurrType 
+      onchange=getchangerate() tabIndex=1 name=ddlFromCurrType></SELECT></TD>
+    <TD style="HEIGHT: 34px" align=right><INPUT id=btnComp onClick="Lance();" class=btn tabIndex=5 value=" 计算 " type=button></TD></TR>
+  <TR>
+    <TD style="WIDTH: 128px; HEIGHT: 31px">现持有货币数量</TD>
+    <TD style="HEIGHT: 31px"><INPUT style="WIDTH: 106px" id=tbFromCurrSum 
+      class=txtnum tabIndex=2 name=tbFromCurrSum value=0>&nbsp;元</TD></TR>
+  <TR>
+    <TD style="WIDTH: 128px; HEIGHT: 33px">欲兑换货币种类</TD>
+    <TD style="HEIGHT: 33px"><SELECT style="WIDTH: 107px" id=ddlToCurrType 
+      onchange=getchangerate() tabIndex=3 name=ddlToCurrType></SELECT></TD>
+    <TD style="HEIGHT: 33px"></TD></TR>
+  <TR>
+    <TD style="WIDTH: 128px; HEIGHT: 34px">汇率</TD>
+    <TD style="HEIGHT: 34px"><INPUT style="WIDTH: 106px" id=tbQuotePrice 
+      class=txtnum tabIndex=4 name=tbQuotePrice value=1.00>&nbsp;</TD>
+    <TD style="HEIGHT: 34px"></TD></TR>
+  <TR>
+    <TD style="HEIGHT: 27px" colSpan=3 align=left>
+      <HR style="WIDTH: 96.38%; HEIGHT: 1px" SIZE=1 width="96.38%">
+    </TD></TR>
+  <TR>
+    <TD style="WIDTH: 128px">可兑换的货币数量为</TD>
+    <TD><INPUT style="WIDTH: 106px" id=tbToCurrSum class=txtd disabled 
+      name=tbToCurrSum readOnly value=计算得出>&nbsp;元</TD>
+    <TD></TD></TR></TBODY></TABLE></DIV></FORM>
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT>
+				function Lance(){
+		if (!CheckFN3(tbFromCurrSum,"请在现持有货币数量输入正数",false))
+		 return false;
+		if (!CheckFN(tbQuotePrice,"请在汇率中输入正数",false,6)) 
+		 return false;		 		 
+		 
+		calc(document);}
+		</SCRIPT>
+<xml id=xmlExchangeRate ondatasetcomplete=getbz(); src="../Data/ExchangeRate.xml"></xml>
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+function getbz()
+{
+   document.ExRateCalculator.ddlFromCurrType.options.length = 0;
+   ComAllMoneyType(document.ExRateCalculator.ddlFromCurrType,window.xmlExchangeRate.XMLDocument);
+      if (document.ExRateCalculator.E_ddlFromCurrType!=null)
+       document.ExRateCalculator.E_ddlFromCurrType.text = document.ExRateCalculator.ddlFromCurrType.options(0).text;
+   document.ExRateCalculator.ddlFromCurrType.selectedIndex = 0;
+   
+   document.ExRateCalculator.ddlToCurrType.options.length = 0;
+   ComAllMoneyType(document.ExRateCalculator.ddlToCurrType,window.xmlExchangeRate.XMLDocument);
+   if (document.ExRateCalculator.E_ddlToCurrType!=null)
+       document.ExRateCalculator.E_ddlToCurrType.text = document.ExRateCalculator.ddlToCurrType.options(0).text;
+   document.ExRateCalculator.ddlToCurrType.selectedIndex = 0;
+   
+}
+
+function getchangerate()
+{
+  document.ExRateCalculator.tbQuotePrice.value=GetChangeRatio(document.ExRateCalculator.ddlToCurrType.options[document.ExRateCalculator.ddlToCurrType.selectedIndex].value,document.ExRateCalculator.ddlFromCurrType.options[document.ExRateCalculator.ddlFromCurrType.selectedIndex].value,window.xmlExchangeRate.XMLDocument);
+  
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript>
+ //GetCalc_Close();
+
+</SCRIPT>
+</BODY></HTML>

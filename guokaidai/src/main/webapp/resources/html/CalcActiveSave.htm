@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://finance.ifeng.com/app/money/calc/Html/CalcActiveSave.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(535,504);
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,518);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcActiveSave.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY leftMargin=0 rightMargin=0 topMargin=0>
+<DIV style="width:525px;"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=250 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px;"><IMG src="CalcFiles/bg4.gif" width=25 height=230><IMG 
+src="CalcFiles/bg5.gif" width=475 height=230><IMG 
+src="CalcFiles/bg6.gif" width=25 height=230></DIV>
+<DIV id=bg3 style="width:525px;"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=475 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">活期储蓄计算器</DIV>
+<DIV style="WIDTH: 450px" id=FDiv2 class=FDiv2 
+Movable="1">活期储蓄是客户家庭持有现金的一种常用方式。通过本计算器，可以计算出活期储蓄的实得本息总额（已扣除利息税）和提取日期。 </DIV>
+<DIV style="WIDTH: 460px" id=FDiv3 class=FDiv3 align=center>
+<FORM id=CompPartSumCalc name=CompPartSumCalc>
+<TABLE style="HEIGHT: 164px" id=Table1 border=0 cellSpacing=1 cellPadding=1 
+width=450 align=center>
+  <TBODY>
+  <TR>
+    <TD height=22 width=71 align=left>计算项目</TD>
+    <TD height=22 colSpan=4><INPUT id=CalcType_1 language=javascript 
+      onclick=typechange() name=CalcType CHECKED type=radio>实得本息总额 <INPUT 
+      id=CalcType_2 language=javascript onclick=typechange() name=CalcType 
+      type=radio>提取日期 </TD></TR>
+  <TR>
+    <TD height=22 align=left>存入日期</TD>
+    <TD height=22 width=193><INPUT onblur=ChkCZDate(beginDateID) onClick="WdatePicker()"
+      style="WIDTH: 85px" id=beginDateID class=txt name=beginDate 
+      value=2001-1-1><IMG style="CURSOR: hand" 
+      onclick="WdatePicker({el:'beginDateID'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> </TD></TR>
+  <TR>
+    <TD height=22 width=89 align=left>存入金额(元)</TD>
+    <TD height=22 width=84><FONT face=宋体><INPUT style="WIDTH: 80px" 
+      id=edSaveSum class=txtnum name=edSaveSum></FONT></TD>
+    <TD colSpan=2><INPUT style="WIDTH: 63px; HEIGHT: 20px" id=btnSaveIn onClick="Lance();" class=btn title=可以录入多笔存款 name=Button1 value=" 确定存入 " type=button></TD></TR>
+  <TR>
+    <TD height=96 colSpan=4 align=center>
+      <DIV style="WIDTH: 300px; HEIGHT: 70px" class=scdiv align=center>
+      <TABLE style="TEXT-ALIGN: center" id=TableView border=0 cellSpacing=0 
+      cellPadding=1 width=300>
+        <TBODY>
+        <TR>
+          <TD bgColor=#0099cc width=148><FONT face=宋体>存入日期</FONT></TD>
+          <TD bgColor=#0099cc><FONT 
+      face=宋体>存入金额(元)</FONT></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+<TABLE border=0 width=450 align=center>
+  <TBODY>
+  <TR>
+    <TD height=22 align=left><FONT face=宋体>年利率(%)</FONT></TD>
+    <TD height=22 align=left><INPUT style="WIDTH: 110px" id=edFullRate 
+      class=txtnum name=edFullRate></TD></TR>
+  <TR>
+    <TD id=lbTQRQ height=22 width=110 align=left>提取日期</TD>
+    <TD id=TQRQ height=22 width=160><INPUT onblur=ChkCZDate(endDateID) onClick="WdatePicker()"
+      style="WIDTH: 85px" id=endDateID class=txt name=endDateID 
+      value=2001-1-1><IMG style="CURSOR: hand" id=ddimg 
+      onclick="WdatePicker({el:'endDateID'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif"> </TD>
+    <TD><INPUT style="WIDTH: 63px; HEIGHT: 20px" id=btnCalc onClick="Carson();" class=btn name=btnCalc value=" 计算 " type=button></TD></TR></TBODY></TABLE>
+<HR style="WIDTH: 100%; HEIGHT: 1px" SIZE=1>
+
+<TABLE id=Table2 border=0 width=314 align=center>
+  <TBODY>
+  <TR>
+    <TD id=lbSDBX height=22 width=129>实得本息总额(元)</TD>
+    <TD id=SDBX width=175><INPUT style="WIDTH: 112px" id=edFullSum class=txtd 
+      name=edFullSum value=计算得出></TD></TR>
+  <TR>
+    <TD height=22>存入本金总额(元)</TD>
+    <TD><INPUT style="WIDTH: 112px" id=edSaveTotal class=txtd name=edSaveTotal 
+      value=计算得出></TD></TR>
+  <TR>
+    <TD height=22>扣除利息税金额(元)</TD>
+    <TD><FONT face=宋体><INPUT style="WIDTH: 112px" id=edTaxSum class=txtd 
+      name=edTaxSum value=计算得出> </FONT></TD></TR></TBODY></TABLE></FORM><BR></DIV>
+<SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+
+<SCRIPT language=javascript>
+<!--
+	var startdate =  new Array('2002-2-21');
+	var activerate;
+	
+	var savedatearray =  new Array();
+	var savesumarray =  new Array();
+	function GetTotalSaveSum() // 获取用户点击“确定存入”向表格中添加的总共存入金额
+	{
+		var i;
+		var s = new Number(0);
+		for ( i = 0; i < savesumarray.length; i++ )
+		{
+			s += new Number(savesumarray[i]);
+		}
+		return s;
+	}
+		// -->
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT type="text/javascript">
+			//在存入之前，初始存入日期非空且大于等于1999-11-1，金额也要合法
+			
+			function Lance(){
+			if (!CheckEmpty(beginDateID,"无效的初始存入日期"))
+					return false;	
+			if ( Cal_strtodate(beginDateID.value)< Cal_strtodate("1999-11-1") )  
+			{
+					DispMessage(beginDateID,"初始存入日期不得小于1999年11月1日");
+					return false;
+			}									
+			if (!CheckFN3(edSaveSum,"存人金额请输入正数",false))				 
+					return false;			
+			savedatearray.push(beginDateID.value);		
+			savesumarray.push(edSaveSum.value);		
+			
+			InsertRecord(beginDateID.value,edSaveSum.value);			
+			edSaveSum.value="";
+			beginDateID.select();
+			beginDateID.focus();
+			}	
+
+function Carson(){				
+			if (savedatearray.length==0) //如果数组中存入有数据，则不校验这两项(点存人按钮时校验了)
+			{
+				if (!CheckEmpty(beginDateID,"无效的初始存入日期"))
+					return false;	
+				
+				if ( Cal_strtodate(beginDateID.value)< Cal_strtodate("1999-11-1")  )
+				{
+					DispMessage(beginDateID,"初始存入日期不得小于1999年11月1日");
+					return false;
+				}									
+				if (!CheckFN3(edSaveSum,"存人金额请输入正数",false))
+						return false;			
+			}	
+			else
+			{
+			 if (document.all.CalcType_1.checked==true) //计算选项不是计算日期时，校验
+				for (var i=0; i<savedatearray.length;i++)
+				{
+					if ( Cal_strtodate(endDateID.value)<=Cal_strtodate(savedatearray[i]))
+					{
+						DispMessage(endDateID,"你存入的初始存入日期大于或等于提取日期,请修改");
+						return false;
+					}	
+				}		
+			}			
+			
+			if (!CheckFN3(edFullRate,"年利率请输入正数",false,null,4))				 
+					return false;		
+			
+			if (document.all.CalcType_1.checked==true)
+			{
+				if (!CheckEmpty(endDateID,"无效的提取日期"))
+					return false;	
+				if (savedatearray.length==0)
+					if ( Cal_strtodate(beginDateID.value)>=Cal_strtodate(endDateID.value)&& (document.all.CalcType_1.checked==true) )
+					{
+						DispMessage(endDateID,"初始存入日期不得大于或等于提取日期");
+						return false;
+					}						
+			}					 	
+			if (document.all.CalcType_2.checked==true)
+			{
+				if (!CheckFN3(edFullSum,"实得本息总额请输入正数",false))
+					return false;
+				if (GetTotalSaveSum() > parseFloat(edFullSum.value))
+				{
+					DispMessage(edFullSum, "实得本息总额应大于等于存入金额（之和）！");
+					return false;
+				}
+			}
+			
+			if (document.all.CalcType_1.checked==true)
+				computefullsum(document);										
+		    else
+				computeoutdate(document);
+			
+			document.all.edTaxSum.value=Round((parseFloat(document.all.edFullSum.value)-parseFloat(document.all.edSaveTotal.value))/4);				  	
+			
+			
+			DeleteAll();				
+			
+}
+		</SCRIPT>
+
+<SCRIPT language=javascript>
+		function typechange()
+		{
+			calctypechange();
+			DeleteAll();
+		}	
+		</SCRIPT>
+
+<SCRIPT language=javascript>			
+			function getmaxsavedate()
+			{
+				var result=savedatearray[0];
+				for (var i=0; i<savedatearray.length;i++)
+				{
+				 if (i<savedatearray.length-1)
+					if ( Cal_strtodate(result)<Cal_strtodate(savedatearray[i+1]))
+						result=savedatearray[i+1];
+				}		
+				return result;		
+			}
+
+			function InsertRecord(date,sum)
+			{
+				var tr=document.all.TableView.insertRow();
+				var td1=tr.insertCell();
+				td1.innerText=date;
+				var td2=tr.insertCell();
+				td2.innerText=sum;
+			}
+			
+			function DeleteAll()
+			{
+				savesumarray.splice(0,savesumarray.length);
+				savedatearray.splice(0,savedatearray.length);								
+				len=document.all.TableView.rows.length;	
+				if (len>1)
+				for (var i=1; i<len;i++)
+				{				
+						document.all.TableView.deleteRow(1);
+				}
+			}
+		
+			function changeobject(objectid)
+			{
+			  	    var ss1=document.all.TQRQ.innerHTML;
+				    var ss2=document.all.SDBX.innerHTML;
+				    
+				    if (ss1.indexOf(objectid)>0)
+				    {
+				         ls=document.all.lbTQRQ.innerHTML;
+				        document.all.lbTQRQ.innerHTML=document.all.lbSDBX.innerHTML;
+    				    document.all.lbSDBX.innerHTML=ls;
+    				    
+    				    document.all.TQRQ.innerHTML=document.all.SDBX.innerHTML;
+    				    document.all.SDBX.innerHTML=ss1;
+    			    }   
+			}
+		
+			function calctypechange()
+			{
+					document.all.edFullSum.value="";
+					document.all.edFullSum.className="txtnum";
+					document.all.edFullSum.disabled=false;
+					if (document.all.endDateID.value=="计算得出") 
+					{
+						var SaveDate=new Date();
+						document.all.endDateID.value=SaveDate.getFullYear()+"-"+(SaveDate.getMonth()+1)+"-"+SaveDate.getDate();
+					 }
+					document.all.endDateID.disabled=false;
+					
+					if (document.all.CalcType_1.checked==true)
+					{
+					    changeobject("edFullSum");
+					    document.all.ddimg.disabled=false;
+						document.all.edFullSum.value="计算得出";
+						document.all.edFullSum.className="txtd";
+						document.all.edFullSum.disabled=true;
+					}
+					else
+					{
+					    changeobject("endDateID");
+					    document.all.ddimg.disabled=true;
+						document.all.endDateID.value="计算得出";
+						document.all.endDateID.disabled=true;
+						document.all.edFullRate.value=document.all.edFullRate.value=NBround(activerate[activerate.length-2]*100,4); //最新利率,叔祖结束标志-1。
+					}
+					document.all.edSaveTotal.value="计算得出";
+					document.all.edTaxSum.value="计算得出";					
+			}
+			
+			function loadinit()
+			{
+				activerate =  new Array(GetRMBSaveRatio("1","0",window.xmlRMBSaveRate.XMLDocument)/100,-1);
+				calctypechange();		
+				document.all.edSaveTotal.disabled=true;
+				document.all.edTaxSum.disabled=true;
+				dpAdvDateBlur();				
+			} 
+			
+			function locaterate(sdate)
+			{			 
+			 for (var i=0; i<startdate.length;i++)
+			  if ( sdate>=Cal_strtodate(startdate[i]))
+			  {
+			    if ( (i<startdate.length-1)&&(sdate<Cal_strtodate(startdate[i+1])) )
+					return activerate[i];
+				else if (i==startdate.length-1)	
+					 return activerate[i];
+			  }  
+				return null;
+			}
+			
+			function dpAdvDateBlur()
+			{			   
+				if (Trim(document.all.endDateID.value)!="")
+				{				    
+					var arate=locaterate(Cal_strtodate(document.all.endDateID.value));
+					if (arate!=null)
+					 {					 
+						document.all.edFullRate.value=Round(arate*100,4); //回显时，年利率要乘100
+					 }
+				}
+			}
+		</SCRIPT>
+
+<SCRIPT language=javascript>
+document.CompPartSumCalc.beginDateID.value=datetostring(new Date());
+document.CompPartSumCalc.endDateID.value=datetostring(new Date());
+var Savelist="";		
+		  //GetCalc_Close();
+		
+		</SCRIPT>
+<xml id=xmlRMBSaveRate ondatasetcomplete=loadinit() src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

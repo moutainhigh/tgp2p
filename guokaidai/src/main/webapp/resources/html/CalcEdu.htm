@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://finance.ifeng.com/app/money/calc/Html/CalcEdu.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(485,394);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(490,408);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcEdu.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<SCRIPT language=javascript>
+		<!--
+		function CheckData()
+		{ 
+			if(!CheckEmpty(this.document.all.beginDateID,"初始存入日期格式不正确"))
+				return false;
+			if (!CheckFN3(this.document.all.edRate,"请在年利率输入正数",false,null,4))
+				return false;
+			if (!CheckFN3(this.document.all.edBalance,"请在月存入金额输入正数", false))
+				return false;
+			if(this.document.all.cbType.value=="12")
+				if(!CheckFloatRange(this.document.all.edBalance,50,1666,"最低起存金额为50元；一年期每月存款不能高于1666元！"))
+					return false;
+			if(this.document.all.cbType.value=="36")
+				if(!CheckFloatRange(this.document.all.edBalance,50,555,"最低起存金额为50元；三年期每月存款不能高于555元！"))
+					return false;
+			if(this.document.all.cbType.value=="72")
+				if(!CheckFloatRange(this.document.all.edBalance,50,277,"最低起存金额为50元；六年期每月存款不能高于277元！"))
+					return false;
+			return true;
+}
+		//-->
+			</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#ffffff 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=EduCalc onsubmit="return false;" name=EduCalc>
+<DIV id=bg1 style="width:475px"><IMG src="CalcFiles/bg1.gif"><IMG src="CalcFiles/bg2.gif" 
+width=200 height=126><IMG src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:475px"><IMG src="CalcFiles/bg4.gif" width=25 height=120><IMG 
+src="CalcFiles/bg5.gif" width=425 height=120><IMG 
+src="CalcFiles/bg6.gif" width=25 height=120></DIV>
+<DIV id=bg3 style="width:475px"><IMG src="CalcFiles/bg7.gif"><IMG src="CalcFiles/bg8.gif" 
+width=425 height=119><IMG src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1 Movable="1">教育储蓄计算器</DIV>
+<DIV style="WIDTH: 430px" id=FDiv2 class=FDiv2 
+Movable="1">教育储蓄是国家为了大力发展教育事业而推出的储蓄品种，它采用的是零存整取的存款方法和定期存款的存款利息，而且实行免缴利息税的优惠政策。适用于有需要接受非义务教育的孩子的家庭。</DIV>
+<DIV style="WIDTH: 400px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=0 borderColorLight=#336666 borderColorDark=#e9f3f4 
+cellPadding=0 width="90%" height=200>
+  <TBODY>
+  <TR>
+    <TD>初始存入日期</TD>
+    <TD><INPUT onblur=ChkCZDate(document.all.beginDateID) onClick="WdatePicker()" style="WIDTH: 97px" 
+      id=beginDateID class=txt tabIndex=1 name=beginDateID value=2014-1-1 
+      size=13>&nbsp;&nbsp;<IMG onclick="WdatePicker({el:'beginDateID'})"
+      align=absMiddle src="CalcFiles/Calendar1.gif"></TD>
+    <TD><INPUT id=btnOk class=btn tabIndex=5 onclick="javascript:if(CheckData()) EduCalc1(document);" name=btnOk value=" 计算 " type=button> 
+    </TD></TR>
+  <TR>
+    <TD>储蓄存期</TD>
+      
+    <TD>
+    <SELECT style="WIDTH: 125px; DISPLAY: block;" id=cbType language=javascript onchange=getrate() tabIndex=2 name=cbType><OPTION selected value=12>一年期</OPTION><OPTION value=36>三年期</OPTION><OPTION value=72>六年期</OPTION></SELECT>
+    </TD>
+    
+    </TR>
+  <TR>
+    <TD>年利率(%)</TD>
+    <TD><INPUT style="WIDTH: 125px" id=edRate class=txtnum tabIndex=3 
+      name=edRate value=1.98> </TD>
+    <TD></TD></TR>
+  <TR>
+    <TD>月存入金额</TD>
+    <TD><INPUT style="WIDTH: 126px" id=edBalance class=txtnum tabIndex=4 
+      name=edBalance> </TD>
+    <TD></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <HR SIZE=1>
+    </TD></TR>
+  <TR>
+    <TD>到期本息金额</TD>
+    <TD><INPUT style="WIDTH: 126px" id=lbSum class=txtd disabled name=lbSum 
+      readOnly value=计算得出> </TD>
+    <TD></TD></TR></TBODY></TABLE></DIV></FORM><xml id=xmlOtherSaveRate ondatasetcomplete=star() src="../Data/OtherSaveRate.xml"></xml>
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }
+</SCRIPT>
+
+<SCRIPT language=javascript>
+//获得教育储蓄存期列表
+
+function getterm()
+{
+   document.all.cbType.options.length = 0;
+   ComEduSaveTime(document.all.cbType,1,window.xmlOtherSaveRate.XMLDocument);
+   if (document.all.E_cbType!=null)
+       document.all.E_cbType.value = document.all.cbType.options(0).text;
+   document.all.cbType.selectedIndex = 0;
+}
+
+function getrate()
+{
+  document.all.edRate.value=GetOtherSaveRatio(1,document.all.cbType.options[document.all.cbType.selectedIndex].value,window.xmlOtherSaveRate.XMLDocument);
+  
+}
+</SCRIPT>
+
+<SCRIPT language=javascript>
+//star();
+function star()
+{
+getterm();
+getrate();
+}
+this.document.all.beginDateID.value=datetostring(new Date());
+//GetCalc_Close();
+
+</SCRIPT>
+</BODY></HTML>

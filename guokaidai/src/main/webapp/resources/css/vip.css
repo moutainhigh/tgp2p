@@ -1,0 +1,22 @@
+/*----------------mask layer----------------*/
+.black_overlay{
+	width:100%; height:auto; background-color:#7f7f7f; display:none; position:absolute; top:0%; left:0%; z-index:1001; -moz-opacity: 0.8; opacity:.80; filter: alpha(opacity=80); 
+}
+.white_content {	
+	width:450px; overflow:hidden; background:url(/resources/images/shade.png) repeat; display:none; position:fixed; top:20%; left:50%; margin-left:-245px; z-index:1002;
+}
+.white_d{
+	width:457px; overflow:hidden; margin:10px auto; background-color:#FFF;
+}
+.pad_b{
+	padding-bottom:50px;
+}
+.notice_t{
+	height:36px; line-height:36px; overflow:hidden; background:url(/resources/images/notice_t.jpg) repeat-x center top; color:#FFF; font-size:18px; font-family:"Î¢ÈíÑÅºÚ"; padding:0px 15px;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}

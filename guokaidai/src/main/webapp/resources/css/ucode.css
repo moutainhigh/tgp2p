@@ -1,0 +1,190 @@
+@CHARSET "UTF-8";
+.ucode-use-div { color: #666; }
+.ucode-use-div p, .ucode-use-div a { font: 14px/1.5 '微软雅黑', YaHei, tahoma, arial, "Hiragino Sans GB", \5b8b\4f53; }
+.ucode-use-div a { color: #00a8e8; text-decoration: none }
+.ucode-use-div a.black { color: #000 }
+.ucode-use-div a.rrd-dimgray, a.rrd-dimgray:link { color: #555 }
+.ucode-use-div a.gray, a.gray:link { color: gray }
+.ucode-use-div a.darkgray, a.darkgray:link { color: #a9a9a9 }
+.ucode-use-div a:hover, a.gray:hover, a.darkgray:hover, a.rrd-dimgray:hover, a.black:hover { color: #0697da; text-decoration: none }
+.ucode-use-div a.snow, a.snow:link { color: #fff }
+.ucode-use-div a.snow:hover { color: snow }
+.ucode-use-div a.text { }
+.ucode-use-div h1, .h1 { font-size: 35px }
+.ucode-use-div h2, .h2 { font-size: 30px }
+.ucode-use-div h3, .h3 { font-size: 24px }
+.ucode-use-div h4, .h4 { font-size: 18px }
+.ucode-use-div h5, .h5 { font-size: 14px }
+.ucode-use-div h6, .h6 { font-size: 12px }
+.ucode-use-div { width: 770px !important; background-color: #fff }
+.ucode-use-div h3 { border-bottom: 1px solid #E0E0E0; color: #000; font-size: 24px; line-height: 60px; padding-left: 20px }
+.ucode-use-div .info { line-height: 40px; padding: 0 0 0 20px }
+.ucode-use-div .img-div { border-top: 1px dashed #E0E0E0; margin: 25px 0 0; padding: 20px }
+.ucode-use-div .mar-top { margin-top: 20px }
+.ucode-use-div h4 { color: #000; margin-bottom: 10px }
+.ucode-use-div .user-info { margin-left: 15px; margin-top: 40px; color: #000 }
+.ucode-use-div .ucode-info { margin-left: 15px; margin-top: 20px; color: #000 }
+.ucode-use-div .user-info span, .ucode-use-div .ucode-info span { display: inline-block; margin-right: 20px; text-align: right; width: 115px; color: #595959 }
+.ucode-use-div .ucode-info input { border: 1px solid #C5C5C5; border-radius: 2px; color: #c5c5c5; font-size: 14px; line-height: 22px; padding: 4px 5px; width: 280px; height: 30px; vertical-align: middle }
+.ucode-use-div .ucode-info input:focus { border: 1px solid #69bde9; color: #000 }
+.ucode-use-div .duihua-a { margin: 30px 0 0 155px }
+.ucode-use-div .duihua-a a { background-color: #00A8E8; border-radius: 5px; color: #FFF; display: inline-block; font-size: 20px; line-height: 45px; text-align: center; width: 80px }
+.ucode-use-div .duihua-a a:hover { background-color: #0697da }
+.ucode-use-div .worm-tips { margin: 25px 100px; width: 552px }
+.ucode-use-div .ui-list-header { background: none repeat scroll 0 0 #F6FBFD }
+.ucode-use-div .ui-list-s { margin: 60px 0 20px 35px; min-height: 120px; width: 700px }
+.ucode-use-div .text-left { text-align: left }
+.ucode-use-div .text-right { text-align: right }
+.ucode-use-div .ui-select { height: 40px; margin-top: 20px }
+.ui-select .s_select_bg .arrow { background-color: #4ec0e9; display: inline-block; height: 100%; width: 50px }
+.ui-select .s_select_bg .arrow em { background: url(/static/img/input-icon/borrow-icon.gif?rrdversion=20140414)
+no-repeat; background-position: -3px -55px; display: inline-block; height: 10px; left: 17px; position: relative; top: 12px; *top: 18px; width: 16px }
+.ucode-use-div .ui-select .title-span { color: #595959; display: inline-block; line-height: 45px; margin-right: 5px; text-align: right; width: 130px }
+.ui-select .s_select_bg { border: 1px solid #00a8e7; border-radius: 3px; color: #6A6A6A; cursor: pointer; outline: 0 none }
+.ui-select .s_select_bg .txt { display: inline-block; float: left; height: 100%; padding: 10px 0 0 10px; width: 220px }
+.ui-select .s_select_bg .txt70 { display: inline-block; float: left; height: 100%; padding: 10px 0 0 10px; width: 70px }
+.ucode-use-div .ui-select .s_select_bg { margin-left: 16px; position: relative; z-index: 999 }
+.ucode-use-div .warm-p { line-height: 30px; padding-left: 22px }
+.ucode-use-div .ui-select .s_select_bg .popBox { background-color: #FFF; border: 1px solid #00A8E7; border-radius: 4px; box-shadow: 0 0 5px rgba(0, 0, 0, .4); cursor: default; height: 164px; margin: 2px 0 0; outline: 0 none; overflow: auto; position: absolute; z-index: 999; left: -1px \9; *top: 45px }
+.ui-select .popBox li { padding: 10px 10px 10px 20px; color: #666; cursor: pointer; margin: 0 }
+.ui-select .popBox .selected { background: none repeat scroll 0 0 #00a8e7; color: #FFF !important }
+.conform_pay_div .icon-excla { background: url(/static/img/popicon.png?rrdversion=20140414) no-repeat; background-position: -41px 1px; display: inline-block; float: left; height: 41px; left: 55px; margin-top: 20px; position: absolute; width: 41px !important }
+.conform_pay_div .icon-right { background: url(/static/img/popicon.png?rrdversion=20140414) no-repeat; background-position: 0 1px; display: inline-block; float: left; height: 41px; left: 55px; margin-top: 20px; position: absolute; width: 41px !important }
+.conform_pay_div .dh_succ_p { margin-left: 60px; margin-top: 65px; width: 480px }
+.conform_pay_div .color-green-txt { color: #83a601; display: inline-block; line-height: 37px; margin: 20px 0 0 20px; padding-left: 90px; width: 355px }
+.het45 { height: 31px; line-height: 31px\9 !important }
+.wid280 { width: 280px }
+.wid130 { width: 130px }
+.conform_pay_div .icon-excla { background: url(/static/img/popicon.png?rrdversion=20140414) no-repeat; background-position: -41px 1px; display: inline-block; float: left; height: 41px; left: 55px; margin-top: 20px; position: absolute; width: 41px !important }
+.edu-div { height: 10px; margin: 10px 0 0 }
+.edu-div span { line-height: 42px; margin-right: 23px; text-align: right; width: 128px }
+.ui-input { padding: 0px 5px }
+.ui-message-content-new h3 { line-height: 45px; background-color: #f3f3f3; text-align: center }
+.ui-message-content-new .text-p { font-size: 16px; padding: 20px 10px 0 25px }
+.ui-message-content-new .text-p em { color: #fb741a }
+.ui-message-content-new .ui-message-button { margin: 20px 0 }
+.ui-form { font-size: 14px; line-height: 1.5 }
+.ui-form, .ui-form * { list-style: none }
+.ui-form fieldset { border: 0 }
+.ui-form input.input-icon { padding-left: 30px }
+.ui-form legend { font-size: 16px; margin-bottom: 15px }
+.ui-form-text { display: inline-block; margin-top: 6px; *display: inline; *zoom: 1 }
+.ui-form-item:after { clear: both; content: '.'; display: block; height: 0; visibility: hidden }
+.ui-form-item { position: relative; padding: 0 5px 20px 170px; zoom: 1 }
+.ui-form-item-nolabel { padding: 0 }
+.ui-form-item input { vertical-align: middle }
+.ui-form-item textarea { border: 1px solid #c5c5c5; background: url(/static/img/input_inner.png?rrdversion=20140414)
+repeat-x }
+.ui-form-item select { }
+.ui-form-item .placeholder { position: absolute; top: 5px; left: 40px; font-size: 14px; color: #ababab }
+.ui-form-item .icon { width: 25px; height: 21px; background: url(/static/img/input-icon/input-icon-all.png?rrdversion=20140414)
+no-repeat; position: absolute; top: 12px; left: 9px }
+.ui-form-item .input-bg-gray { background: url(/static/img/input-icon/input-bg-all.png?rrdversion=20140414) 0 0
+no-repeat }
+.ui-form-item .input-bg-red { background: url(/static/img/input-icon/input-bg-all.png?rrdversion=20140414) 0
+-94px no-repeat }
+.ui-form-item .input-icon-id-gray { background-position: 0 0 }
+.ui-form-item .input-icon-id-red { background-position: 0 -71px }
+.ui-form-item .input-icon-head-gray { background-position: 0 -142px }
+.ui-form-item .input-icon-head-blue { background-position: 0 -213px }
+.ui-form-item .input-icon-head-red { background-position: 0 -284px }
+.ui-form-item .input-icon-id-blue { background-position: 0 -355px }
+.ui-form-item .input-icon-lock-gray { background-position: 0 -426px }
+.ui-form-item .input-icon-lock-blue { background-position: 0 -497px }
+.ui-form-item .input-icon-lock-red { background-position: 0 -568px }
+.ui-form-item .input-icon-phone-gray { background-position: 0 -639px }
+.ui-form-item .input-icon-phone-blue { background-position: 0 -710px }
+.ui-form-item .input-icon-phone-red { background-position: 0 -781px }
+.ui-form-item .input-icon-lock { background-position: 0 0 }
+.ui-form-item .input-icon-key { background-position: 0 -40px }
+.ui-form-item .input-icon-mobile { background-position: 2px -85px }
+.ui-form-item .input-icon-user { background-position: 0 -127px }
+.ui-form input.error, .ui-form textarea.error { border: 1px solid #dd4a38 }
+.ui-form label.error { display: block; color: red }
+.ui-form label.valid { color: #aaa }
+.ui-input { line-height: 22px; color: #595959; font-size: 14px; border-radius: 2px; background: url(/static/img/input_inner.png?rrdversion=20140414)
+repeat-x; border: 1px solid #c5c5c5 }
+.ui-input:hover, .ui-textarea:hover, .ui-input:focus, .ui-textarea:focus, .ui-input-hover { border: 1px solid #0697da }
+.ui-input:focus, .ui-textarea:focus, .ui-input-focus, input:focus, select:focus, button:focus { outline: 0 }
+.ui-label { float: left; width: 170px; margin-left: -180px; padding-top: 0; text-align: right; font-size: 14px }
+.ui-form-required { color: red; font-family: SimSun; font-size: 14px; margin-right: 6px }
+.ui-select { display: inline-block; _display: inline; _zoom: 1; padding: 4px; cursor: pointer; margin-top: 2px; vertical-align: middle; padding-right: 5px; background-image: url(/static/img/ui-select.png?rrdversion=20140414); background-repeat: no-repeat }
+.ui-select input { visibility: hidden }
+.ucode-use-div .mt2 { margin-top: 2px }
+.ucode-use-div .mt4 { margin-top: 4px }
+.ucode-use-div .mt6 { margin-top: 6px }
+.ucode-use-div .mt5 { margin-top: 5px }
+.ucode-use-div .mt10 { margin-top: 10px }
+.ucode-use-div .mt15 { margin-top: 15px }
+.ucode-use-div .mt20 { margin-top: 20px }
+.ucode-use-div .mt30, .mt { margin-top: 30px }
+.ucode-use-div .mt40 { margin-top: 40px }
+.ucode-use-div .mt80 { margin-top: 80px }
+.ucode-use-div .ml70 { margin-left: 70px }
+.ucode-use-div .ml10 { margin-left: 10px }
+.ucode-use-div .ml15 { margin-left: 15px }
+.ucode-use-div .ml20 { margin-left: 20px }
+.ucode-use-div .ml40 { margin-left: 40px }
+.ucode-use-div .ml100 { margin-left: 100px }
+.ucode-use-div .mr2 { margin-right: 2px }
+.ucode-use-div .mr4 { margin-right: 4px }
+.ucode-use-div .mr5 { margin-right: 5px }
+.ucode-use-div .mr10 { margin-right: 10px }
+.ucode-use-div .mr20 { margin-right: 20px }
+.ucode-use-div .mr25 { margin-right: 25px }
+.ucode-use-div .mr30 { margin-right: 30px }
+.ucode-use-div .mr40 { margin-right: 40px }
+.ucode-use-div .mr50 { margin-right: 50px }
+.ucode-use-div .mr55 { margin-right: 55px }
+.ucode-use-div .mr70 { margin-right: 70px }
+.ucode-use-div .mb { margin-bottom: 30px }
+.ucode-use-div .mb4 { margin-bottom: 4px }
+.ucode-use-div .mb5 { margin-bottom: 5px }
+.ucode-use-div .mb8 { margin-bottom: 8px }
+.ucode-use-div .mb10 { margin-bottom: 10px }
+.ucode-use-div .mb15 { margin-bottom: 15px }
+.ucode-use-div .mb20 { margin-bottom: 20px }
+.ucode-use-div .mb25 { margin-bottom: 25px }
+.ucode-use-div .mb30 { margin-bottom: 30px }
+.ucode-use-div .mb40 { margin-bottom: 40px }
+.ucode-use-div .mb50 { margin-bottom: 50px }
+.ui-button * { margin: 0; padding: 0 }
+.ui-button { display: inline-block; *display: inline; border-radius: 2px; text-align: center; text-decoration: none; vertical-align: middle; cursor: pointer; padding: 0 15px; *zoom: 1; *overflow: visible }
+.ui-button .ui-button-text { background: 0 0; padding: 0; height: auto; line-height: auto }
+.ui-button:hover { text-decoration: none }
+input.ui-button-text, button.ui-button-text { *vertical-align: top }
+.ui-button-small { font-size: 14px; line-height: 23px; height: 23px; min-width: 50px; border-radius: 12px }
+.ui-button-mid { font-size: 16px; line-height: 30px; height: 30px; min-width: 50px; border-radius: 15px; text-align: center }
+.ui-button-large { font-size: 18px; line-height: 34px; height: 34px; min-width: 50px; border-radius: 15px; text-align: center }
+.ui-button-rect-mid { padding: 0 30px; font-size: 18px; line-height: 40px; height: 40px; border: 0; text-align: center }
+.ui-button-blue { border: 0; color: #fff; background-color: #0697da }
+.ui-button-blue:hover { background-color: #0697da }
+a.ui-button-blue, a.ui-button-blue:active, a.ui-button-blue:hover { color: #fff }
+.ui-button-green { border: 0; color: #fff; background-color: #8ab46e }
+.ui-button-green:hover { background-color: #6e8b00 }
+a.ui-button-green, a.ui-button-green:active, a.ui-button-green:hover { color: #fff }
+.ui-button-green.disabled, .ui-button-green.disabled:hover { background-color: #a2ab7f; cursor: default }
+.ui-button-transparent { border: 1px solid #c2c2c2; color: #898989 }
+a.ui-button-transparent:active { border: 1px solid #0697da; color: #0697da }
+a.ui-button-transparent:hover { border: 1px solid #00a8e8; color: #00a8e8 }
+.ui-button-red { border: 0; color: #fff; background-color: #cc5400 }
+.ui-button-red:hover { background-color: #b4500a }
+a.ui-button-red, a.ui-button-red:active, a.ui-button-red:hover { color: #fff }
+.ui-button-gray { border: 0; color: #676D70; background-color: #dbdbdb }
+.ui-button-gray:hover { background-color: #d5d5d5 }
+a.ui-button-gray, a.ui-button-gray:active, a.ui-button-gray:hover { color: #d5d5d5 }
+.ui-button-litgray { border: 0; color: #fff; background-color: #e7e7e7 }
+a.ui-button-litgray, a.ui-button-litgray:active, a.ui-button-litgray:hover { color: #fff }
+a.ui-button-rrd-blue, .ui-button-rrd-blue { height: 40px; line-height: 40px; background: #0697DA; border: 0; border-radius: 2px; color: #fff; text-align: center; cursor: pointer }
+.ui-button-rrd-blue-large { width: 165px; font-size: 18px }
+.ui-button-rrd-blue-mid { width: 85px; font-size: 18px }
+a.ui-button-blue-new, .ui-button-blue-new { height: 40px; line-height: 40px; background: #51c2e8; border: 0; border-radius: 2px; color: #fff; text-align: center; cursor: pointer }
+.ui-button-blue-new-large { width: 165px; font-size: 18px }
+.ui-button-blue-new-mid { width: 85px; font-size: 18px }
+.ui-button-disabled { border: 0; color: #fff; cursor: default; background-color: #999 }
+.ui-button-disabled:hover { background: #999 }
+a.ui-button-disabled, a.ui-button-disabled:active, a.ui-button-disabled:hover { color: #fff; cursor: default }
+.ucode_table { width:700px;margin-bottom:20px;margin-left:60px}
+.ucode_table th { line-height:35px;font-size:13px;border-bottom:1px solid #f2f3ee;background-color:#f6fcfc;color:#666;padding-left:10px}
+.ucode_table td { line-height:30px;font-size:14px;border-bottom:1px solid #f2f3ee;color:#333;padding-left:5px;}
+.ucode_table .dhqs { color:#0697da}

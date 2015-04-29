@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://finance.ifeng.com/app/money/calc/Html/CalcZCLQ.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(535,474);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(540,488);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/CalcZCLQ.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<SCRIPT language=javascript>
+		<!--
+			function getRate(month)
+			{
+				for(var i=0;i<rate.length;i++)
+				{
+					if(month==parseInt(minterm[i]))
+						return rate[i];
+				}
+				return 0;
+			}
+			function getTerm(month)
+			{
+				for(var i=0;i<rate.length;i++)
+				{
+					if(Math.abs(month-parseInt(minterm[i]))<1)
+						return i;
+				}
+				return -1;
+			}
+			function setRate()
+			{
+				this.document.all.tbRate.value = Round(100*getRate(parseInt(this.document.all.cbMonth.value)),4);
+			}
+		//-->
+			</SCRIPT>
+
+<SCRIPT language=javascript for=rblItem event=onclick>
+		
+			if(this.document.all.rblItem_0.checked)
+			{
+				/*tbEverySum.className="txtd";
+				tbFirstSum.className="txtnum";
+				tbEverySum.value="计算得出";
+				if(tbFirstSum.value=="计算得出")
+					tbFirstSum.value="";
+				if(cbMonth.value=="计算得出")
+					cbMonth.value=cbMonth.options[0].value;
+				tbFirstSum.disabled=false;
+				tbEverySum.disabled=true;
+				cbMonth.disabled=false;*/
+				tbEverySum.disabled=true;
+				tbEverySum.className="txtd";
+			    
+				tbEverySum.value="计算得出";
+				lblFirstSum.innerText= "初始存入金额";
+				lblEverySum.innerText="每次支取金额";
+				hr1.style.top=179;
+			}
+			else
+			{
+				if(this.document.all.rblItem_1.checked)
+				{
+					/*tbEverySum.className="txtnum";
+					tbFirstSum.className="txtd";
+					tbFirstSum.value="计算得出";
+					if(tbEverySum.value=="计算得出")
+						tbEverySum.value="";
+					if(cbMonth.value=="计算得出")
+						cbMonth.value=cbMonth.options[0].text;
+					tbFirstSum.disabled=true;
+					tbEverySum.disabled=false;
+					cbMonth.disabled=false;*/
+					tbEverySum.disabled=true;
+					tbEverySum.value="计算得出";
+					tbEverySum.className="txtd";
+					lblFirstSum.innerText= "每次支取金额";
+				    lblEverySum.innerText="初始存入金额";
+				    hr1.style.top=179;
+				}
+				else
+				{
+					/*tbEverySum.className="txtnum";
+					tbFirstSum.className="txtnum";
+					cbMonth.text="计算得出";
+					if(tbEverySum.value=="计算得出")
+						tbEverySum.value="";
+					if(tbFirstSum.value=="计算得出")
+						tbFirstSum.value="";
+					tbFirstSum.disabled=false;
+					tbEverySum.disabled=false;
+					cbMonth.disabled=true;*/
+					tbEverySum.disabled=false;
+					tbEverySum.value="";
+					tbEverySum.className="txtnum";
+					lblFirstSum.innerText= "初始存入金额";
+				    lblEverySum.innerText="每次支取金额";
+				    hr1.style.top=218;
+				}
+			}
+		//-->
+			</SCRIPT>
+
+<SCRIPT language=javascript for=btnCalc event=onclick>
+		<!--
+
+
+		//-->
+			</SCRIPT>
+
+<SCRIPT id=clientEventHandlersJS language=javascript>
+<!--
+
+function btnCalc_onclick() {
+		    if(this.document.all.rblItem_0.checked)
+		    if(!CheckFN3(this.document.all.tbFirstSum,"请在[初始存入金额]中输入正数金额！",false))
+					return false;
+			if(this.document.all.rblItem_1.checked)
+		    if(!CheckFN3(this.document.all.tbFirstSum,"请在[每次存入金额]中输入正数金额！",false))
+					return false;
+			if(this.document.all.rblItem_2.checked)
+			{
+		    if(!CheckFN3(this.document.all.tbFirstSum,"请在[初始存入金额]中输入正数金额！",false))
+					return false;	
+			if(!CheckFN3(this.document.all.tbEverySum,"请在[每次支取金额]中输入正数金额！",false))
+					return false;			
+			}
+		    
+			if(!CheckEmpty(this.document.all.beginDateID,"请输入初始存入日期！"))
+				return false;
+			if(Cal_strtodate("1999-11-1")>Cal_strtodate(this.document.all.beginDateID.value))
+			{
+				DispMessage(this.document.all.beginDateID, "初始存入日期不得小于1999年11月1日！");
+				return false;
+			}
+			if(!CheckFN3(this.document.all.tbRate,"请在[年利率]中输入正数！",false,null,4))
+				return false;
+			
+			Calc(document);
+			return false;
+}
+
+//-->
+			</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0 bgColor=#e9f3f4 
+text=#000000 MS_POSITIONING="GridLayout">
+<FORM id=EduCalc onsubmit="return false;" name=EduCalc>
+<DIV id=bg1 style="width:525px"><IMG src="CalcFiles/bg1.gif"><IMG src="CalcFiles/bg2.gif" 
+width=250 height=126><IMG src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:525px"><IMG src="CalcFiles/bg4.gif" width=25 height=200><IMG 
+src="CalcFiles/bg5.gif" width=475 height=200><IMG 
+src="CalcFiles/bg6.gif" width=25 height=200></DIV>
+<DIV id=bg3 style="width:525px"><IMG src="CalcFiles/bg7.gif"><IMG src="CalcFiles/bg8.gif" 
+width=475 height=119><IMG src="CalcFiles/bg9.gif"></DIV>
+<DIV style="WIDTH: 300px" id=FDiv1 class=FDiv1 Movable="1">整存零取计算器</DIV>
+<DIV style="WIDTH: 480px" id=FDiv2 class=FDiv2 
+Movable="1">整存零取存款指客户须一次存入，然后按期定额支取的储蓄品种。本计算器可依据一定要求计算出整存零取存款的每次支取金额和所得利息金额（已扣除利息税），并可反向计算整存零取的初始存入金额和储蓄存期。 
+</DIV>
+<DIV style="WIDTH: 480px" id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 cellSpacing=2 cellPadding=0 width="96%">
+  <TBODY>
+  <TR>
+    <TD align=center><SPAN 
+      style="Z-INDEX: 100; POSITION: absolute; TOP: 70px; LEFT: 24px" 
+      id=lblDate>初始存入日期</SPAN> <SPAN 
+      style="Z-INDEX: 112; POSITION: absolute; TOP: 39px; LEFT: 24px" 
+      id=lblFirstSum>初始存入金额(元)</SPAN> <SPAN 
+      style="Z-INDEX: 101; POSITION: absolute; TOP: 101px; LEFT: 24px" 
+      id=lblMonth>储蓄存期</SPAN> <SPAN 
+      style="Z-INDEX: 102; POSITION: absolute; TOP: 129px; LEFT: 24px" 
+      id=lblRate>年利率(%)</SPAN> <SPAN 
+      style="Z-INDEX: 104; POSITION: absolute; TOP: 159px; LEFT: 24px" 
+      id=lblFreq>支取频度</SPAN> 
+      <HR 
+      style="Z-INDEX: 104; POSITION: absolute; WIDTH: 400px; TOP: 183px; LEFT: 24px" 
+      id=hr1 SIZE=1>
+      <SPAN style="Z-INDEX: 105; POSITION: absolute; TOP: 263px; LEFT: 24px" 
+      id=lblTaxSum>扣除利息税金额(元)</SPAN> <SELECT 
+      style="Z-INDEX: 106; POSITION: absolute; WIDTH: 126px; TOP: 96px; LEFT: 152px" 
+      id=cbMonth onchange=setRate() tabIndex=4 name=cbMonth> <OPTION selected 
+        value=12>一年</OPTION> <OPTION value=36>三年</OPTION> <OPTION 
+        value=60>五年</OPTION></SELECT> <INPUT 
+      style="Z-INDEX: 107; POSITION: absolute; WIDTH: 126px; TOP: 127px; LEFT: 152px" 
+      id=tbRate class=txtnum tabIndex=5 name=tbRate> <INPUT style="Z-INDEX: 108; POSITION: absolute; TOP: 35px; LEFT: 357px" id=btnCalc class=btn tabIndex=10 onclick="return btnCalc_onclick()" name=btnCalc value=" 计算 " type=submit> 
+      <INPUT onblur=ChkCZDate(beginDateID); onClick="WdatePicker()"
+      style="Z-INDEX: 100; POSITION: absolute; WIDTH: 100px; TOP: 67px; LEFT: 152px" 
+      id=beginDateID class=txt tabIndex=3 name=beginDate value=2002-2-21 
+      size=13> <IMG 
+      style="POSITION: absolute; CURSOR: hand; TOP: 67px; LEFT: 255px" 
+      onclick="WdatePicker({el:'beginDateID'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif" width=22 height=17>
+      <SCRIPT language=javascript>
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+
+ }</SCRIPT>
+       <INPUT 
+      style="Z-INDEX: 111; POSITION: absolute; WIDTH: 126px; TOP: 257px; LEFT: 153px" 
+      id=tbTaxSum class=txtd disabled tabIndex=9 name=tbTaxSum value=计算得出> 
+      <INPUT 
+      style="Z-INDEX: 113; POSITION: absolute; WIDTH: 125px; TOP: 37px; LEFT: 152px" 
+      id=tbFirstSum class=txtnum tabIndex=2 name=tbFirstSum> 
+      <TABLE style="Z-INDEX: 114; POSITION: absolute; TOP: 153px; LEFT: 144px" 
+      id=rblFreq border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rblFreq_0 tabIndex=6 name=rblFreq value=1 CHECKED 
+            type=radio> <LABEL for=rblFreq_0>每月</LABEL></TD>
+          <TD><INPUT id=rblFreq_1 tabIndex=6 name=rblFreq value=3 type=radio> 
+            <LABEL for=rblFreq_1>每季</LABEL></TD>
+          <TD><INPUT id=rblFreq_2 tabIndex=6 name=rblFreq value=6 type=radio> 
+            <LABEL for=rblFreq_2>每半年</LABEL></TD></TR></TBODY></TABLE><SPAN 
+      style="Z-INDEX: 115; POSITION: absolute; TOP: 204px; LEFT: 24px" 
+      id=lblEverySum>每次支取金额(元)</SPAN> <INPUT 
+      style="Z-INDEX: 116; POSITION: absolute; WIDTH: 126px; TOP: 197px; LEFT: 152px" 
+      id=tbEverySum class=txtd disabled tabIndex=7 name=tbEverySum value=计算得出> 
+      <INPUT 
+      style="Z-INDEX: 117; POSITION: absolute; WIDTH: 126px; TOP: 227px; LEFT: 152px" 
+      id=tbInSum class=txtd disabled tabIndex=8 name=tbInSum value=计算得出> <SPAN 
+      style="Z-INDEX: 118; POSITION: absolute; TOP: 234px; LEFT: 24px" 
+      id=lbInSum>所得利息金额(元)</SPAN> 
+      <TABLE 
+      style="Z-INDEX: 119; POSITION: absolute; WIDTH: 310px; TOP: 0px; LEFT: 143px" 
+      id=rblItem border=0>
+        <TBODY>
+        <TR>
+          <TD><INPUT id=rblItem_0 tabIndex=1 name=rblItem value=1 CHECKED 
+            type=radio> <LABEL for=rblItem_0>每次支取金额</LABEL></TD>
+          <TD><INPUT id=rblItem_1 tabIndex=1 name=rblItem value=2 type=radio> 
+            <LABEL for=rblItem_1>初始存入金额</LABEL></TD>
+          <TD><INPUT id=rblItem_2 tabIndex=1 name=rblItem value=3 type=radio> 
+            <LABEL for=rblItem_2>储蓄存期</LABEL></TD></TR></TBODY></TABLE><SPAN 
+      style="Z-INDEX: 120; POSITION: absolute; TOP: 8px; LEFT: 24px" 
+      id=lblItem>计算项目</SPAN> </TD></TR></TBODY></TABLE></DIV>
+<SCRIPT language=javascript>
+<!--
+	var minterm;
+	var rate1;
+	var rate2;
+	var rate3;
+	var rate;
+	function init()
+	{
+		minterm =  new Array(12,36,60,-1);
+		rate1 = GetRMBSaveRatio(5,12,window.xmlRMBSaveRate.XMLDocument)/100;
+		rate2 = GetRMBSaveRatio(5,36,window.xmlRMBSaveRate.XMLDocument)/100;
+		rate3 = GetRMBSaveRatio(5,60,window.xmlRMBSaveRate.XMLDocument)/100;
+		rate =  new Array(rate1,rate2,rate3,-1);
+		setRate();
+	}
+		// -->
+			</SCRIPT>
+</FORM><xml id=xmlRMBSaveRate ondatasetcomplete=init() src="../Data/RMBSaveRate.xml"></xml>
+<SCRIPT language=javascript src="CalcFiles/sta_collection.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+document.EduCalc.beginDateID.value = datetostring(new Date());
+//GetCalc_Close();
+
+</SCRIPT>
+</BODY></HTML>

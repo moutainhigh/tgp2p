@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://finance.ifeng.com/app/money/calc/Html/CalcForeSaving.htm -->
+<HTML><HEAD><TITLE>金融计算器</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<SCRIPT>
+  //window.resizeTo(574,454);  
+		</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WinControl.js"></SCRIPT>
+
+<SCRIPT language=javascript>CaculResize(579,468);</SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calendar.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Calculator.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/WBselect.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/GetRate.js"></SCRIPT>
+
+<SCRIPT language=javascript src="CalcFiles/Components.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../My97DatePicker/WdatePicker.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CheckDataFunction.js"></SCRIPT>
+
+<SCRIPT language=javascript 
+src="CalcFiles/CalcForeSaving.js"></SCRIPT>
+<LINK rel=STYLESHEET type=text/css href="CalcFiles/Style.css">
+<META name=GENERATOR content="MSHTML 9.00.8112.16561"></HEAD>
+<BODY bottomMargin=0 leftMargin=0 rightMargin=0 topMargin=0>
+<FORM id=ForeSavingCalc name=ForeSavingCalc>
+<DIV id=bg1 style="width:564px"><IMG src="CalcFiles/bg1.gif"><IMG 
+src="CalcFiles/bg2.gif" width=289 height=126><IMG 
+src="CalcFiles/bg3.gif"></DIV>
+<DIV id=bg2 style="width:564px"><IMG src="CalcFiles/bg4.gif" width=25 height=180><IMG 
+src="CalcFiles/bg5.gif" width=514 height=180><IMG 
+src="CalcFiles/bg6.gif" width=25 height=180></DIV>
+<DIV id=bg3 style="width:564px"><IMG src="CalcFiles/bg7.gif"><IMG 
+src="CalcFiles/bg8.gif" width=514 height=119><IMG 
+src="CalcFiles/bg9.gif"></DIV>
+<DIV id=FDiv1 class=FDiv1>外币储蓄计算器</DIV>
+<DIV style="WIDTH: 514px" id=FDiv2 
+class=FDiv2>外币储蓄计算器可以协助您计算不同外币不同金额不同存期所获得的储蓄本息和。</DIV>
+<DIV id=FDiv3 class=FDiv3 align=center>
+<TABLE border=0 width=450>
+  <TBODY>
+  <TR>
+    <TD width=80></TD>
+    <TD width=114>储蓄外币种类</TD>
+    <td width="139">
+    <SELECT style="WIDTH: 120px; DISPLAY: block" id=Select2 language=javascript tabIndex=1 name=cbKind><OPTION selected value=2>美元</OPTION><OPTION value=3>港币</OPTION><OPTION value=4>加拿大元</OPTION><OPTION value=5>欧元</OPTION><OPTION value=6>日元</OPTION><OPTION value=7>瑞士法郎</OPTION><OPTION value=8>英镑</OPTION><OPTION value=10>澳元</OPTION><OPTION value=14>新加坡元</OPTION></SELECT>
+    </td>
+    <TD><INPUT id=btnCalc class=btn tabIndex=8 onclick="return calcu()" name=btnCalc value=" 计算 " type=button></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114><SPAN id=Label7>储蓄类型</SPAN></TD>
+    <TD width=139><SELECT style="WIDTH: 120px" id=Select1 language=javascript 
+      onchange=GetRate() tabIndex=2 name=cbType> <OPTION value=2>定期存款</OPTION> 
+        <OPTION selected value=1>活期存款</OPTION> <OPTION 
+      value=8>七天通知存款</OPTION></SELECT></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114><SPAN id=Label2>初期存入金额</SPAN></TD>
+    <TD width=139><INPUT style="WIDTH: 120px" id=edSum class=txtnum tabIndex=3 
+      name=edSum></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114>初始存入日期</TD>
+    <TD width=139><INPUT onblur=ChkCZDate(beginDateID); onClick="WdatePicker()" style="WIDTH: 93px" 
+      id=beginDateID class=txt tabIndex=4 name=beginDate value=2003-1-1> <IMG 
+      style="CURSOR: hand" onclick="WdatePicker({el:'beginDateID'})"
+      align=absMiddle src="CalcFiles/Calendar1.gif">
+      <SCRIPT language=javascript>
+						
+function ChkCZDate(edit)
+{edit.value=Trim(edit.value);if(edit.value=='') return true;if(!Cal_datevalid(edit,'1910-1-1','3000-1-1')) 
+{alert('日期格式不正确,日期有效范围为1910年到3000年');
+edit.focus();}
+ }</SCRIPT>
+       </TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114><SPAN id=Label4>储蓄存期</SPAN></TD>
+    <TD width=139><SPAN id=spterm><SELECT style="WIDTH: 120px" id=cbTerm 
+      language=javascript onchange=GetRate() tabIndex=7 name=cbTerm> <OPTION 
+        selected value=1>一月</OPTION> <OPTION value=3>三月</OPTION> <OPTION 
+        value=6>六月</OPTION> <OPTION value=12>一年</OPTION> <OPTION 
+        value=24>二年</OPTION></SELECT> </SPAN></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114><SPAN id=Label5>预期提取日期</SPAN></TD>
+    <TD width=139><INPUT onblur=ChkCZDate(drawDateID); onClick="WdatePicker()" style="WIDTH: 93px" 
+      id=drawDateID class=txt tabIndex=5 name=drawDate value=2003-1-1> <IMG 
+      style="CURSOR: hand" id=drawimg 
+      onclick="WdatePicker({el:'drawDateID'})" align=absMiddle 
+      src="CalcFiles/Calendar1.gif" width=22 height=17></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114>年利率(%)</TD>
+    <TD width=139><INPUT style="WIDTH: 120px" id=edRate class=txtnum 
+      tabIndex=6 name=edRate value=0.4375></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD colSpan=4>
+      <HR SIZE=1 width=400>
+    </TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114><SPAN id=Label8>到期本息总额</SPAN></TD>
+    <TD width=139><INPUT style="WIDTH: 120px" id=lbSum class=txtd disabled 
+      name=lbSum readOnly value=计算得出></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD></TD>
+    <TD width=114><SPAN id=Label9>扣除利息税金额</SPAN></TD>
+    <TD width=139><INPUT style="WIDTH: 120px" id=lbTaxSum class=txtd disabled 
+      name=lbTaxSum readOnly value=计算得出></TD>
+    <TD></TD></TR></TBODY></TABLE></DIV></TABLE></FORM>
+<SCRIPT language=javascript>
+		  //获取外币列表
+		  function GetWBType()
+		  {
+		     ForeSavingCalc.cbKind.options.length = 0;
+		     ComForeSaveMoneyType(ForeSavingCalc.cbKind,window.xmlForeignSaveRate.XMLDocument);
+		     if (ForeSavingCalc.E_cbKind != null)
+		       ForeSavingCalc.E_cbKind.value = ForeSavingCalc.cbKind.options(0).text;
+		     ForeSavingCalc.cbKind.selectedIndex = 0;
+		     
+		       
+		  }
+		  //获得外币利率
+		  function GetRate()
+		  {
+		    //alert(ForeSavingCalc.cbType.selectedIndex);
+		    if (ForeSavingCalc.cbType.selectedIndex  == 0)
+		    {
+		         document.all.spterm.style.visibility = "visible";
+		         document.all.Label4.style.visibility = "visible";
+		         document.all.Label5.style.visibility = "hidden";
+		         document.all.drawDateID.style.visibility = "hidden";
+		         document.all.drawimg.style.visibility = "hidden";
+		         
+		        //alert(GetForeignSaveRatio(5,ForeSavingCalc.E_cbKind.text, ForeSavingCalc.cbTerm.options[ForeSavingCalc.cbTerm.selectedIndex].value,window.xmlForeignSaveRate.XMLDocument));
+		        ForeSavingCalc.edRate.value = GetForeignSaveRatio(5,ForeSavingCalc.cbKind.options[ForeSavingCalc.cbKind.selectedIndex].value, ForeSavingCalc.cbTerm.options[ForeSavingCalc.cbTerm.selectedIndex].value,window.xmlForeignSaveRate.XMLDocument);
+		      }
+		    if (ForeSavingCalc.cbType.selectedIndex  == 1)
+		    {
+		        document.all.spterm.style.visibility = "hidden";
+		         document.all.Label4.style.visibility = "hidden";
+		         document.all.Label5.style.visibility = "visible";
+		         document.all.drawDateID.style.visibility = "visible";
+		         document.all.drawimg.style.visibility = "visible";
+		         //alert(GetForeignSaveRatio(1,ForeSavingCalc.cbKind.options[ForeSavingCalc.cbKind.selectedIndex].text, ForeSavingCalc.cbTerm.options[ForeSavingCalc.cbTerm.selectedIndex].value,window.xmlForeignSaveRate.XMLDocument));
+			      ForeSavingCalc.edRate.value = GetForeignSaveRatio("1",ForeSavingCalc.cbKind.options[ForeSavingCalc.cbKind.selectedIndex].value, ForeSavingCalc.cbTerm.options[ForeSavingCalc.cbTerm.selectedIndex].value,window.xmlForeignSaveRate.XMLDocument);
+		    }
+		    if (ForeSavingCalc.cbType.selectedIndex  == 2)  
+		    {
+		       document.all.spterm.style.visibility = "hidden";
+		         document.all.Label4.style.visibility = "hidden";
+		         document.all.Label5.style.visibility = "visible";
+		         document.all.drawDateID.style.visibility = "visible";
+		         document.all.drawimg.style.visibility = "visible";
+		      ForeSavingCalc.edRate.value = GetForeignSaveRatio(8,ForeSavingCalc.cbKind.options[ForeSavingCalc.cbKind.selectedIndex].value,7,window.xmlForeignSaveRate.XMLDocument);
+		      }
+		  }
+		  
+		   function calcu()
+	       {
+	       if(!CheckFN3(ForeSavingCalc.edSum,"请在初期存入金额输入正数",false))
+	   			return false;	       		    
+			if(!CheckEmpty(this.document.all.beginDateID,"初始存入日期格式不正确"))
+				return false;
+			if(!CheckFN(ForeSavingCalc.edRate,"请在年利率中输入正数",false,6))
+	   			return false;
+	   		if(this.document.all.cbType.selectedIndex!=0)
+	   		{
+				if(!CheckEmpty(this.document.all.drawDateID,"预期提取日期日期格式不正确"))
+					return false;	   			
+				var SaveDate=new Date();
+				SaveDate.setTime(Cal_strtodate(this.document.all.beginDateID.value));				
+				var AdvDate=new Date();
+				AdvDate.setTime(Cal_strtodate(this.document.all.drawDateID.value));	
+				if ((this.document.all.cbType.selectedIndex==1)&&(AdvDate<SaveDate))
+				{
+					DispMessage(this.document.all.drawDateID,"预期提取日期不得小于初始存入日期");
+					return false;
+				}
+				if (this.document.all.cbType.selectedIndex==2)
+				{
+				    Cal_decDay(SaveDate,-7);
+				    if(AdvDate<SaveDate)
+				    {
+					    DispMessage(this.document.all.drawDateID,"请输入有效的预期提取日期");
+					    return false;
+					}
+				}				
+			}												
+	    
+	         CalcForeSaving();
+	         return false;
+	    
+		  }
+		</SCRIPT>
+
+<SCRIPT language=javascript>
+function loadinit()
+{
+	GetWBType();
+	GetRate();
+	ForeSavingCalc.cbKind.onchange=GetRate;
+	this.document.all.beginDateID.value=datetostring(new Date());
+	this.document.all.drawDateID.value=datetostring(new Date());
+}
+////GetCalc_Close();
+
+		</SCRIPT>
+</TABLE><xml id=xmlForeignSaveRate ondatasetcomplete=loadinit() src="../Data/ForeignSaveRate.xml"></xml>
+<SCRIPT language=javascript 
+src="CalcFiles/sta_collection.js"></SCRIPT>
+</BODY></HTML>

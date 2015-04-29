@@ -1,0 +1,1 @@
+function array_parse(e,t,n){return e.arrays[t.name][n]}

@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+/* write web front-end code css Tony */
+/* ==============> base <============= */
+.table_panel_1 table {
+	width: 97%;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.table_panel_1 table,.table_panel_1 td,.table_panel_1 th {
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+
+.table_panel_1 th {
+	text-align: center;
+	background-color: #D9E7F8;
+	line-height: 25px;
+}
+
+.table_panel_1 td {
+	text-align: center;
+	background-color: #FFFFFF;
+	line-height: 20px;
+	padding: 0px 2px 0px 2px;
+	font-size: 13px;
+}
+
+.panel .clear {
+	clear: both;
+}
+
+.pag_div {
+	clear: both;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.pag_ul li {
+	float: left;
+	padding: 0px 5px;
+	line-height: 24px;
+}
+
+.pag_ul li a {
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	display: block;
+	text-decoration: none;
+}
+
+.pag_s {
+	padding: 0px 7px;
+	border-bottom: 1px solid #B0B0B0;
+	border-left: 1px solid #CECECE;
+	border-right: 1px solid #B0B0B0;
+	border-top: 1px solid #CECECE;
+	color: #666;
+}
+
+.pag_s_1 {
+	background-color: #2ea6e6;
+	padding: 0px 7px;
+	border-bottom: 1px solid #2ea6e6;
+	border-left: 1px solid #2ea6e6;
+	border-right: 1px solid #2ea6e6;
+	border-top: 1px solid #2ea6e6;
+	color: #fff;
+	font-weight: bold;
+}
